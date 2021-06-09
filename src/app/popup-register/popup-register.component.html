@@ -1,0 +1,116 @@
+<div class="popup-register">
+  <div style="display: flex" *ngIf="status === registerStat.form">
+    <div class="red-bg panel-style">
+      <img src="assets/img/new/logo.png" class="logo" />
+    </div>
+
+    <form [formGroup]="registerForm" class="panel-style" appThrottleBtn (action)="register(registerForm)">
+      <div class="title">
+        <i class="photo"></i>
+        {{ "REGISTER.TITLE" | translate }}
+      </div>
+
+      <label for="">
+        <input type="text" placeholder="{{ placeholder.account }}" formControlName="account" />
+        <p class="err" *ngIf="!invalidErrors.account">
+
+          {{ "REGISTER.tips.ACCOUNT" | translate }}
+        </p>
+        <p class="err" *ngIf="invalidErrors.account">
+          {{ invalidErrors.account }}
+        </p>
+      </label>
+
+      <label for="" class="pass-label">
+        <input [type]="inputType" placeholder="{{ placeholder.password }}" formControlName="password" />
+        <img src="assets/img/eye.svg" alt="" *ngIf="isPassword" (click)="passwordChange(false)" />
+        <img src="assets/img/eye2.svg" alt="" *ngIf="!isPassword" (click)="passwordChange(true)" />
+        <p class="err" *ngIf="!invalidErrors.password">
+          {{ "REGISTER.tips.PASSWORD" | translate }}
+        </p>
+        <p class="err" *ngIf="invalidErrors.password">
+          {{ invalidErrors.password }}
+        </p>
+      </label>
+      <label for="">
+        <input type="password" placeholder="{{ placeholder.passwordConfirm }}" formControlName="checkPassword" />
+        <p class="err" *ngIf="invalidErrors.checkPassword">
+          {{ "REGISTER.ERR.CONFIRM" | translate }}
+        </p>
+      </label>
+
+      <label for="" class="phone">
+        <input type="text" placeholder="{{ placeholder.phone }}" formControlName="phone" />
+        <button *ngIf="!isPhoneConfirm" type="button" (click)="getSmsCode()">
+          {{ "MEMBER_INFO.SEND_CODE" | translate }}
+        </button>
+        <p class="confirm" *ngIf="isPhoneConfirm">
+          {{ "REGISTER.ISCONFIRM" | translate }}
+        </p>
+        <p class="err" *ngIf="invalidErrors.phone">
+          {{ "REGISTER.ERR.PHONE-ERR" | translate }}
+        </p>
+      </label>
+      <label for="" class="phone-confirm">
+        <input type="text" placeholder="{{ placeholder.smsCode }}" formControlName="smsCode" />
+        <img src="assets/img/hook.svg" alt="" *ngIf="isPhoneConfirm" />
+        <p class="err" *ngIf="invalidErrors.smsCode">
+          {{ "REGISTER.ERR.PHONE-CONFIRM-ERR" | translate }}
+        </p>
+      </label>
+      <label for="">
+        <input type="text" placeholder="{{ placeholder.invitationCode }}" formControlName="code" [readonly]="isInvit" />
+        <p class="err" *ngIf="invalidErrors.code">
+          {{ invalidErrors.code }}
+        </p>
+      </label>
+      <p class="tips">
+        {{ "REGISTER.ERR.INVATION" | translate }}
+      </p>
+
+      <div class="isCheck">
+        <!-- <label for="ischeck" class="isCheck"> </label> -->
+        <input type="checkbox" id="ischeck" formControlName="isCheck" required />
+        <p class="isCheck-p clickable">
+          {{ "REGISTER.ISCHECK1" | translate }}
+          <span (click)="readPolicy()">
+            {{ "REGISTER.ISCHECK2" | translate }}
+          </span>
+        </p>
+      </div>
+
+      <button type="submit" class="submit g-2" [disabled]="!registerForm.valid">
+        {{ "MEMBER_INFO.CONFIRM" | translate }}
+      </button>
+    </form>
+  </div>
+  <div class="mask" *ngIf="status === registerStat.success">
+    <div class="success">
+      <div style="
+          width: 100%;
+          height: 50px;
+          border-radius: 17px 17px 0 0;
+          background: #ff0000;
+        "></div>
+      <div class="light">
+        <i class="photo"></i>
+        <p class="success-title">
+          {{ "REGISTER.SUCCESS" | translate }}
+        </p>
+        <p class="discription">
+          {{ "REGISTER.SUCCESS-DISCRIPTION" | translate }}
+        </p>
+      </div>
+      <div class="btn_group">
+        <button class="blue_btn" (click)="goPage(AppRoutes.DEPOSIT)">
+          {{ "REGISTER.GODEPOSIT" | translate }}
+        </button>
+        <button class="orange_btn" (click)="goPage(AppRoutes.HOME)">
+          {{ "REGISTER.INTO" | translate }}
+        </button>
+      </div>
+
+      <!-- <P class="jump">{{ sec }} {{ "REGISTER.JUMP" | translate }}</P> -->
+    </div>
+  </div>
+</div>

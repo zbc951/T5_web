@@ -1,0 +1,75 @@
+.table-body {
+  .grid-table li {
+    & div:nth-child(1) {
+      // width: 120px;
+      width: 20%;
+      padding: 0;
+    }
+
+    & div:nth-child(2) {
+      // width: 120px;
+      width: 20%;
+    }
+
+    & div:nth-child(3) {
+      // width: 140px;
+      min-width: 20%;
+      width: auto;
+    }
+
+    & div:nth-child(4) {
+      // width: 220px;
+      width: 20%;
+    }
+
+    & div:nth-child(5) {
+      // width: 180px;
+      width: 20%;
+    }
+
+    & div:nth-child(6) {
+      min-width: 20%;
+    }
+
+    .reason {
+      flex-shrink: 0;
+    }
+
+    // & div:nth-child(7) {
+    //   width: 120px;
+
+    //   button {
+    //     width: 61px;
+    //     height: 27px;
+    //   }
+    // }
+  }
+
+  .grid-table {
+    &.withdraw {
+      // outline: 1px solid pink;
+      li {
+        div {
+          min-width: auto;
+          width: 12.5%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}

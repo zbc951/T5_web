@@ -1,0 +1,137 @@
+<div class="popup-transfer">
+  <div class="dialog">
+    <i class="cancel clickable" (click)="close()"></i>
+    <!-- <div class="title">{{ platformData.name }}</div> -->
+    <div class="title">{{ data.pname }}</div>
+    <p>{{ "PFTRANSITION.FAST" | translate }}</p>
+
+    <form
+      *ngIf="!isActivityWallet"
+      [formGroup]="transferWalletForm"
+      appThrottleBtn
+      (action)="transferIn()"
+    >
+      <div class="center-money form_item">
+        {{ "TRANSFERPOPUP.CENTER" | translate }}
+        <input readonly [value]="'$' + money" />
+      </div>
+      <div class="form_item with-arrow" *ngIf="isMultiMoney">
+        <i class="arrow"></i>
+      </div>
+      <div class="platformAmount form_item">
+        {{ data.pname }}
+        <input readonly [value]="'$' + platformMoney" />
+      </div>
+      <div class="amount form_item" *ngIf="isMultiMoney">
+        {{ "TRANSFERPOPUP.TRANSFER-AMOUNT" | translate }}
+        <input
+          type="number"
+          class="wallet_select"
+          formControlName="amount"
+          min="1"
+          required
+        />
+      </div>
+      <div class="form_item with-button_group" *ngIf="isMultiMoney">
+        <div class="button_group">
+          <button
+            *ngFor="let item of amountTypes; let i = index"
+            class="g-3"
+            (click)="amountOnChange(item)"
+            type="button"
+            [disabled]="locked"
+          >
+            ${{ item }}
+          </button>
+          <button
+            type="button"
+            class="g-3"
+            (click)="transferAllAmount()"
+            [disabled]="locked"
+          >
+            {{ "TRANSFERPOPUP.all" | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="transferConfirm form_item">
+        <button
+          class="confirm_btn orange_btn"
+          [disabled]="
+            transferWalletForm.invalid ||
+            transferWalletForm.get('amount').value == 0 ||
+            locked ||
+            isTransfering
+          "
+        >
+          {{ (isTransfering)?("TRANSFERPOPUP.ing" | translate):"TRANSFERPOPUP.CONFIRM" | translate }}
+        </button>
+      </div>
+      <!-- <p class="go-in-fly" *ngIf="!isMultiMoney">
+        {{ "PFTRANSITION.GOINFLY" | translate }}
+      </p> -->
+
+      <p class="locked" *ngIf="locked">
+        {{ "PFTRANSITION.LOCKED" | translate }}
+      </p>
+      <div class="err">
+        <!-- 這個有要保留嗎 -->
+        <p *ngIf="isGetpfMoneyErr">
+          {{ "PFTRANSITION.ERR_GETMONEY" | translate }}
+        </p>
+        <p *ngIf="isTransferErr">
+          {{ "PFTRANSITION.ERR_TRANSFER" | translate }}
+        </p>
+      </div>
+    </form>
+
+    <!-- 活動錢包開啟 -->
+    <!-- <form
+      *ngIf="isActivityWallet"
+      class="actwallet"
+      [formGroup]="transferWalletForm"
+      #form="ngForm"
+    >
+      <div class="form_item">
+        {{ "TRANSFERPOPUP.CENTER" | translate }}
+        <div class="item_text">${{ money }}</div>
+      </div>
+
+      <div class="form_item">
+        {{ "TRANSFERPOPUP.SELECT-WALLET" | translate }}
+        <select
+          class="wallet_select"
+          name=""
+          id=""
+          formControlName="walletType"
+        >
+          <option [value]="null">
+            {{ "TRANSFERPOPUP.CENTER" | translate }}
+          </option>
+          <option
+            *ngFor="let item of getWalletType; let i = inedx"
+            [value]="item.id"
+          >
+            {{ item.name }}
+            <ng-container *ngIf="item.status === 'mounted'"
+              >-
+              <ng-container *ngIf="item.mountPlatformId !== data.pid">{{
+                item.mountPlatformName
+              }}</ng-container>
+
+              {{ "TRANSFERPOPUP.mounted" | translate }}</ng-container
+            >
+          </option>
+        </select>
+      </div>
+    </form> -->
+    <!-- end 活動錢包開啟 -->
+
+    <button
+      class="goGame orange_btn"
+      (click)="enter()"
+      [disabled]="locked || isTransfering"
+    >
+      {{ "TRANSFERPOPUP.GOGAME" | translate }}
+    </button>
+  </div>
+</div>

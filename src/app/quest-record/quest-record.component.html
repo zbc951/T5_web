@@ -1,0 +1,76 @@
+<div class="record-wrap">
+  <div class="search-contain">
+    <!-- <form [formGroup]="form" (ngSubmit)="getQuestRecord()"> -->
+    <form [formGroup]="form" appThrottleBtn (action)="getQuestRecord()">
+      <div class="input-box form">
+        <div class="f-body">
+          <div class="f-row">
+            <div class="f-column">
+              {{ "REVIEW_RECORD.SEARCH.COL-TYPE" | translate }}
+            </div>
+            <div class="f-input">
+              <select formControlName="status">
+                <option value="">
+                  {{ "REVIEW_STATUS.ALL" | translate }}
+                </option>
+                <option
+                  *ngFor="let item of statusTxt | keyvalue"
+                  [value]="item.key"
+                >
+                  {{ item.value }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="f-row">
+            <div class="f-column">
+              {{ "REVIEW_RECORD.SEARCH.COL-DATE" | translate }}
+            </div>
+            <div class="f-input">
+              <ejs-daterangepicker
+                [formControl]="daterangepicker"
+                [locale]="locale"
+              ></ejs-daterangepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-date-selector (timeEvt)="setTime($event)"></app-date-selector>
+      <div class="btn-box">
+        <button class="orange_btn">
+          {{ "REVIEW_RECORD.SEARCH.CONFIRM" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="table-wrap">
+    <p class="table-header">{{ "MEMBER_QUEST.RECORD_TAB" | translate }}</p>
+    <table class="orange-red">
+      <tr>
+        <th>{{ "MEMBER_QUEST.NAME" | translate }}</th>
+        <th>{{ "MEMBER_QUEST.BETAMOUNT" | translate }}</th>
+        <th>{{ "MEMBER_QUEST.NOW_BETAMOUNT" | translate }}</th>
+        <th>{{ "MEMBER_QUEST.REWARD" | translate }}</th>
+        <th>{{ "MEMBER_QUEST.PERCENTAGE" | translate }}</th>
+        <th>{{ "MEMBER_QUEST.REWARD_MAX" | translate }}</th>
+        <th>{{ "MEMBER_QUEST.AMOUNT_MIN" | translate }}</th>
+        <th>{{ "MEMBER_QUEST.STATUS" | translate }}</th>
+        <th>{{ "MEMBER_QUEST.REASON" | translate }}</th>
+      </tr>
+      <tr *ngFor="let item of questRecord">
+        <td>{{ item.questName }}</td>
+        <td>{{ item.betAmount }}</td>
+        <td>{{ item.currentBetAmount }}</td>
+        <td>{{ item.reward }}</td>
+        <td>{{ item.percentage }}</td>
+        <td>{{ item.maxReward }}</td>
+        <td>{{ item.minBetAmount }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.reason }}</td>
+      </tr>
+    </table>
+    <p class="no-data" *ngIf="questRecord.length == 0">
+      {{ "NO_DATA" | translate }}
+    </p>
+  </div>
+</div>

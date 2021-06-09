@@ -1,0 +1,26 @@
+<div class="record-wrap">
+    <div class="record-header">{{ "BIND_BANK_CARD.LIST.TITLE" | translate }}</div>
+    <div class="record-body">
+        <ul class="grid-table">
+            <li class="head-li">
+                <div class="head">{{ "BIND_BANK_CARD.LIST.COL.CREATED_AT" | translate }}</div>
+                <div class="head">{{ "BIND_BANK_CARD.LIST.COL.BANK_ACCOUNT" | translate }}</div>
+                <div class="head">{{ "BIND_BANK_CARD.LIST.COL.STATUS" | translate }}</div>
+                <div class="head">{{ "BIND_BANK_CARD.LIST.COL.REASON" | translate }}</div>
+            </li>
+            <li class="li-row"
+                *ngFor="let item of listData | paginate: pageConfig">
+                <div>2020/12/01 15:45:55</div>
+                <div>{{ formatBankAccount('132456789456123123456') }}</div>
+                <div>審核中</div>
+                <div>我是理由</div>
+            </li>
+        </ul>
+    </div>
+    <div class="record-footer">
+        <div class="pagination-bar">
+            <pagination-controls (pageChange)="pageChanged($event)" previousLabel="<" nextLabel=">">
+            </pagination-controls>
+        </div>
+    </div>
+</div>

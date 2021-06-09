@@ -1,0 +1,52 @@
+<div
+  class="platform-wallet"
+  [ngClass]="{
+    'platform-no-open': platformWallet && platformWallet.length < 5
+  }"
+>
+  <p class="platform-title" *ngIf="type === 'transfer'">
+    {{ "TRANSFER.PLATFORM-WALLET" | translate }}
+  </p>
+  <p class="platform-title" *ngIf="type === 'withdraw'">
+    {{ "WITHDRAW.PLATFORM_WALLET" | translate }}
+  </p>
+  <p class="platform-title" *ngIf="type === 'mine'">
+    {{ "MY-WALLET.PLATFORM-TITLE" | translate }}
+  </p>
+  <p class="no-data" *ngIf="platformWallet.length === 0; else gotdata">
+    {{ "NO_DATA" | translate }}
+  </p>
+  <ng-template #gotdata>
+    <ul
+      [ngClass]="{
+        'trans-wallet-no-open':
+          !platformWalletOpen && (type === 'transfer' || type === 'withdraw'),
+        'mine-wallet-no-open': !platformWalletOpen && type === 'mine'
+      }"
+    >
+      <li
+        *ngFor="let item of platformWallet"
+        [ngClass]="{ 'mine-li': type === 'mine' }"
+      >
+        <div class="name">
+          {{ item.name }}
+        </div>
+        <p class="amount">${{ item.balance | floatDisplay }}</p>
+      </li>
+    </ul>
+    <div
+      class="open"
+      *ngIf="
+        (platformWallet &&
+          platformWallet.length > 4 &&
+          (type === 'transfer' || type === 'withdraw')) ||
+        (platformWallet && platformWallet.length > 20 && type === 'mine')
+      "
+    >
+      <button (click)="walletOpen('platform')">
+        {{ "TRANSFER.OPEN" | translate }}
+        <i [ngClass]="{ 'no-open': platformWalletOpen }"></i>
+      </button>
+    </div>
+  </ng-template>
+</div>

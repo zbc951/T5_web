@@ -1,0 +1,105 @@
+button {
+  background: none;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.main {
+  position: relative;
+  width: 1140px;
+  min-height: 900px;
+  font-weight: bold;
+  padding: 32px 27px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.title {
+  color: #000;
+  font-size: 20px;
+
+  button {
+    background: none;
+    line-height: 24px;
+
+    i {
+      display: inline-block;
+      width: 14px;
+      height: 16px;
+      margin-right: 10px;
+      background: url("~src/assets/img/arrow_b.svg") no-repeat center center;
+    }
+  }
+}
+
+.msg_title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 31px;
+  margin-bottom: 11px;
+
+  span {
+    display: inline-block;
+    width: 800px;
+    color: #000;
+    font-size: 18px;
+  }
+
+  .del-btn {
+    width: 51px;
+    height: 29px;
+    font-size: 13px;
+    color: #ed1c24;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+  }
+
+  .prev,
+  & > a:nth-child(3) {
+    display: inline-block;
+    width: 40px;
+    height: 29px;
+    background: url("~src/assets/img/arrow_gray.svg") no-repeat;
+    background-position: center center;
+    background-size: 11px 19px;
+    cursor: pointer;
+  }
+
+  .next,
+  & > a:nth-child(4) {
+    display: inline-block;
+    width: 40px;
+    height: 29px;
+    background: url("~src/assets/img/arrow_gray.svg") no-repeat;
+    background-position: center center;
+    background-size: 11px 19px;
+    cursor: pointer;
+    transform: rotate(-180deg);
+  }
+
+  & > a:active {
+    opacity: 0.8;
+  }
+}
+
+.date {
+  color: #999999;
+  font-size: 15px;
+  padding-bottom: 18px;
+}
+
+.hr {
+  position: absolute;
+  left: 0px;
+  width: 1140px;
+  height: 1px;
+  border-bottom: solid #e6e6e6 1px;
+}
+
+.msg {
+  font-size: 15px;
+  color: #4d4d4d;
+  padding: 22px 0;
+}

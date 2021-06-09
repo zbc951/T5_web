@@ -1,0 +1,132 @@
+<div class="review-wrap">
+  <app-search-panel
+    [tab]="searchType.review"
+    [options]="reviewOptions"
+    (queryEvt)="searchReview($event)"
+  ></app-search-panel>
+  <div class="table-header">{{ "REVIEW_RECORD.DEPOSIT.TAB" | translate }}</div>
+  <div
+    class="table-body"
+    [class.fade-in]="dataLoaded"
+    (animationend)="onanimationend($event)"
+    (animationcancel)="onanimationend($event)"
+  >
+    <ul class="grid-table" [class.withdraw]="type == reviewType.withdraw">
+      <li class="head-li">
+        <div class="head">
+          {{ "REVIEW_RECORD.DEPOSIT.TABLE.DATE" | translate }}
+        </div>
+        <div class="head">
+          {{ "REVIEW_RECORD.DEPOSIT.TABLE.TYPE" | translate }}
+        </div>
+        <div class="head">
+          {{ "REVIEW_RECORD.DEPOSIT.TABLE.CONTENT" | translate }}
+        </div>
+        <!-- <div class="head">
+          {{ "REVIEW_RECORD.DEPOSIT.TABLE.BANK-ACCOUNT" | translate }}
+        </div> -->
+
+        <ng-container [ngSwitch]="type">
+          <ng-container *ngSwitchCase="reviewType.deposit">
+            <div class="head">
+              {{ "REVIEW_RECORD.apply_amount" | translate }}
+            </div>
+            <div class="head">
+              {{ "REVIEW_RECORD.DEPOSIT.TABLE.AMOUNT" | translate }}
+            </div>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="reviewType.withdraw">
+            <div class="head">
+              {{ "REVIEW_RECORD.apply_amount" | translate }}
+            </div>
+            <div class="head">
+              {{ "REVIEW_RECORD.WITHDRAW.AMOUNT" | translate }}
+            </div>
+            <div class="head">
+              {{ "REVIEW_RECORD.WITHDRAW.fee" | translate }}
+            </div>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="reviewType.activityWallet">
+            <div class="head">
+              {{ "REVIEW_RECORD.WALLET.AMOUNT" | translate }}
+            </div>
+          </ng-container>
+        </ng-container>
+
+        <div class="head">
+          {{ "REVIEW_RECORD.DEPOSIT.TABLE.STATUS" | translate }}
+        </div>
+        <div class="head reason">
+          {{ "REVIEW_RECORD.reson" | translate }}
+        </div>
+        <!-- <div class="head">
+          {{ "REVIEW_RECORD.DEPOSIT.TABLE.UPDATE" | translate }}
+        </div> -->
+      </li>
+
+      <li
+        class="li-row"
+        *ngFor="let item of data?.content | paginate: pageConfig"
+      >
+        <div>{{ item.committedAt }}</div>
+        <div>{{ typeNameNow }}</div>
+        <div>{{ item.cntTxt }}</div>
+        <!-- <div>{{ item.payeeAccount }}</div> -->
+
+        <ng-container [ngSwitch]="type">
+          <ng-container *ngSwitchCase="reviewType.deposit">
+            <div>{{ item.apply_amount ? item.apply_amount : "-" }}</div>
+            <div>{{ item.money ? item.money : "-" }}</div>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="reviewType.withdraw">
+            <div>{{ item.money ? item.money : "-" }}</div>
+            <div>
+              {{
+                item.transaction_momey && item.transactionStatus == "completed"
+                  ? item.transaction_momey
+                  : "-"
+              }}
+            </div>
+            <div>
+              {{
+                item.withdraw_fee && item.transactionStatus == "completed"
+                  ? item.withdraw_fee
+                  : "-"
+              }}
+            </div>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="reviewType.activityWallet">
+            <div>{{ item.price || item.price == 0 ? item.price : "-" }}</div>
+          </ng-container>
+        </ng-container>
+
+        <div>{{ item.statTxt }}<br />{{ item.transactionStatusTxt }}</div>
+        <div class="reason">{{ item.reason }}</div>
+        <!-- <div>
+          <button class="orange_btn">
+            {{ "REVIEW_RECORD.DEPOSIT.TABLE.BTN-UPDATE" | translate }}
+          </button>
+        </div> -->
+      </li>
+    </ul>
+  </div>
+
+  <div class="table-footer">
+    <p class="no-data" *ngIf="pageConfig.totalItems === 0">
+      {{ "NO_DATA" | translate }}
+    </p>
+    <div *ngIf="pageConfig.totalItems > 0" class="pagination-bar">
+      <pagination-controls
+        autoHide="true"
+        (pageChange)="pageChanged($event)"
+        previousLabel="<"
+        nextLabel=">"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

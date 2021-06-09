@@ -1,0 +1,48 @@
+<!-- <div class="marquee-wrap relative"> -->
+<!-- <div class="center-wrap marquee-wrap" (click)="goLetter()"> -->
+<div class="center-wrap marquee-wrap">
+  <app-announcement></app-announcement>
+</div>
+<!-- </div> -->
+<div class="center-wrap">
+  <aside class="panel-style">
+    <div class="info flex">
+      <div>
+        <p class="account">
+          {{ user.account }}<span class="lv">{{ user.lv }} </span>
+        </p>
+        <p class="days">
+          {{ "JOIN_DAYS" | translate: { days: user.survival_day } }}
+        </p>
+        <ul class="quick flex">
+          <li *ngFor="let item of accountList" (click)="goPage(item.path)">
+            <p [ngClass]="{ cur: path === item.path }">
+              {{ item.title | translate | slice: 0:1 }}
+            </p>
+            <p>{{ item.title | translate }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ul class="nav">
+      <li *ngFor="let item of sideBarList" [class]=item.style [class.active]="path == item.path"
+        (click)="goPage(item.path)">
+        <i></i>{{ item.title | translate }}
+      </li>
+    </ul>
+  </aside>
+  <section [ngSwitch]="path">
+    <app-user-info *ngSwitchCase="AppRoutes.USER_INFO"></app-user-info>
+    <app-vip *ngSwitchCase="AppRoutes.VIP"></app-vip>
+    <app-transfer *ngSwitchCase="AppRoutes.TRANSFER"></app-transfer>
+    <app-deposit *ngSwitchCase="AppRoutes.DEPOSIT"></app-deposit>
+    <app-bank-card *ngSwitchCase="AppRoutes.BANK_CARD"></app-bank-card>
+    <app-withdraw *ngSwitchCase="AppRoutes.WITHDRAWAL"></app-withdraw>
+    <app-letter *ngSwitchCase="AppRoutes.LETTER"></app-letter>
+    <app-letter-detail *ngSwitchCase="AppRoutes.LETTER_DETAIL"></app-letter-detail>
+    <app-my-wallet *ngSwitchCase="AppRoutes.MY_WALLET"></app-my-wallet>
+    <app-review-main *ngSwitchCase="AppRoutes.REVIEW_MAIN"></app-review-main>
+    <app-bet-log *ngSwitchCase="AppRoutes.BET_LOG"></app-bet-log>
+    <app-old-quest-center *ngSwitchCase="AppRoutes.OLD_QUEST_CENTER"></app-old-quest-center>
+  </section>
+</div>

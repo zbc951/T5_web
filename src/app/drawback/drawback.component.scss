@@ -1,0 +1,104 @@
+// @import '../navi-tip/navi-tip.component.scss';
+
+.panel {
+    width: 976px;
+}
+
+.header {
+    height: 70px;
+    line-height: 70px;
+    font-size: 24px;
+    padding: 0 30px;
+
+    text-align: left;
+
+    position: relative;
+
+    border-bottom: none;
+
+    .title {
+        letter-spacing: 1px;
+    }
+
+    .close-btn {
+        width: 29px;
+        height: 29px;
+        position: absolute;
+        top: 20px;
+        right: 23px;
+        background: url(/web/assets/images2/close_g.svg) no-repeat center center;
+    }
+}
+
+.cnt {
+    min-height: auto;
+    padding: 0 30px 23px;
+    letter-spacing: normal;
+
+    & > .no {
+        text-align: left;
+        font-size: 20px;
+        letter-spacing: 2px;
+        color: #000;
+        margin: 0 0 23px;
+    }
+}
+
+table {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    .wStatus {
+        width: 14%;
+    }
+
+    .wShift {
+        width: 16%;
+    }
+
+    .wDate {
+        width: 15%;
+    }
+
+    .wOp {
+        width: 10%;
+    }
+
+    .wPs {
+        width: 45%;
+    }
+
+    thead {
+        font-size: 12px;
+        color: #fff;
+        @extend .g-3;
+    }
+
+    tbody {
+        font-size: 13px;
+
+        .wShift {
+            color: #fc4d14;
+        }
+
+        .wPs {
+            padding: 5px;
+            line-height: 1.5;
+            letter-spacing: 0;
+
+            color: #4d4d4d;
+            text-align: left;
+        }
+    }
+
+    td {
+        border-right: 1px solid #e6e6e6;
+        border-bottom: 1px solid #cccccc;
+
+        &:last-of-type {
+            border-right: none;
+        }
+    }
+}

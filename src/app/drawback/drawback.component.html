@@ -1,0 +1,51 @@
+<div class="panel">
+  <div class="header">
+    <p class="title">{{ "MEMBER_WITHDRAW.drawback_title" | translate }}</p>
+    <button class="close-btn" (click)="close()"></button>
+  </div>
+  <div class="cnt">
+    <p class="no">
+      {{ "MEMBER_WITHDRAW.record_th.no" | translate }} {{ serial_num }}
+    </p>
+    <table style="margin-bottom: 1rem">
+      <thead>
+        <th class="wStatus">
+          {{ "MEMBER_WITHDRAW.record_th.status" | translate }}
+        </th>
+        <th class="wShift">
+          {{ "MEMBER_QUEST.AMOUNT" | translate }}
+        </th>
+        <th class="wDate">
+          {{ "MEMBER_RECORD.DATE" | translate }}
+        </th>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of records
+              | paginate
+                : {
+                    itemsPerPage: itemsPerPage,
+                    currentPage: currentPage,
+                    totalItems: totalItems
+                  }
+          "
+        >
+          <td>{{ translationsRecordType[item.type] }}</td>
+          <td class="wShift">{{ item.money }}</td>
+          <td>{{ item.createdAt }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="totalItems > 0" class="pagination-bar">
+      <pagination-controls
+        (pageChange)="pageChanged($event)"
+        class="pagination"
+        previousLabel="<"
+        nextLabel=">"
+        autoHide="true"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

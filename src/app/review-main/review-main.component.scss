@@ -1,0 +1,166 @@
+.rm-wrap {
+  max-width: 1140px;
+
+  &>div {
+    width: 1140px;
+  }
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.page-title {
+  height: 51px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 14px 22px 17px 22px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+  letter-spacing: 2px;
+  color: #272727;
+}
+
+.page-contain {
+  margin-top: 20px;
+
+  .panel-style {
+    box-shadow: 0 5px 10px 2px #dedede;
+  }
+}
+
+.page-body {
+  width: 100%;
+  background-color: white;
+  // padding: 25px 20px 27px 24px;
+}
+
+.review-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &>div {
+    width: 100%;
+  }
+}
+
+.table-header {
+  padding: 18px 0 0 22px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 27px;
+  letter-spacing: 2px;
+  color: #272727;
+}
+
+.table-body {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
+.table-footer {
+  margin-top: 22px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-contain {
+  // height: 150px;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 24px 18px 24px 24px;
+
+  form {
+    height: 100%;
+    display: flex;
+    position: relative;
+  }
+
+  .input-box {
+    width: 345px;
+
+    .f-column {
+      font-size: 14px;
+      width: auto;
+      max-width: 48px;
+      padding: 0;
+      margin-right: 25px;
+      display: block;
+      align-self: center;
+      flex-direction: unset;
+      align-content: unset;
+    }
+
+    .f-row {
+      padding-bottom: 0;
+    }
+
+    .f-input {
+      width: 286px;
+
+      select {
+        // -moz-appearance: none;
+        // -webkit-appearance: none;
+        // appearance: none;
+        // background-image: linear-gradient(45deg, transparent 50%, #e11515 50%),
+        //   linear-gradient(135deg, #e11515 50%, transparent 50%);
+        // background-position: calc(100% - 20px) calc(1em + 2px),
+        //   calc(100% - 15px) calc(1em + 2px);
+        // background-size: 5px 5px, 5px 5px;
+        // background-repeat: no-repeat;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .date-box {
+    width: 312px;
+    display: flex;
+    align-self: flex-end;
+    justify-content: space-between;
+
+    button {
+      width: 70px;
+      height: 41px;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 27px;
+      letter-spacing: 1px;
+      color: #999999;
+    }
+
+    button.active {
+      background: #e11515;
+      color: #fff;
+    }
+  }
+
+  .btn-box {
+    width: 152px;
+    display: flex;
+    align-self: flex-end;
+    position: absolute;
+    right: 0;
+
+    button {
+      width: 152px;
+      height: 41px;
+    }
+  }
+}
+
+.no-data {
+  width: 100%;
+  height: 132px;
+  line-height: 132px;
+  text-align: center;
+}
+
+app-date-selector {
+  align-self: flex-end;
+}

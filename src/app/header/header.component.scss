@@ -1,0 +1,413 @@
+header {
+  background: linear-gradient(to right,#f3d3a4 0%,#c99c65 40%,#f3d3a4 72%,#dcab70 100%);
+  font-weight: bold;
+  // position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+select {
+  border: none;
+  background: none;
+}
+
+option {
+  color: #333;
+  // width: 118px;
+  // height: 35px;
+}
+
+.center-wrap.top {
+  justify-content: space-between;
+}
+
+.brad {
+  line-height: 40px;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.user {
+  // display: inline-flex;
+  // height: 53px;
+  height: 40px;
+  justify-content: flex-end;
+  font-size: 14px;
+
+  letter-spacing: 1px;
+  color: #fff;
+
+  .lv {
+    max-width: 194px;
+    padding: 0 15px 0 0;
+    // color: #00ddff;
+    color: #008599;
+  }
+
+  .account {
+    color: #777;
+  }
+
+  span.money {
+    // color: #ffff00;
+    color: #9b9b04;
+  }
+
+  .arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 3px 3px 0 3px;
+    border-color: #ffff00 transparent transparent transparent;
+    vertical-align: middle;
+    position: relative;
+    left: 9px;
+  }
+
+  & > li {
+    position: relative;
+    line-height: 40px;
+
+    &.inputBox {
+      padding-right: 10px;
+    }
+
+    &.clickable:hover {
+      background-color: #866748;
+    }
+
+    & > .forget {
+      display: inline-block;
+      width: 19px;
+      height: 19px;
+      vertical-align: middle;
+      margin-bottom: 2px;
+      background: url("~src/assets/img/new/question.png") no-repeat;
+    }
+
+    .bubble {
+      position: absolute;
+      height: 18px;
+      text-align: center;
+      min-width: 18px;
+      line-height: 15px;
+      font-size: 12px;
+      top: 3px;
+      left: 60px;
+      padding: 0 2px;
+      border-radius: 9px;
+      border: 1px solid #fff;
+      color: #fff;
+      background: #ed1c24;
+    }
+
+    &.member {
+      .icon {
+        width: 19px;
+        height: 22px;
+        background: url("~src/assets/img/member.svg") no-repeat;
+      }
+    }
+
+    &.mail {
+      .icon {
+        width: 23px;
+        height: 18px;
+        background: url("~src/assets/img/letter.svg") no-repeat;
+      }
+    }
+
+    &.logout {
+      .icon {
+        width: 22px;
+        height: 22px;
+        background: url("~src/assets/img/signout.svg") no-repeat;
+      }
+    }
+
+    &.register {
+      color: #26643d;
+      text-decoration: underline;
+      margin-right: 50px;
+
+      &.disabled {
+        cursor: not-allowed;
+      }
+
+      .icon {
+        width: 27px;
+        height: 27px;
+        position: relative;
+        top: -2px;
+        background: url("~src/assets/img/register.png") no-repeat;
+        background-size: 100%;
+      }
+    }
+
+    .lang {
+      border: solid 1px #8b6b40;
+      border-radius: 0px;
+      padding: 2px;
+      color: #4d2d11;
+      background: linear-gradient(to top,#e3b773 0%,#ffe59d 100%);
+      font-size: 15px;
+      font-weight: lighter;
+    }
+
+    // &:active,
+    &.active {
+      color: #000;
+      @extend .g-1;
+    }
+  }
+}
+
+.login-form {
+  align-items: center;
+
+  .input-wrap {
+    // outline: 1px solid pink;
+    position: relative;
+
+    i {
+      position: absolute;
+      width: 11px;
+      height: 15px;
+      top: 12px;
+      left: 14px;
+    }
+  }
+
+  input {
+    background: #202020;
+    border: solid 1px #ffffff;
+    font-size: 15px;
+    width: 152px;
+    height: 29px;
+    padding: 0 5px 0 5px;
+    margin: 0 4px;
+    color: #ffffff;
+    border-radius: 3px;
+
+    &::placeholder {
+      color: #b08551;
+    }
+  }
+
+  .id {
+    i {
+      background: url("~src/assets/img/new/inputIC.png") no-repeat;
+      display: none;
+    }
+  }
+
+  .pwd {
+    input {
+      padding: 0 22px 0 5px;
+      margin-right: 7px;
+    }
+
+    .pwd {
+      background: url("~src/assets/img/new/inputIC.png") no-repeat;
+      background-position-y: 100%;
+      display: none;
+    }
+  }
+
+  button {
+    height: 28px;
+    line-height: 0px;
+    font-size: 15px;
+    padding: 0 18px;
+    font-weight: lighter;
+    background: linear-gradient(
+      to top,
+      #277444 0%,
+      #223324 45%,
+      #367e51 99%
+    );
+    border: solid 1px #fff6cb;
+    color: #eaedeb;
+
+    &:hover,
+    &:active,
+    &.active {
+      background: linear-gradient(
+        to top,
+        #0f7435 0%,
+        #223324 100%,
+      );
+    }
+
+    &.signupBtn {
+      background: linear-gradient(to top, #e3b773 0%, #985900 41%, #ffe59d 100%);
+      color: #fff;
+      margin-left: 8px;
+      padding: 0px 18px;
+
+      &:hover,
+      &:active,
+      &.active {
+        background: linear-gradient(
+          to top,
+          #b99763 0%,
+          #684826 100%
+        );
+      }
+
+      span {
+        display: none;
+        width: 12px;
+        height: 14px;
+        background: url("~src/assets/img/new/signupIC.png") no-repeat;
+        margin-right: 4px;
+        transform: translateY(1px);
+      }
+    }
+  }
+}
+
+.logo {
+  width: 160px;
+  background: url("~src/assets/img/new/logo.png") no-repeat center;
+  background-size: contain;
+  // outline: 1px solid pink;
+}
+
+.game-nav {
+  height: 80px;
+  font-size: 18px;
+  color: #f3d3a4;
+  background: #1f2f23;
+
+  & > div {
+    justify-content: space-between;
+  }
+
+  li {
+    position: relative;
+    line-height: 76px;
+    padding: 0 27px;
+    order: 10;
+    letter-spacing: 1px;
+    border-bottom: solid 4px transparent;
+
+    @extend .clickable;
+
+    &:last-child {
+      padding: 0 10px 0 30px;
+    }
+
+    &:hover,
+    &:active,
+    &.active {
+      border-color: #c7a16e;
+      color: #dcb160;
+    }
+
+    // &.home,
+    // &.sport {
+    //   order: 1;
+    // }
+
+    // &.live {
+    //   order: 2;
+    // }
+
+    // &.slot {
+    //   order: 3;
+    // }
+
+    // &.lottery {
+    //   order: 4;
+    // }
+
+    // &.board {
+    //   order: 6;
+    // }
+
+    // &.fishing {
+    //   order: 5;
+    // }
+  }
+}
+
+.marquee-wrap {
+  background: #fff;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  // & > .center-wrap {
+  //   cursor: pointer;
+  // }
+}
+
+.overlay-game-menue-wrap {
+  width: 100%;
+  // height: 100vh;
+  top: calc(40px + 81px);
+  left: 0;
+  // background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.overlay-game-menue {
+  border-top: 1px solid #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 226px;
+  background: #fff;
+  position: relative;
+  top: -1px;
+  // outline: 1px solid pink;
+
+  ul {
+    // justify-content: center;
+    transition: transform 500ms ease 0s;
+  }
+
+  li {
+    position: relative;
+    text-align: center;
+
+    // outline: 1px solid pink;
+    @extend .clickable;
+
+    .gamePhoto {
+      // outline: 1px solid pink;
+      width: 220px;
+      // 圖實際顯示應為 188*184, 但利用寬拉出間距,並且是 contain 不會有 比例跑掉的問題
+      // width: 188px;
+      height: 184px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .container {
+    width: 1320px;
+    overflow: hidden;
+  }
+}
+
+.games {
+  display: flex;
+  align-items: center;
+
+  i {
+    width: 15px;
+    height: 30px;
+    background: url("~src/assets/img/direction1.svg") no-repeat center center;
+
+    &:nth-child(3) {
+      transform: rotate(180deg);
+    }
+
+    @extend .clickable;
+  }
+}

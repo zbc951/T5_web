@@ -1,0 +1,20 @@
+<footer>
+  <nav class="center-wrap relative">
+    <ul class="flex">
+      <li (click)="openBulletin()">{{ "NAV.ANNOUNCE" | translate }}</li>
+      <li (click)="goQuest()">{{ "MEMBER_NAV.COUPON" | translate }}</li>
+      <li (click)="goVip()">{{ "NAV.VIP" | translate }}</li>
+      <li routerLink="/{{ AppRoutes.HELP }}" [queryParams]="{type: 'help', file: 'register'}">{{ "NAV.HELP" | translate }}</li>
+      <li routerLink="/{{ AppRoutes.HELP }}" [queryParams]="{type: 'about', file: 'rule'}">{{ "NAV.ABOUT" | translate }}</li>
+      <!-- <li routerLink="/{{ AppRoutes.MERCHANTS }}">
+        {{ "NAV.JOIN" | translate }}
+      </li> -->
+      <li class="pright">2021 {{ hostName }} {{ "FOOTER.OWN" | translate }} │ 18+</li>
+    </ul>
+  </nav>
+  <div class="footer-site">
+    <div class="center-wrap">
+      <pre>{{ "FOOTER.INTRO" | translate }}</pre>
+    </div>
+  </div>
+</footer>

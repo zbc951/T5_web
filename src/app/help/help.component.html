@@ -1,0 +1,94 @@
+<div class="help_page">
+  <div class="cnt flex">
+    <div>
+      <ul class="nav">
+        <li
+          class="title"
+          [class.active]="type == 'help'"
+          (click)="type = 'help'"
+        >
+          <p class="flex"><i class="bulb"></i>{{ "NAV.NEWBIE" | translate }}</p>
+          <i class="arrow"></i>
+        </li>
+        <li>
+          <ul>
+            <li
+              *ngFor="let item of helpList"
+              [class.active]="file == item.file"
+              (click)="changeFile(item.file)"
+            >
+              {{ item.info | translate }}
+            </li>
+          </ul>
+        </li>
+        <li
+          class="title"
+          [class.active]="type == 'common'"
+          (click)="type = 'common'"
+        >
+          <p class="flex">
+            <i class="problem"></i>{{ "COMMON.TITLE" | translate }}
+          </p>
+          <i class="arrow"></i>
+        </li>
+        <li>
+          <ul>
+            <li
+              *ngFor="let item of problemList"
+              [class.active]="file == item.file"
+              (click)="changeFile(item.file)"
+            >
+              {{ item.info | translate }}
+            </li>
+          </ul>
+        </li>
+        <li
+          class="title"
+          [class.active]="type == 'about'"
+          (click)="type = 'about'"
+        >
+          <p class="flex">
+            <i class="auboutus"></i>{{ "ABOUT.TITLE" | translate }}
+          </p>
+          <i class="arrow"></i>
+        </li>
+        <li>
+          <ul>
+            <li
+              *ngFor="let item of aboutUs"
+              [class.active]="file == item.file"
+              (click)="changeFile(item.file)"
+            >
+              {{ item.info | translate }}
+            </li>
+          </ul>
+        </li>
+        <li
+          class="title"
+          [class.active]="type == 'download'"
+          (click)="type = 'download'"
+        >
+          <p class="flex">
+            <i class="download"></i> {{ "NAV.download" | translate }}
+          </p>
+          <i class="arrow"></i>
+        </li>
+        <li>
+          <ul>
+            <li
+              *ngFor="let item of downloadList"
+              [class.active]="file == item.file"
+              (click)="changeFile(item.file)"
+            >
+              {{ item.info | translate }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="help-cnt">
+      <markdown [url]="url"></markdown>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<!-- debug -->
+<!-- <div class="absolute" style="top: 0px">
+  <p style="color: #fff">{{ status | json }}</p>
+  <p style="color: yellow">{{ item | json }}</p>
+</div> -->
+
+<div class="maintain" *ngIf="status.maintain || status.isRoutineMaintainIng">
+  <p class="status">{{ "MAINTAIN.ing" | translate }}</p>
+  <!-- time -->
+  <pre *ngIf="status.isRoutineMaintainIng">{{
+    "MAINTAIN.routine" | translate: status.routineMsg
+  }}</pre>
+</div>

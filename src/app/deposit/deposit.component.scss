@@ -1,0 +1,427 @@
+.deposit {
+  display: flex;
+}
+
+.copy-btn {
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+input[type="number"],
+input[type="text"] {
+  padding: 0 5px;
+}
+
+.deposit-center {
+  width: 881px;
+  margin: 0 14px 0 0;
+  font-weight: bold;
+
+  .top {
+    margin: 0 0 15px;
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      padding: 0 18px 0 22px;
+      border-bottom: 1px solid #e6e6e6;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: #272727;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 31px;
+        background: #fff;
+        border: 1px solid #cfa678;
+        border-radius: 3px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: #cfa678;
+
+        i {
+          display: block;
+          width: 18px;
+          height: 18px;
+          margin: 0 5px 0 0;
+          background: url("~src/assets/img/problem.svg") no-repeat center
+            center;
+        }
+      }
+    }
+
+    .list {
+      padding: 10px 20px;
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        // width: 95%;
+        height: 100%;
+        // overflow: hidden;
+
+        li {
+          width: 127px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+
+          justify-content: center;
+          flex-shrink: 0;
+          margin: 5px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          font-size: 14px;
+          letter-spacing: 1px;
+
+          @extend .clickable;
+
+          i {
+            width: 27px;
+            height: 27px;
+            margin: 0 8px 0 0;
+          }
+
+          &:nth-child(1) {
+            i {
+              background: url("~src/assets/img/card.svg") no-repeat center
+                center;
+            }
+          }
+
+          &:nth-child(2) {
+            i {
+              background: url("~src/assets/img/shop.svg") no-repeat center
+                center;
+            }
+          }
+
+          &:nth-child(3) {
+            i {
+              background: url("~src/assets/img/atm.svg") no-repeat center
+                center;
+            }
+          }
+
+          &.alipay {
+            i {
+              // width: 25px;
+              // height: 25px;
+              background: url("~src/assets/img/third/alipay.svg") no-repeat;
+            }
+          }
+
+          &.unionpay {
+            i {
+              // width: 30px;
+              // height: 19px;
+              background: url("~src/assets/img/third/unionpay.svg") no-repeat;
+            }
+          }
+
+          &.online {
+            i {
+              // width: 26px;
+              // height: 26px;
+              // background: url("~src/assets/img/third/online.svg") no-repeat;
+              background: url("~src/assets/img/third/bank.svg") no-repeat;
+            }
+          }
+
+          &.wechat {
+            i {
+              // width: 26px;
+              // height: 23px;
+              background: url("~src/assets/img/third/wechat.svg") no-repeat;
+            }
+          }
+
+          &.quck {
+            i {
+              // width: 26px;
+              // height: 23px;
+              background: url("~src/assets/img/third/quck.svg") no-repeat;
+            }
+          }
+        }
+
+        .isActive {
+          // background: #e11515;
+          color: #fff;
+          @extend .g-21;
+          border: none;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    height: 631px;
+    padding: 16px 0 0 27px;
+
+    .title {
+      display: flex;
+      align-items: center;
+      font-size: 17px;
+      letter-spacing: 2px;
+      color: #272727;
+
+      i {
+        display: block;
+        width: 9px;
+        height: 16px;
+        margin: 0 13px 0 0;
+        background: url("~src/assets/img/arrow_r.svg") no-repeat center
+          center;
+      }
+    }
+
+    .content {
+      margin: 26px 0 0;
+    }
+
+    .bank {
+      .row {
+        position: relative;
+        display: flex;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: #000000;
+        margin-bottom: 23px;
+
+        p {
+          margin-top: 9px;
+        }
+
+        i {
+          width: 12px;
+          height: 12px;
+          color: #e11515;
+        }
+
+        input,
+        select {
+          width: 257px;
+          height: 40px;
+          padding: 0 0 0 15px;
+          margin: 0 0 0 26px;
+        }
+
+        .notice {
+          margin: 8px 0 0 26px;
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: #999999;
+        }
+
+        .tips {
+          display: block;
+          padding: 0 0 0 10px;
+        }
+      }
+
+      button {
+        width: 257px;
+        height: 41px;
+        margin: 26px 0 0 104px;
+      }
+    }
+
+    .bank-confirm {
+      .confirm-titlte {
+        margin: 0 0 28px;
+        font-size: 15px;
+        letter-spacing: 2px;
+        color: #272727;
+      }
+
+      .row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        // width: 29px;
+        margin: 0 0 27px;
+
+        .text {
+          margin: 0 26px 0 0;
+          font-size: 13px;
+          letter-spacing: 1px;
+          color: #666666;
+        }
+
+        .data {
+          margin: 0 12px 0 0;
+          font-size: 14px;
+          letter-spacing: 1px;
+          color: #000000;
+        }
+
+        .notice {
+          position: absolute;
+          bottom: -25px;
+          left: 53px;
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: #999999;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 86px;
+          height: 29px;
+          background: #fff;
+          border: 1px solid #cfa678;
+          border-radius: 3px;
+          font-size: 13px;
+          letter-spacing: 1px;
+          color: #cfa678;
+        }
+      }
+
+      .submit {
+        width: 257px;
+        height: 41px;
+        margin: 53px 51px 0;
+      }
+    }
+
+    .discription {
+      width: 839px;
+      padding: 15px 19px 15px;
+      margin: 39px 0 0 -10px;
+      border: 1px solid #cca172;
+
+      .title {
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #cfa678;
+      }
+
+      div {
+        margin: 0 0 11px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #666666;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      p {
+        display: inline;
+        color: #e11515;
+      }
+    }
+
+    .atm {
+      margin: 25px 0 0;
+
+      .row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 41px;
+
+        i {
+          margin: 0 5px 0 0;
+          color: #e11515;
+        }
+
+        input {
+          width: 257px;
+          height: 41px;
+          padding: 0 0 0 15px;
+          margin: 0 0 0 26px;
+        }
+
+        .gray {
+          position: absolute;
+          bottom: -25px;
+          left: 89px;
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: #999999;
+        }
+
+        .red {
+          position: absolute;
+          bottom: -46px;
+          left: 85px;
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: #e11515;
+        }
+      }
+
+      button {
+        width: 257px;
+        height: 41px;
+        margin: 61px 90px 0;
+      }
+    }
+
+    .market {
+      .row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 41px;
+        margin: 0 0 22px;
+
+        i {
+          margin: 0 5px 0 0;
+          color: #e11515;
+        }
+
+        input,
+        select {
+          width: 257px;
+          height: 41px;
+          margin: 0 0 0 26px;
+        }
+
+        p {
+          position: absolute;
+          bottom: -25px;
+          left: 105px;
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: #999999;
+        }
+      }
+
+      button {
+        width: 257px;
+        height: 41px;
+        margin: 46px 108px 0;
+      }
+
+      .discription {
+        div {
+          &:nth-child(3) {
+            color: #e11515;
+          }
+        }
+      }
+    }
+
+    .third-pay {
+      @extend .market;
+
+      p.tips {
+        bottom: -45px;
+        padding: 0;
+      }
+    }
+  }
+}

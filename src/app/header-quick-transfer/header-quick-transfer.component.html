@@ -1,0 +1,14 @@
+<ul class="transfer_option" *ngIf="platformWallet.length > 0">
+  <li *ngFor="let item of platformWallet">
+    <div class="flex">
+      <p>{{ item.name }}</p>
+      <p class="money" [class.got]="item.getStatus == moneyLoadStatus.GOT">
+        <!-- <p class="money"> -->
+        <i></i><span>{{ item.balance }}</span>
+      </p>
+    </div>
+    <!-- <button class="orange_btn" (click)="transferIn(item)">
+      {{ "MEMBER_TRANSFER.ALL_IN" | translate }}
+    </button> -->
+  </li>
+</ul>

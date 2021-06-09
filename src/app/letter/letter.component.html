@@ -1,0 +1,147 @@
+<div class="main">
+  <div class="head">
+    <p>{{ "LETTER.TITLE" | translate }}</p>
+    <div>
+      <a
+        [class.active]="tab == tabs.msg"
+        (click)="selectTab(tabs.msg)"
+        ng-href="#"
+        >{{ "LETTER.msg" | translate
+        }}<span *ngIf="unread?.messages > 0">{{ unread?.messages }}</span></a
+      >
+      <a
+        [class.active]="tab == tabs.announce"
+        (click)="selectTab(tabs.announce)"
+        ng-href="#"
+        >{{ "LETTER.announcement" | translate }}</a
+      >
+    </div>
+  </div>
+  <form [formGroup]="form">
+    <ul class="tabs flex">
+      <ng-container *ngIf="tab == tabs.msg; else toAllTab">
+        <li
+          [class.active]="msgType == Role.SYSTEM"
+          (click)="selectMsgType(Role.SYSTEM)"
+        >
+          {{ "LETTER.system" | translate }}
+        </li>
+        <li
+          [class.active]="msgType == Role.AGENT"
+          (click)="selectMsgType(Role.AGENT)"
+        >
+          {{ "LETTER.member" | translate }}
+        </li>
+      </ng-container>
+      <ng-template #toAllTab>
+        <li
+          [class.active]="announcType == MarqueeType.Hot"
+          (click)="selectAnnounceType(MarqueeType.Hot)"
+        >
+          {{ "BULLETIN.HOT" | translate }}
+        </li>
+        <li
+          [class.active]="announcType == MarqueeType.Normal"
+          (click)="selectAnnounceType(MarqueeType.Normal)"
+        >
+          {{ "BULLETIN.NORMAL" | translate }}
+        </li>
+        <li
+          [class.active]="announcType == MarqueeType.deposit"
+          (click)="selectAnnounceType(MarqueeType.deposit)"
+        >
+          {{ "BULLETIN.DEPOSIT" | translate }}
+        </li>
+      </ng-template>
+    </ul>
+    <div class="list">
+      <div class="btn_list style1" *ngIf="!isEditing; else editing">
+        <ng-container *ngIf="tab == tabs.msg">
+          <!-- (click)="readlAll()"" -->
+          <a ng-href="#" appThrottleBtn (action)="readlAll()">{{
+            "LETTER.readall" | translate
+          }}</a>
+          <a ng-href="#" (click)="isEditing = !isEditing">{{
+            "LETTER.edit" | translate
+          }}</a>
+        </ng-container>
+      </div>
+      <ng-template #editing>
+        <div class="btn_list style2">
+          <span>
+            <span class="all">
+              <input
+                type="checkbox"
+                [checked]="checkAll"
+                (click)="toggleAll()"
+              />
+              {{ "LETTER.all" | translate }}</span
+            >
+            <!-- <a ng-href="#" (click)="readMessage()"> -->
+            <a ng-href="#" appThrottleBtn (action)="readMessage()">
+              {{ "LETTER.read" | translate }}</a
+            >
+            <!-- <a ng-href="#" (click)="removeMessage()"> -->
+            <a ng-href="#" appThrottleBtn (action)="removeMessage()">
+              {{ "LETTER.DEL" | translate }}</a
+            >
+          </span>
+          <a ng-href="#" class="done-btn" (click)="isEditing = false">{{
+            "LETTER.ok" | translate
+          }}</a>
+        </div>
+      </ng-template>
+      <ul
+        class="data_list"
+        formArrayName="check"
+        [class.announce]="tab == tabs.announce"
+      >
+        <ng-container *ngIf="tab == tabs.msg; else toAll">
+          <li
+            *ngFor="
+              let item of messageList.content | paginate: pageConfig;
+              let idx = index
+            "
+            [class.read]="item.isRead"
+            (click)="goDetail(item, $event)"
+          >
+            <p class="radio" *ngIf="isEditing">
+              <input
+                type="checkbox"
+                [formControlName]="idx"
+                (change)="doCheckAll()"
+              />
+            </p>
+
+            <span class="title">{{ item.title }}</span>
+            <span class="cnt"> {{ item.content }}</span>
+            <span class="date">{{ item.createdAt | date: "yyyy/MM/dd" }}</span>
+          </li>
+        </ng-container>
+        <ng-template #toAll>
+          <li
+            *ngFor="let item of announceList.content | paginate: pageConfig"
+            (click)="goDetail(item, $event)"
+          >
+            <span class="title"> {{ item.content }}</span>
+            <span class="date"
+              >{{ item.start_time | date: "yyyy/MM/dd" }} ~
+              {{ item.end_time | date: "yyyy/MM/dd" }}</span
+            >
+          </li>
+        </ng-template>
+      </ul>
+      <div class="inside-footer">
+        <div class="pagination-bar">
+          <pagination-controls
+            autoHide="true"
+            (pageChange)="pageChanged($event)"
+            previousLabel="<"
+            nextLabel=">"
+          >
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

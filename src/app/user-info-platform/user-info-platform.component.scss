@@ -1,0 +1,130 @@
+.panel {
+  width: 880px;
+  padding: 20px 24px;
+  // height: 755px;
+  h1 {
+    padding: 20px 24px;
+    line-height: 1;
+    margin: 0 15px 0 0;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #272727;
+  }
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  font-size: 13px;
+  margin: 30px 0;
+  color: #000;
+
+  thead {
+    border-bottom: 2px solid #c69c6d;
+  }
+
+  th {
+    position: relative;
+    padding: 0 0 10px 0;
+
+    &:not(:last-child) {
+      &:after {
+        content: "";
+        width: 1px;
+        height: 16px;
+        background: #e6e6e6;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    &.code {
+      width: 15%;
+    }
+
+    &.panme {
+      width: 15%;
+    }
+
+    &.uid {
+      width: 20%;
+    }
+
+    &.pwd {
+      width: 20%;
+    }
+
+    &.status {
+      width: 13%;
+    }
+
+    &.llt {
+      width: 17%;
+    }
+    //for forth
+    &.order {
+      width: 10%;
+    }
+
+    &.account {
+      text-align-last: left;
+      padding: 0 20px;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    td {
+      position: relative;
+      padding: 18px 5px;
+      text-align: center;
+      overflow-wrap: break-word;
+
+      &:not(:last-child) {
+        &:after {
+          content: "";
+          width: 1px;
+          height: 16px;
+          background: #e6e6e6;
+          position: absolute;
+          top: calc(50% - 8px);
+          right: 0;
+        }
+      }
+
+      &.uid {
+        color: #2680ff;
+      }
+
+      &.status {
+        color: #42a600;
+
+        &.notset {
+          color: #999999;
+        }
+
+        &.freeze {
+          color: #fc4d14;
+        }
+      }
+
+      &.not-active {
+        color: #999999;
+      }
+
+      &.lls {
+        white-space: pre-wrap;
+      }
+
+      //for forth
+      &.account {
+        text-align-last: left;
+        padding: 0 20px;
+      }
+    }
+  }
+}

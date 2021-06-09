@@ -1,0 +1,234 @@
+.my-wallet {
+  display: flex;
+}
+
+.my-wallet-center {
+  width: 881px;
+  margin: 0 14px 0 0;
+  font-weight: bold;
+
+  hr {
+    width: 100%;
+    border-top: 1px solid #e6e6e6;
+    border-width: 1px 0 0 0;
+  }
+}
+
+.top {
+  margin: 0 0 56px;
+
+  .my-title {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 0 0 22px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #272727;
+  }
+
+  .content {
+    display: flex;
+    // outline: 1px solid pink;
+    & > div {
+      // outline: 1px solid pink;
+      width: 50%;
+      padding: 20px 25px;
+    }
+  }
+
+  .total {
+    width: 50%;
+    border-right: 1px solid #e6e6e6;
+  }
+
+  .total-title {
+    display: flex;
+    align-items: center;
+    margin: 0 0 11px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #009245;
+  }
+
+  .total-amount {
+    padding: 0 0 0 11px;
+    margin: 0 0 19px;
+    font-size: 43px;
+    letter-spacing: 0px;
+    color: #272727;
+  }
+
+  .center-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 11px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #008599;
+
+    button {
+      width: 71px;
+      height: 23px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .amount {
+    padding: 0 0 0 11px;
+    // margin: 0 0 19px;
+    font-size: 43px;
+    word-break: break-all;
+    letter-spacing: 0px;
+    color: #272727;
+  }
+
+  .wallet {
+    display: flex;
+
+    .center-tiitle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 195px;
+
+      font-size: 17px;
+      letter-spacing: 2px;
+      color: #ed1c24;
+
+      button {
+        width: 71px;
+        height: 23px;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .coupon {
+      margin: 0 0 0 45px;
+    }
+
+    .coupon-title {
+      font-size: 17px;
+      letter-spacing: 2px;
+      color: #ff8600;
+    }
+
+    .amount {
+      padding: 0 0 0 9px;
+      font-size: 27px;
+      letter-spacing: 0px;
+      color: #333333;
+      word-break: break-all;
+      margin-top: 4px;
+    }
+  }
+
+  .able {
+    // padding: 14px 31px;
+
+    .able-amount {
+      padding: 0 0 0 12px;
+      margin: 0 0 27px;
+      font-size: 43px;
+      letter-spacing: 0px;
+      color: #272727;
+      word-break: break-all;
+    }
+  }
+
+  .able-title {
+    display: flex;
+    align-items: center;
+    margin: 0 0 11px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #272727;
+  }
+
+  .restrict {
+    margin: 0 0 12px;
+  }
+
+  .restrict,
+  .lock {
+    display: flex;
+    align-items: center;
+
+    P {
+      font-size: 17px;
+      margin: 0 23px 0 0;
+      color: #4d4d4d;
+    }
+
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .icon {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: 0 11px 0 7px;
+    background: url("~src/assets/img/problem_gr.svg") no-repeat center
+      center;
+
+    &:hover {
+      .dialog {
+        display: block;
+      }
+    }
+
+    .dialog {
+      display: none;
+      position: absolute;
+      top: -6px;
+      left: 28px;
+      width: 240px;
+    }
+
+    p {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 31px;
+      padding: 0 9px 0;
+      border-radius: 3px;
+      background: #c9a072;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #fff;
+
+      .arrow {
+        content: "";
+        width: 0px;
+        height: 0px;
+        border-width: 7px;
+        border-style: solid;
+        border-color: transparent #c9a072 transparent transparent;
+        position: absolute;
+        top: 8px;
+        left: -14px;
+      }
+    }
+  }
+}
+
+.bottom {
+  position: relative;
+  // height: 110px;
+
+  .tabs {
+    position: absolute;
+    top: -35px;
+  }
+}
+
+.bet-record {
+  margin: 0 0 17px;
+}

@@ -1,0 +1,205 @@
+.coupon-wallet {
+  // height: 300px;
+  // overflow: hidden;
+  // outline: 1px solid pink;
+
+  padding: 20px 14px 0;
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: #272727;
+
+  .trans-wallet-no-open {
+    // height: 300px;
+    overflow: hidden;
+
+    button {
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .mine-wallet-no-open {
+    height: 390px;
+    overflow: hidden;
+
+    button {
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  ul {
+    margin: 10px 0 0 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      border-bottom: 2px solid #f3f3f3;
+
+      .head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      div {
+        border-right: 1px solid #e6e6e6;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #000000;
+
+        &:nth-child(1) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 104px;
+          height: 17px;
+          text-align: center;
+        }
+
+        &:nth-child(2) {
+          width: 143px;
+          height: 17px;
+          padding: 0 0 0 16px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: center;
+        }
+
+        &:nth-child(3) {
+          width: 102px;
+          text-align: center;
+        }
+
+        &:nth-child(4) {
+          position: relative;
+          display: flex;
+          align-items: center;
+          // flex-direction: column;
+          width: 278px;
+          height: 17px;
+          padding: 0 13px 0 16px;
+
+          .finish {
+            width: 100%;
+            font-size: 13px;
+            text-align: center;
+            letter-spacing: 1px;
+            color: #e11515;
+          }
+
+          .schedule {
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            display: block;
+            width: 250px;
+            border: none;
+
+            .num {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 100%;
+              border: none;
+
+              p {
+                font-size: 13px;
+                color: #666666;
+              }
+            }
+
+            .notice {
+              font-size: 12px;
+              letter-spacing: 1px;
+              color: #808080;
+            }
+          }
+        }
+
+        &:nth-child(5) {
+          width: 212px;
+          border-right: none;
+          padding: 0 0 0 16px;
+          text-align: center;
+
+          .record {
+            width: 71px;
+            // width: 80%;
+            height: 31px;
+            margin: 0 10px 0 0;
+            background: #fff;
+            border: 1px solid #cca172;
+            border-radius: 3px;
+            color: #cca172;
+          }
+
+          .trans-in {
+            width: 97px;
+            height: 31px;
+            background: #fff;
+            color: #4a59ed;
+            border: 1px solid currentColor;
+            border-radius: 3px;
+
+            &:disabled {
+              border: 1px solid #e6e6e6;
+              border-radius: 3px;
+              color: #fff;
+            }
+          }
+
+          .no-finish {
+            width: 97px;
+            height: 31px;
+            background: #ccc;
+            border: 1px solid #e6e6e6;
+            border-radius: 3px;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .head-li {
+      // border-bottom: 2px solid #f08a8a;
+      border-bottom: 2px solid #4a59ed;
+    }
+  }
+}
+
+.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 23px 0 35px;
+
+  i {
+    width: 14px;
+    height: 14px;
+    margin: 0 0 0 10px;
+    transition: 200ms;
+    background: url("~src/assets/img/unfold.svg") no-repeat center center;
+  }
+
+  .no-open {
+    transform: rotate(180deg);
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+}
+
+.no-data {
+  text-align: center;
+  line-height: 307px;
+}

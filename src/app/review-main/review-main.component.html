@@ -1,0 +1,54 @@
+<div class="rm-wrap">
+  <div class="page-title panel-style">
+    {{
+      path == AppRoutes.REVIEW_ACTIVITY
+        ? ("REVIEW_RECORD.WALLET.TAB" | translate)
+        : ("REVIEW_RECORD.TITLE" | translate)
+    }}
+  </div>
+  <div class="page-contain">
+    <div class="page-header">
+      <ul class="tabs flex">
+        <!-- <li
+          [class.active]="selected === tabs.DEPOSIT"
+          (click)="selectType(tabs.DEPOSIT)"
+        >
+          {{ "REVIEW_RECORD.DEPOSIT.TAB" | translate }}
+        </li> -->
+        <!-- <li
+                    class="btn"
+                    [class.active]="selected === tabs.BONUS"
+                    (click)="selectType(tabs.BONUS)"
+                >{{ "REVIEW_RECORD.BONUS.TAB" | translate }}</li> -->
+        <!-- <li
+          *ngIf="path == AppRoutes.REVIEW_ACTIVITY"
+          [class.active]="selected === tabs.WALLET"
+          (click)="selectType(tabs.WALLET)"
+        >
+          {{ "REVIEW_RECORD.WALLET.TAB" | translate }}
+        </li> -->
+        <li
+          *ngIf="path != AppRoutes.REVIEW_ACTIVITY"
+          [class.active]="selected === tabs.TRANSFER"
+          (click)="selectType(tabs.TRANSFER)"
+        >
+          <!-- (click)="selectType(tabs.TRANSFER)" -->
+          {{ "REVIEW_RECORD.TITLE" | translate }}
+        </li>
+        <li
+          [class.active]="selected === tabs.AmountRecord"
+          (click)="selectType(tabs.AmountRecord)"
+        >
+          {{ "MEMBER_WITHDRAW.record" | translate }}
+        </li>
+      </ul>
+    </div>
+    <div class="page-body panel-style" [ngSwitch]="selected">
+      <!-- <app-review *ngSwitchCase="tabs.DEPOSIT"></app-review> -->
+      <!-- <app-review-bonus *ngSwitchCase="tabs.BONUS"></app-review-bonus> -->
+      <!-- <app-review-wallet *ngSwitchCase="tabs.WALLET"></app-review-wallet> -->
+      <app-review-transfer *ngSwitchCase="tabs.TRANSFER"></app-review-transfer>
+      <app-amount-record *ngSwitchCase="tabs.AmountRecord"></app-amount-record>
+    </div>
+  </div>
+</div>

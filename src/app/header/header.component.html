@@ -1,0 +1,194 @@
+<header>
+  <div class="center-wrap top flex">
+    <span class="brad">
+      <!-- {{ noLogo ? "" : "TONG BOU" }} -->
+    </span>
+    <ul class="user flex" (mouseover)="hover(null)">
+      <ng-container *ngIf="isLogin; else notlogin">
+        <li class="flex">
+          <span class="lv ellipsis">{{ user.lv }}</span>
+          <span class="account">{{ user.account }}</span>
+        </li>
+        <li #transferBtn>
+          <span class="money clickable">{{ user.money | floatDisplay }}</span>
+          <i class="arrow"></i>
+          <app-header-quick-transfer
+            *ngIf="transferActive"
+          ></app-header-quick-transfer>
+        </li>
+        <li class="clickable" [routerLink]="AppRoutes.DEPOSIT">
+          {{ "NEWBIE.DEPOSIT.TITLE" | translate }}
+        </li>
+        <li class="clickable" [routerLink]="AppRoutes.TRANSFER">
+          {{ "NEWBIE.TRANSFER.TITLE" | translate }}
+        </li>
+        <li class="clickable" [routerLink]="AppRoutes.WITHDRAWAL">
+          {{ "RECORD_REVIEW_OPTIONS.withdraw" | translate }}
+        </li>
+        <li class="member clickable" [routerLink]="AppRoutes.MY_WALLET">
+          <i class="icon"></i>{{ "MEMBER_NAV.TITLE" | translate }}
+        </li>
+        <li class="mail clickable relative" [routerLink]="AppRoutes.LETTER">
+          <i class="icon"></i>{{ "LETTER.TITLE" | translate
+          }}<i class="bubble" *ngIf="unread">{{ unread }}</i>
+        </li>
+        <li class="logout clickable" (click)="logout()">
+          <i class="icon"></i>{{ "NAV.LOGOUT" | translate }}
+        </li>
+      </ng-container>
+      <ng-template #notlogin>
+        <li class="inputBox">
+          <!-- (ngSubmit)="login()" -->
+          <form
+            class="login-form flex"
+            [formGroup]="loginForm"
+            (action)="login()"
+            appThrottleBtn
+          >
+            <div class="input-wrap id">
+              <i></i>
+              <input
+                type="text"
+                placeholder="{{ 'LOGIN.ID' | translate }}"
+                formControlName="account"
+              />
+            </div>
+            <div class="input-wrap pwd">
+              <i class="pwd"></i>
+              <input
+                type="password"
+                placeholder="{{ 'LOGIN.PWD' | translate }}"
+                formControlName="password"
+              />
+              <i class="question clickable"></i>
+            </div>
+            <button type="submit" class="g-2" [disabled]="isMaintain">
+              {{ "LOGIN.TITLE" | translate }}
+            </button>
+            <button
+              type="reset"
+              class="signupBtn"
+              [disabled]="isMaintain"
+              (click)="openRegister()"
+            >
+              <span></span>
+              {{ "REGISTER.TITLE" | translate }}
+            </button>
+          </form>
+        </li>
+        <li
+          class="register clickable"
+          [class.disabled]="isMaintain"
+          (click)="goForget()"
+        >
+          <i class="forget"></i>
+          {{ "LOGIN.FORGET_PWD" | translate }}
+        </li>
+      </ng-template>
+      <li>
+        <select
+          name="language"
+          class="lang clickable"
+          [value]="currentLang"
+          (change)="changeLang($event)"
+        >
+          <option value="en" class="clickable">English</option>
+          <option value="zh-Hans" class="clickable">简体中文</option>
+          <option value="zh-Hant" class="clickable">繁體中文</option>
+          <option value="jp" class="clickable">日本語</option>
+        </select>
+      </li>
+    </ul>
+  </div>
+  <div class="game-nav">
+    <div class="center-wrap flex">
+      <a
+        class="logo"
+        [routerLink]="AppRoutes.HOME"
+        (click)="goPage('home')"
+      ></a>
+      <ul class="flex">
+        <li
+          class="home"
+          [class.active]="route === AppRoutes.HOME"
+          [routerLink]="AppRoutes.HOME"
+          (mouseover)="hover(false)"
+          (click)="goPage('home')"
+        >
+          {{ "HOME" | translate }}
+        </li>
+        <li
+          class="{{ item.type }}"
+          [class.active]="route == item.url"
+          (click)="goPage(item.type)"
+          (mouseover)="hover(item.type)"
+          *ngFor="let item of menu"
+        >
+          {{ item.tname || item.type }}
+        </li>
+        <li
+          *ngIf="isActivityWallet"
+          routerLink="/{{ AppRoutes.Activity_Wallet }}"
+          (mouseover)="hover(false)"
+          [class.active]="route === AppRoutes.Activity_Wallet"
+        >
+          {{ "MEMBER_NAV.ACTIVITY_WALLET" | translate }}
+        </li>
+        <li
+          routerLink="/{{ AppRoutes.QUEST }}"
+          (mouseover)="hover(false)"
+          [class.active]="route === AppRoutes.QUEST"
+        >
+          {{ "NAV.COUPON" | translate }}
+        </li>
+        <li
+          *ngIf="canUpgrade"
+          (mouseover)="hover(false)"
+          (click)="publicService.goVip()"
+        >
+          {{ "MEMBER_NAV.VIP" | translate }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="overlay-game-menue-wrap absolute panel-style"
+    (mouseleave)="hover(null)"
+    [hidden]="!isHover"
+  >
+    <div class="overlay-game-menue">
+      <div class="center-wrap games">
+        <i (click)="partnerL()" *ngIf="showItems?.length > 6"></i>
+        <div class="container">
+          <ul class="flex" #partnersList>
+            <li *ngFor="let item of showItems">
+              <app-maintain-tip [item]="item"></app-maintain-tip>
+              <div
+                *ngIf="
+                  !(
+                    tmpHover == GameTypeKey.Fishing ||
+                    tmpHover == GameTypeKey.Board
+                  );
+                  else showgame
+                "
+                (click)="clickGame(item)"
+                class="gamePhoto"
+                [style.background-image]="'url(' + item.headerImgUrl + ')'"
+              ></div>
+              <ng-template #showgame>
+                <div
+                  (click)="clickGame(item)"
+                  class="gamePhoto"
+                  [style.background-image]="'url(' + item.headerImgUrl + ')'"
+                ></div>
+              </ng-template>
+
+              <p>{{ item.name }}</p>
+            </li>
+          </ul>
+        </div>
+        <i (click)="partnerR()" *ngIf="showItems?.length > 6"></i>
+      </div>
+    </div>
+  </div>
+</header>

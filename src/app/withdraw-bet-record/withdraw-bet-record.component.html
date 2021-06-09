@@ -1,0 +1,53 @@
+<div class="panel">
+    <div class="header">
+        <p class="title">{{ 'MEMBER_WITHDRAW.record_title' | translate }}</p>
+        <button class="close-btn" (click)="close()"></button>
+    </div>
+    <div class="cnt">
+        <p class="no">{{ 'MEMBER_WITHDRAW.record_th.no' | translate }} {{ serial_num }}</p>
+        <table class="bet-record">
+            <thead>
+                <th>{{ 'MEMBER_WITHDRAW.record_th.no' | translate }}</th>
+                <th>{{ 'BET_LOG.PLATFORM' | translate }}</th>
+                <th>{{ 'MEMBER_REVIEW.MONEY' | translate }}</th>
+                <th>{{ 'MEMBER_RECORD.DATE' | translate }}</th>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="
+                        let item of records
+                            | paginate:pageConfig
+
+                    "
+                >
+                    <td>{{ item.mid }}</td>
+                    <td>{{ item.platform }}</td>
+                    <td class="money">{{ item.money }}</td>
+                    <td>{{ item.createdAt }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="sum-area">
+        <p>
+            <span>{{ 'MEMBER_WITHDRAW.record_sum' | translate }}</span>
+            <span class="val">{{ deductionBetAmount }}</span>
+        </p>
+        <p>
+            <span>{{ 'MEMBER_WITHDRAW.makeUpBetAmount' | translate }}</span>
+            <span class="val makeup">{{ makeUpBetAmount }}</span>
+        </p>
+    </div> -->
+    <div *ngIf="pageConfig.totalItems > 0" class="pagination-bar">
+
+      <pagination-controls
+          (pageChange)="pageChanged($event)"
+          class="pagination"
+          previousLabel="<"
+          nextLabel=">"
+          autoHide="true"
+          [id] = "pageConfig.id"
+      >
+      </pagination-controls>
+    </div>
+</div>

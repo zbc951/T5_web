@@ -1,0 +1,448 @@
+.main {
+  width: 1140px;
+  font-weight: bold;
+
+  & > .current {
+    // outline: 1px solid pink;
+    align-items: center;
+    padding: 0 0 0 43px;
+    position: relative;
+
+    .deposit {
+      margin: 0 10px 0 0;
+    }
+
+    .lv {
+      margin: 17px 0 10px;
+      text-align: left;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: #000000;
+    }
+
+    span {
+      margin: 0 30px 0 0;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #4d4d4d;
+    }
+  }
+}
+
+.medal {
+  background: url("~src/assets/img/lv/medal/m00.png") no-repeat center center;
+  background-size: contain;
+  background-size: 80px 116px;
+  width: 80px;
+  height: 116px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 31px 0 0;
+
+  &.lv-0 {
+    background-image: url("~src/assets/img/lv/medal/m00.png");
+  }
+
+  &.lv-1 {
+    background-image: url("~src/assets/img/lv/medal/m01.png");
+  }
+  &.lv-2 {
+    background-image: url("~src/assets/img/lv/medal/m02.png");
+  }
+  &.lv-3 {
+    background-image: url("~src/assets/img/lv/medal/m03.png");
+  }
+  &.lv-4 {
+    background-image: url("~src/assets/img/lv/medal/m04.png");
+  }
+  &.lv-5 {
+    background-image: url("~src/assets/img/lv/medal/m05.png");
+  }
+  &.lv-6 {
+    background-image: url("~src/assets/img/lv/medal/m06.png");
+  }
+  &.lv-7 {
+    background-image: url("~src/assets/img/lv/medal/m07.png");
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 92px;
+  }
+
+  p {
+    // width: 64px;
+    width: 76px;
+    font-size: 22px;
+    // margin-top: 54px;
+    text-align: center;
+  }
+}
+
+.graph {
+  padding: 21px 20px 0;
+
+  ul {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+  }
+
+  .text {
+    position: relative;
+    margin: 0 0 8px;
+
+    li {
+      flex-shrink: 0;
+      width: 14.28%;
+      color: #4d4d4d;
+      font-size: 14px;
+      // margin: 0 10px 0 0;
+
+      &:last-child {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+      }
+
+      &:nth-child(2) {
+        margin: 0 0 0 -18px;
+      }
+
+      &:first-child {
+        margin: 0 0 0 5px;
+      }
+    }
+  }
+
+  .bar {
+    height: 13px;
+    background: #f2f2f2;
+    border-radius: 6.5px;
+    overflow: hidden;
+
+    .bar-cnt {
+      width: 1%;
+      height: 100%;
+      border-radius: 6.5px;
+      @extend .g-23;
+    }
+  }
+}
+
+.chk-detail {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.next {
+  padding: 22px 0 20px 22px;
+
+  .next-level {
+    display: flex;
+    margin: 0 0 20px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #4d4d4d;
+
+    i {
+      display: block;
+      width: 20px;
+    }
+  }
+
+  .bar_row {
+    display: flex;
+    align-items: center;
+    margin: 0 0 13px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #4d4d4d;
+
+    .bar {
+      margin: 0 15px;
+    }
+  }
+}
+
+.chk {
+  margin: 0 14px 0 30px;
+  background: #fff;
+  border: 1px solid #cca172;
+  border-radius: 3px;
+  color: #cca172;
+}
+
+.enjoy {
+  // height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 22px 0;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+
+  .enjoy-title {
+    width: 100%;
+    margin: 0 0 31px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #272727;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 33.3%;
+      height: 70px;
+      margin: 0 0 18px;
+      border-right: 1px solid #e9e9e9;
+
+      &:nth-child(3n) {
+        border: none;
+      }
+
+      .text {
+        margin: 0 0 10px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        color: #4d4d4d;
+      }
+
+      .num {
+        font-size: 28px;
+        letter-spacing: 0px;
+        color: #008599;
+      }
+    }
+  }
+
+  .more {
+    width: 321px;
+    height: 41px;
+    margin: 40px auto 44px;
+  }
+}
+
+.detail {
+  padding: 23px 0 29px;
+
+  .arrow {
+    display: block;
+    width: 9px;
+    height: 18px;
+    margin: 0 13px 0 0;
+    background: url("~src/assets/img/arrow_b.svg") no-repeat;
+    cursor: pointer;
+  }
+
+  .detail-title {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0;
+    margin: 0 0 13px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #272727;
+  }
+
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0;
+
+    ul {
+      display: flex;
+      width: 1044px;
+      height: 152px;
+      transition: transform 500ms ease 0s;
+
+      li {
+        flex-shrink: 0;
+        margin: 0 9px 0 0;
+
+        .card-li {
+          width: 281px;
+          height: 152px;
+          padding: 0 10px 0 10px;
+          background: url("~src/assets/img/lv/bg/00.png") no-repeat center
+            center;
+          background-size: contain !important;
+
+          &.lv-1 {
+            background-image: url("~src/assets/img/lv/bg/01.png");
+          }
+          &.lv-2 {
+            background-image: url("~src/assets/img/lv/bg/02.png");
+          }
+          &.lv-3 {
+            background-image: url("~src/assets/img/lv/bg/03.png");
+          }
+          &.lv-4 {
+            background-image: url("~src/assets/img/lv/bg/04.png");
+          }
+          &.lv-5 {
+            background-image: url("~src/assets/img/lv/bg/05.png");
+          }
+          &.lv-6 {
+            background-image: url("~src/assets/img/lv/bg/06.png");
+          }
+          &.lv-7 {
+            background-image: url("~src/assets/img/lv/bg/07.png");
+          }
+
+          .medal {
+            width: 60px;
+            height: 87px;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+          }
+
+          .content {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin: 5px 0 0;
+
+            div {
+              width: 33%;
+            }
+
+            .text,
+            .num {
+              text-shadow: 1px 2px 3px #000;
+            }
+
+            .text {
+              margin: 0 0 8px;
+              text-align: center;
+              font-size: 12px;
+              letter-spacing: 0px;
+              color: #fff;
+            }
+
+            .num {
+              text-align: center;
+              font-size: 15px;
+              letter-spacing: 0px;
+              color: #fff;
+            }
+          }
+        }
+
+        .cur {
+          background: url("~src/assets/img/vip_card_a.png") no-repeat center
+            center;
+
+          .content {
+            .text {
+              color: #aed3ff;
+            }
+
+            .num {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .next_btn {
+      transform: rotate(180deg);
+    }
+  }
+
+  .condition-title {
+    margin: 41px 0 21px 22px;
+    font-size: 17px;
+  }
+}
+
+hr {
+  width: 100%;
+  margin: 28px 0 0;
+  border: 1px solid #e6e6e6;
+  border-width: 1px 0 0 0;
+}
+
+.lv-tables {
+  // outline: 1px solid pink;
+  padding: 0 15px;
+  margin: 40px 0;
+
+  table {
+    display: table;
+    table-layout: fixed;
+    font-size: 13px;
+
+    margin: 0 0 45px;
+  }
+
+  thead {
+    border-bottom: 2px solid #c29f64;
+    tr {
+      line-height: 1.8;
+    }
+  }
+
+  th {
+    padding: 10px 0;
+    border: none;
+  }
+
+  tr {
+    height: 50px;
+    line-height: 50px;
+    &:nth-child(2n) {
+      background-color: unset;
+    }
+
+    border-top: none;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  td {
+    padding: 0;
+    text-align: center;
+    border: none;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 25px;
+
+      position: absolute;
+      right: 0;
+      top: 15px;
+
+      background: #e6e6e6;
+    }
+  }
+
+  h2 {
+    color: #996c33;
+  }
+  ul {
+    list-style: none;
+    color: #6d6d6d;
+  }
+}

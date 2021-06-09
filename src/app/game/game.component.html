@@ -1,0 +1,64 @@
+<div class="game relative">
+  <div class="game_section">
+    <div
+      class="game_content"
+      *ngIf="
+        gameType.url !== AppRoutes.FISH &&
+        gameType.url !== AppRoutes.BOARD &&
+        gameType.url !== AppRoutes.PLATFORM
+      "
+    >
+      <img class="photo" src="{{ gameType.adPhoto }}" alt="" />
+      <div class="text_content">
+        <div class="title">
+          <p class="title_big">{{ gameType.title_big }}</p>
+          <p class="title_small">{{ gameType.title_small }}</p>
+        </div>
+        <p class="discription">
+          {{ gameType.discription }}
+        </p>
+
+        <div
+          class="btn_group"
+          *ngIf="
+            gameType.url !== AppRoutes.FISH &&
+            gameType.url !== AppRoutes.BOARD &&
+            gameType.url !== AppRoutes.PLATFORM
+          "
+        >
+          <div class="list-wrap">
+            <ul class="list">
+              <li
+                class="item"
+                *ngFor="let item of showItems"
+                (click)="click(item)"
+                (mouseover)="hover(item)"
+              >
+                <app-maintain-tip [item]="item"></app-maintain-tip>
+                <div
+                  class="img"
+                  [style.background-image]="'url(' + item.imageUrl + ')'"
+                ></div>
+                <p>{{ item.name }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- {{ gameType | json }} -->
+  <div
+    class="marquee-wrap"
+    [class.static]="
+      gameType.url == AppRoutes.FISH ||
+      gameType.url == AppRoutes.BOARD ||
+      gameType.url == AppRoutes.PLATFORM
+    "
+  >
+    <app-announcement></app-announcement>
+  </div>
+</div>
+<div class="center-wrap" *ngIf="gameType.url == AppRoutes.PLATFORM">
+  <app-game-list [showItems]="showItems"></app-game-list>
+</div>

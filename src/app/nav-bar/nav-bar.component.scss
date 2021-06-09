@@ -1,0 +1,28 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 122px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px #c0c0c0;
+  font-weight: bold;
+
+  li {
+    // outline: 1px solid pink;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(1400px / 4);
+    height: 100%;
+    border-right: 1px solid #ebebeb;
+    cursor: pointer;
+
+    img {
+      width: 46px;
+      height: 46px;
+      margin: 0 0 14px;
+    }
+  }
+}

@@ -1,0 +1,148 @@
+.home {
+  padding-top: 10px;
+}
+
+.marquee-wrap {
+  margin: 0 auto 16px;
+  overflow: hidden;
+  border-radius: 45px;
+  border: 1px solid #e5f4ff;
+  box-shadow: 0 0 13px 3px #ede4d6;
+}
+
+.list-wrap {
+  // overflow: auto;
+}
+
+.type_list {
+  // outline: 1px solid pink;
+  display: flex;
+  // width: 1400px;
+  width: 1430px;
+  flex-wrap: wrap;
+  // max-height: 668px;
+  margin-top: 60px;
+
+  li {
+    position: relative;
+    width: 339px;
+    height: 270px;
+    margin: 0 14px 60px 0;
+    border-radius: 8px;
+    // outline: 1px solid red;
+    order: 10;
+    // box-shadow: 2px 3px 4px 0px #8a8a8a;
+
+    &.sport {
+      order: 1;
+    }
+
+    &.live {
+      order: 2;
+      .homeImg {
+        background-position-x: -343px;
+      }
+    }
+
+    &.slot {
+      order: 3;
+      .homeImg {
+        background-position-x: -689px;
+      }
+    }
+
+    &.lottery {
+      order: 4;
+      margin-right: 0px;
+      .homeImg {
+        background-position-x: -1033px;
+      }
+    }
+
+    &.fishing {
+      // order: 5;
+      .homeImg {
+        background-position-x: -1377px;
+      }
+    }
+
+    &.board {
+      // order: 6;
+      .homeImg {
+        background-position-x: -1720px;
+      }
+    }
+
+    // &:nth-child(3n) {
+    //   // margin: 0 0 34px 0;
+    // }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    p {
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      color: #9d6b30;
+    }
+
+    .homeImg {
+      width: 344px;
+      height: 324px;
+      background: url("~src/assets/img/new/homeImg.png") no-repeat;
+      background-size: 800%;
+      position: absolute;
+      left: -2px;
+      bottom: 0px;
+      pointer-events: none;
+    }
+  }
+}
+
+// .partnerImg {
+//   width: 100%;
+//   height: 55px;
+
+//   margin: 30px 0;
+//   position: relative;
+
+//   border: solid 1px #957222;
+//   border-radius: 30px;
+//   background: linear-gradient(to top, #d7d7d7 0%, #ffffff 76%);
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     width: 12px;
+//     height: 12px;
+//     top: 50%;
+//     left: 2%;
+//     transform: translateY(-50%);
+//     border: solid 1px #9f9f9e;
+//     background: linear-gradient(to top, #d7d7d7 0%, #ffffff 100%);
+//     border-radius: 10px;
+//   }
+
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     width: 12px;
+//     height: 12px;
+//     top: 50%;
+//     right: 2%;
+//     transform: translateY(-50%);
+//     border: solid 1px #9f9f9e;
+//     background: linear-gradient(to top, #d7d7d7 0%, #ffffff 100%);
+//     border-radius: 10px;
+//   }
+
+//   div {
+//     width: 1272px;
+//     height: 39px;
+//     background: url("~src/assets/img/new/partnerImg.png") no-repeat;
+//     margin: 9px auto 0px;
+//   }
+// }

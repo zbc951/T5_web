@@ -1,0 +1,18 @@
+<ul class="nav-bar center-wrap g-4">
+  <li (click)="goSubPage(AppRoutes.HELP, 'teach2')">
+    <img src="assets/img/deposit_t.svg" alt="" />
+    {{ "MEMBER_NAV.deposit_teach" | translate }}
+  </li>
+  <li (click)="goSubPage(AppRoutes.HELP, 'teach3')">
+    <img src="assets/img/withdrawal_t.svg" alt="" />
+    {{ "MEMBER_NAV.withdraw_teach" | translate }}
+  </li>
+  <li (click)="goSubPage(AppRoutes.HELP, 'teach5')">
+    <img src="assets/img/wallet_t.svg" alt="" />
+    {{ "MEMBER_NAV.wallet_teach" | translate }}
+  </li>
+  <li (click)="publicService.goVip()">
+    <img src="assets/img/vip.svg" alt="" />
+    {{ "MEMBER_NAV.VIP" | translate }}
+  </li>
+</ul>

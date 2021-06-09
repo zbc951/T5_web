@@ -1,0 +1,115 @@
+.platform-wallet {
+  // height: 231px;
+  padding: 21px 23px 0;
+
+  .platform-title {
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #272727;
+    margin: 0 0 20px;
+  }
+
+  .trans-wallet-no-open {
+    height: 97px;
+    overflow: hidden;
+  }
+
+  .mine-wallet-no-open {
+    min-height: 398px;
+    // max-height: 391px;
+    overflow: hidden;
+    align-content: flex-start;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    li {
+      flex-shrink: 0;
+      width: 196px;
+      height: 97px;
+      padding: 18px;
+      margin: 0 16px 16px 0;
+      border: 1px solid #e6e6e6;
+      border-radius: 5px;
+
+      &:nth-child(4n) {
+        margin: 0 0 16px 0;
+      }
+
+      .name {
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        margin: 0 0 5px;
+        font-size: 16px;
+        color: #4d4d4d;
+      }
+
+      button {
+        width: 71px;
+        height: 23px;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      .amount {
+        font-size: 25px;
+        color: #000000;
+        word-break: break-all;
+      }
+    }
+
+    .mine-li {
+      width: 158px;
+      // height: 91px;
+      height: auto;
+      margin: 0 9px 9px 0;
+
+      &:nth-child(4n) {
+        margin: 0 9px 9px 0;
+      }
+
+      &:nth-child(5n) {
+        margin: 0 0 9px 0;
+      }
+    }
+  }
+}
+
+.platform-no-open {
+  padding: 21px 23px 35px;
+}
+
+.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 23px 0 35px;
+
+  i {
+    width: 14px;
+    height: 14px;
+    margin: 0 0 0 10px;
+    transition: 200ms;
+    background: url("~src/assets/img/unfold.svg") no-repeat center center;
+  }
+
+  .no-open {
+    transform: rotate(180deg);
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+}
+
+.no-data {
+  text-align: center;
+  line-height: 307px;
+}

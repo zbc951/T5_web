@@ -1,0 +1,154 @@
+.detail-title {
+  padding: 22px 40px 18px 40px;
+
+  & > p {
+    font-size: 34px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  & > button {
+    width: 135px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #c69c6d;
+    margin-top: 17px;
+
+    i {
+      width: 17px;
+      height: 16px;
+      background: url("~src/assets/img/quest/return.svg") no-repeat center center;
+      margin-right: 10px;
+    }
+  }
+}
+
+.detail-cover {
+  // width: 719px;
+  // height: 296px;
+  // width: 100%;
+  // height: 423px;
+
+  margin: 0 auto;
+
+  & > img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.detail-date {
+  margin: 0 40px 0 40px;
+  padding: 28px 0 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e6e6e6;
+
+  & > span {
+    width: 100%;
+  }
+
+  span:first-child {
+    font-size: 26px;
+    font-weight: bold;
+    color: #4d4d4d;
+    margin-bottom: 28px;
+  }
+
+  span:last-child {
+    font-size: 20px;
+    color: #4d4d4d;
+  }
+}
+
+.detail-info {
+  padding: 25px 40px 25px 40px;
+
+  & > p:first-child {
+    font-size: 26px;
+    font-weight: bold;
+    color: #4d4d4d;
+    margin-bottom: 30px;
+  }
+
+  .ql-align-center {
+    text-align: center;
+  }
+  .ql-align-right {
+    text-align: right;
+  }
+
+  .ql-align-justify {
+    text-align: justify;
+  }
+
+  blockquote {
+    border-left: 4px solid #ccc;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 16px;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+  }
+
+  h5 {
+    font-size: 0.83em;
+    font-weight: bold;
+  }
+
+  h6 {
+    font-size: 0.67em;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  a {
+    color: #06c;
+    text-decoration: underline;
+  }
+}
+
+.detail-footer {
+  height: 130px;
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 266px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

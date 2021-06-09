@@ -1,0 +1,41 @@
+<div class="popup-bulletin flex" (click)="close()">
+  <div class="bulletin_panel" (click)="$event.cancelBubble = true">
+    <div class="header">
+      <i (click)="close()"></i>
+      <h1 class="g-21">{{ "NAV.ANNOUNCE" | translate }}</h1>
+    </div>
+
+    <ul class="nav flex">
+      <li
+        [class.active]="navType == MarqueeType.Hot"
+        (click)="selectNavtype(MarqueeType.Hot)"
+      >
+        {{ "BULLETIN.HOT" | translate }}
+      </li>
+      <li
+        [class.active]="navType == MarqueeType.Normal"
+        (click)="selectNavtype(MarqueeType.Normal)"
+      >
+        {{ "BULLETIN.NORMAL" | translate }}
+      </li>
+      <li
+        *ngIf="isLogin"
+        [class.active]="navType == MarqueeType.deposit"
+        (click)="selectNavtype(MarqueeType.deposit)"
+      >
+        {{ "BULLETIN.DEPOSIT" | translate }}
+      </li>
+    </ul>
+    <ul class="cnt">
+      <li *ngFor="let item of newsList | bulletin: navType; let i = index">
+        <div class="flex">
+          <p class="txt" [class.open]="item.open == true">{{ item.content }}</p>
+          <p class="date">
+            {{ item.startTime | date: "yyyy/MM/dd" }}
+            <span>{{ item.startTime | date: "HH:mm:ss" }}</span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

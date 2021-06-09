@@ -1,0 +1,93 @@
+<div class="common-alert" *ngFor="let item of alertMessages">
+  <div
+    class="panel"
+    [class.policy]="
+      item.type == ToastType.Policy || item.type == ToastType.QuestDetail
+    "
+  >
+    <div class="header">
+      {{
+        item.type == ToastType.QuestDetail
+          ? ("MEMBER_QUEST.detailTitle" | translate)
+          : ("TIPS" | translate)
+      }}
+    </div>
+
+    <ng-container [ngSwitch]="item.type">
+      <ng-container *ngSwitchCase="ToastType.Policy">
+        <div class="cnt">
+          <div class="policy-block" [innerHTML]="item.message"></div>
+        </div>
+        <div class="btm">
+          <button (click)="removeAlert(item)">
+            {{ "RULE.agree" | translate }}
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="ToastType.ForceAlert">
+        <div class="cnt">
+          <div class="policy-block" [innerHTML]="item.message"></div>
+        </div>
+        <div class="btm">
+          <button (click)="removeAlert(item)">
+            {{ "RULE.agree" | translate }}
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="ToastType.Confirm">
+        <div class="cnt">
+          <div class="policy-block" [innerHTML]="item.message"></div>
+        </div>
+        <div class="btm with-cancel">
+          <button (click)="removeAlert(item)">
+            {{ "RULE.agree" | translate }}
+          </button>
+          <button class="cancel" (click)="cancel(item)">
+            {{ "REVIEW_STATUS.CANCEL" | translate }}
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="ToastType.Activity_buy">
+        <div class="cnt act-cnt">
+          <p>{{ item.message }}</p>
+          <input
+            type="number"
+            #input
+            [min]="percentMinPrice"
+            [(ngModel)]="actPrice"
+          />
+        </div>
+        <div class="btm with-cancel">
+          <button
+            (click)="removeAlert(item)"
+            [disabled]="input.value < percentMinPrice"
+          >
+            {{ "QUEST_CENTER.BTN-BUY" | translate }}
+          </button>
+          <button class="cancel" (click)="cancel(item)">
+            {{ "REVIEW_STATUS.CANCEL" | translate }}
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="ToastType.QuestDetail">
+        <div class="cnt">
+          <div class="quest-detail-cnt" [innerHTML]="item.message"></div>
+        </div>
+        <div class="btm">
+          <button (click)="removeAlert(item)">
+            {{ "MEMBER_INFO.CONFIRM" | translate }}
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <div class="cnt">{{ item.message }}</div>
+        <div class="btm">
+          <button (click)="removeAlert(item)">
+            {{ "MEMBER_INFO.CONFIRM" | translate }}
+          </button>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

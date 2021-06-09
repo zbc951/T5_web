@@ -1,0 +1,9 @@
+<div class="announcement_page flex">
+  <span>{{ "announcement.newest" | translate }}</span>
+  <div class="marquee" (mouseover)="pause()" (mouseleave)="play()">
+    <pre
+      #marquee
+      (animationiteration)="next()"
+    ><p class="clickable" (click)="go()">{{ showCnt?.content }}</p></pre>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="confirm-style">
+  <div class="c-panel">
+    <div class="header">
+      <i class="close-btn clickable" (click)="close()"></i>{{ "TIPS" | translate }}
+    </div>
+    <form [formGroup]="form" (ngSubmit)="changePwd(form)">
+      <div class="cnt">
+        <ul>
+          <li class="input-wrap">
+            <input
+              type="password"
+              placeholder="{{ 'MEMBER_INFO.OLD_PWD' | translate }}"
+              formControlName="oldPassword"
+            />
+            <p class="err" *ngIf="pwdvalidErrors.oldPassword">
+              {{ pwdvalidErrors.oldPassword }}
+            </p>
+          </li>
+          <li>
+            <input
+              type="password"
+              placeholder="{{ 'MEMBER_INFO.NEW_PWD' | translate }}"
+              formControlName="newPassword"
+            />
+            <p class="err" *ngIf="pwdvalidErrors.newPassword">
+              {{ pwdvalidErrors.newPassword }}
+            </p>
+          </li>
+          <li>
+            <input
+              type="password"
+              placeholder="{{ 'MEMBER_INFO.CONFIRM_PWD' | translate }}"
+              formControlName="confirmPassword"
+            />
+            <p class="err" *ngIf="pwdvalidErrors.confirmPassword">
+              {{ pwdvalidErrors.confirmPassword }}
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="btn">
+        <button>
+          {{ "MEMBER_INFO.CONFIRM" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

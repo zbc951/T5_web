@@ -1,0 +1,161 @@
+<div class="main panel-style" *ngIf="type === StatusType.CURRENT">
+  <div class="current flex">
+    <div class="medal" [ngClass]="'lv-' + mineIdx"></div>
+    <div>
+      <p class="lv">{{ "VIP.current_lv" | translate }} : {{ mine?.name }}</p>
+      <p>
+        <span class="deposit"
+          >{{ "VIP.deposit1" | translate }} : ${{ mine2?.total_deposit }}</span
+        >&#9;
+        <span>{{ "VIP.amount" | translate }} : ${{ mine2?.total_bet }}</span>
+      </p>
+    </div>
+  </div>
+  <div class="graph">
+    <ul class="text">
+      <li *ngFor="let lv of rankList | slice: 0:8; let i = index">
+        {{ "VIP.DETAIL.LEVEL." + i | translate }}
+      </li>
+      <!-- <li>{{ "VIP.DETAIL.LEVEL.0" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.1" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.2" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.3" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.4" | translate }}</li>
+      <li>{{ "VIP.DETAIL.LEVEL.5" | translate }}</li> -->
+    </ul>
+    <div class="bar">
+      <div class="bar-cnt" [style.width.%]="barPercent"></div>
+    </div>
+  </div>
+  <div class="next">
+    <p class="next-level">
+      {{ "VIP.next" | translate }}:<i></i>{{ next?.name }}
+    </p>
+    <div class="bar_row">
+      {{ "VIP.deposit1" | translate }}
+      <app-experience-bar
+        [goal]="mine.upgradeByDeposit"
+        [cur]="mine2.total_deposit"
+        [width]="400"
+        [height]="8"
+      >
+      </app-experience-bar>
+      <p>
+        <!-- {{ mine?.upgradeByDeposit }}
+        {{ mine2?.total_deposit }} -->
+        <span *ngIf="mine?.upgradeByDeposit > mine2?.total_deposit; else done"
+          >{{ "VIP.need_deposit_about" | translate }} ${{
+            mine?.upgradeByDeposit - mine2?.total_deposit
+          }}</span
+        >
+        <ng-template #done>{{ "VIP.done" | translate }}</ng-template>
+      </p>
+    </div>
+    <div class="bar_row">
+      {{ "VIP.amount" | translate }}
+      <app-experience-bar
+        [goal]="mine.upgradeByTotalBetAmount"
+        [cur]="mine2.total_bet"
+        [width]="400"
+        [height]="8"
+      >
+      </app-experience-bar>
+      <p>
+        <!-- {{ mine?.upgradeByTotalBetAmount }}
+        {{ mine2?.total_bet }} -->
+        <span
+          *ngIf="mine?.upgradeByTotalBetAmount > mine2?.total_bet; else done"
+          >{{ "VIP.need_amount_about" | translate }} ${{
+            mine?.upgradeByTotalBetAmount - mine2?.total_bet
+          }}</span
+        >
+        <ng-template #done>{{ "VIP.done" | translate }}</ng-template>
+      </p>
+    </div>
+  </div>
+  <div class="enjoy">
+    <div class="enjoy-title">
+      {{ mine?.name }} {{ "VIP.enjoy" | translate }}
+    </div>
+    <ul>
+      <li>
+        <p class="text">{{ "VIP.enjoy-content.hight-deposit" | translate }}</p>
+        <p class="num">
+          {{
+            mine?.depositPerMax * mine?.depositDayTimes == 0
+              ? ("MEMBER_WITHDRAW.NO_LIMIT" | translate)
+              : (mine?.depositPerMax * mine?.depositDayTimes | floatDisplay)
+          }}
+        </p>
+      </li>
+      <li>
+        <p class="text">{{ "VIP.enjoy-content.hight-withdraw" | translate }}</p>
+        <p class="num">
+          {{
+            mine?.withdrawPerMax * mine?.withdrawDayTimes == 0
+              ? ("MEMBER_WITHDRAW.NO_LIMIT" | translate)
+              : (mine?.withdrawPerMax * mine?.withdrawDayTimes | floatDisplay)
+          }}
+        </p>
+      </li>
+      <!-- fee -->
+      <li>
+        <p class="text">
+          {{ "VIP.fee." + mine?.withdrawFeePeriod | translate
+          }}{{ "VIP.fee.free" | translate }}
+        </p>
+        <p class="num">
+          {{
+            mine?.withdrawFreeTimes == 0
+              ? ("MEMBER_WITHDRAW.NO_LIMIT" | translate)
+              : (mine?.withdrawFreeTimes | floatDisplay)
+          }}
+        </p>
+      </li>
+    </ul>
+    <button class="chk more" (click)="type = StatusType.DETAIL">
+      {{ "VIP.more" | translate }}
+    </button>
+  </div>
+</div>
+<div class="main panel-style detail" *ngIf="type === StatusType.DETAIL">
+  <div class="detail-title">
+    <i class="arrow" (click)="type = StatusType.CURRENT"></i>
+    {{ "VIP.DETAIL.TITLE" | translate }}
+  </div>
+  <div class="cards">
+    <i class="arrow" (click)="partnerL()"></i>
+    <div style="overflow: hidden">
+      <ul #partnersList>
+        <li *ngFor="let item of rankList | slice: 0:8; let i = index">
+          <div class="card-li" [ngClass]="'lv-' + i">
+            <div class="medal" [ngClass]="'lv-' + i"></div>
+            <div class="content">
+              <div>
+                <p class="text">{{ "VIP.upgradeByDeposit" | translate }}</p>
+                <p class="num">{{ item.upgradeByDeposit | floatDisplay }}</p>
+              </div>
+              <!-- <div>
+                <p class="text">{{ "VIP.upgradeByWithdraw" | translate }}</p>
+                <p class="num">{{ item.upgradeByWithdraw | floatDisplay }}</p>
+              </div> -->
+              <div>
+                <p class="text">
+                  {{ "VIP.upgradeByTotalBetAmount" | translate }}
+                </p>
+                <p class="num">
+                  {{ item.upgradeByTotalBetAmount | floatDisplay }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <i class="arrow next_btn" (click)="partnerR()"></i>
+  </div>
+
+  <div class="lv-tables">
+    <markdown [url]="mdFileUrl"></markdown>
+  </div>
+</div>

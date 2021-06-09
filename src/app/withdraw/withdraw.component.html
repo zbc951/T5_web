@@ -1,0 +1,170 @@
+<div class="withdraw">
+  <div class="withdraw-center">
+    <div class="top panel-style">
+      <div class="title">
+        <div class="text">{{ "WITHDRAW.TITLE" | translate }}</div>
+      </div>
+      <hr />
+      <div class="wallet">
+        <div class="center-wallet">
+          <div class="center-title">
+            <p>
+              {{ "WITHDRAW.AMOUNT.CENTER" | translate }}
+              <i (click)="refreshAll()"></i>
+            </p>
+            <!-- <button class="orange_btn">{{ "TRANSFER.RECEIVE" | translate }}</button> -->
+          </div>
+          <div class="amount">${{ user.money | floatDisplay }}</div>
+        </div>
+        <div class="line"></div>
+        <div class="coupon-wallet-all">
+          <div class="center-title restrict">
+            <p>
+              {{ "MY-WALLET.ABLE.LOCK" | translate }}
+            </p>
+            <button class="orange_btn" (click)="goAmountRecord()">
+              {{ "MEMBER_WITHDRAW.record" | translate }}
+            </button>
+          </div>
+          <div class="amount">${{ user.wallet?.locked_amount }}</div>
+        </div>
+        <div class="line"></div>
+        <div class="coupon-wallet-all">
+          <div class="center-title unlock">
+            <p>
+              {{ "WITHDRAW.AMOUNT.UNLOCK" | translate }}
+            </p>
+          </div>
+          <div class="amount">${{ ableMoney }}</div>
+        </div>
+      </div>
+      <hr />
+      <app-platform-wallet [type]="type"></app-platform-wallet>
+    </div>
+    <div class="bottom panel-style">
+      <p class="title">{{ "WITHDRAW.APPLY" | translate }}</p>
+      <ul>
+        <li>
+          <p class="text">{{ "WITHDRAW.TIMES.TITLE" | translate }}</p>
+          <p class="num">
+            <span *ngIf="limit.withdrawDayTimes != 0; else daytimesNoLimit">
+              {{ limit.withdrawDayTimes - limit.withdrawNowTimes + 1 }}
+            </span>
+            <ng-template #daytimesNoLimit>
+              <span>{{ "MEMBER_WITHDRAW.NO_LIMIT" | translate }}</span>
+            </ng-template>
+          </p>
+          <p class="notice">{{ "WITHDRAW.TIMES.NOTICE" | translate }}</p>
+        </li>
+        <li>
+          <p class="text">{{ "WITHDRAW.MONEY-TOTAL.TITLE" | translate }}</p>
+          <p class="num">
+            <span *ngIf="limit.withdrawDayTimes != 0; else amountLiimit">
+              {{ limit.withdrawMaxPer * limit.withdrawDayTimes }}
+            </span>
+            <ng-template #amountLiimit>
+              <span>
+                {{ "MEMBER_WITHDRAW.NO_LIMIT" | translate }}
+              </span>
+            </ng-template>
+          </p>
+          <p class="notice">{{ "WITHDRAW.MONEY-TOTAL.NOTICE" | translate }}</p>
+        </li>
+        <li>
+          <p class="text">{{ "WITHDRAW.MONEY-SINGLE.TITLE" | translate }}</p>
+          <p class="num">
+            {{
+              limit.withdrawMaxPer == 0
+                ? ("MEMBER_WITHDRAW.NO_LIMIT" | translate)
+                : limit.withdrawMaxPer
+            }}
+          </p>
+          <p class="notice">{{ "WITHDRAW.MONEY-SINGLE.NOTICE" | translate }}</p>
+        </li>
+        <!-- fee -->
+        <li>
+          <p class="text">
+            {{ "VIP.fee." + mylv?.withdrawFeePeriod | translate
+            }}{{ "VIP.fee.free" | translate }}
+          </p>
+          <p class="num">
+            {{
+              mylv?.withdrawFreeTimes == 0
+                ? ("MEMBER_WITHDRAW.NO_LIMIT" | translate)
+                : (mylv?.withdrawFreeTimes | floatDisplay)
+            }}
+          </p>
+          <p class="notice">&nbsp;</p>
+        </li>
+      </ul>
+
+      <!-- <form [formGroup]="form" (ngSubmit)="withdraw(form)"> -->
+      <form [formGroup]="form" appThrottleBtn (action)="withdraw(form)">
+        <div class="row">
+          <p>
+            <i>※</i>
+            {{ "DEPOSIT.BOTTOM.BANK" | translate }}
+          </p>
+          <div>
+            <select formControlName="memberBankId">
+              <option value="0" disabled selected>
+                {{ "PLEASE-CHOSE" | translate }}
+              </option>
+              <option value="{{ item.id }}" *ngFor="let item of banks">
+                {{ item.bankName }}
+              </option>
+            </select>
+            <div class="notice">
+              <!-- {{ "DEPOSIT.BOTTOM.TAIL" | translate }}: {{ bank.account }} -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <p>
+            <i>※</i>
+            {{ "MEMBER_WITHDRAW.MONEY" | translate }}
+          </p>
+          <div>
+            <input type="number" formControlName="money" appNumberOnly />
+            <div class="notice">
+              {{ "WITHDRAW.NOTICE" | translate }}
+            </div>
+            <p class="notice">
+              {{ "MEMBER_WITHDRAW.MONEY_PS1" | translate
+              }}{{ limit.withdrawMinPer | number: "1.0-2" }} -
+              {{
+                limit.withdrawMaxPer == 0
+                  ? ("MEMBER_WITHDRAW.NO_LIMIT" | translate)
+                  : "$" + (limit.withdrawMaxPer | number: "1.0-2")
+              }}
+            </p>
+          </div>
+        </div>
+        <button
+          class="orange_btn"
+          [disabled]="
+            !ctrlBankid.value || form.invalid || lastWithdraw || locked
+          "
+          [class.review]="lastWithdraw"
+        >
+          <span *ngIf="!lastWithdraw; else review">{{
+            "DEPOSIT.BOTTOM.ATM-TRANS.SUBMIT" | translate
+          }}</span>
+          <ng-template #review>
+            <span>{{ "MEMBER_WITHDRAW.APPLYING" | translate }}</span>
+          </ng-template>
+        </button>
+      </form>
+      <div class="discription">
+        <div class="dis-title">
+          {{ "DEPOSIT.BOTTOM.BANK-TRANS.DISCRIPTION.TITLE" | translate }}
+        </div>
+        <!-- <div >{{"DEPOSIT.BOTTOM.DISCRIPTION.1" | translate}}</div> -->
+        <div [innerHTML]="'WITHDRAW.DISCRIPTION.1' | translate"></div>
+        <div [innerHTML]="'WITHDRAW.DISCRIPTION.2' | translate"></div>
+        <p>{{ "WITHDRAW.DISCRIPTION.PS" | translate }}</p>
+      </div>
+    </div>
+  </div>
+  <app-small-record [type]="type"></app-small-record>
+</div>

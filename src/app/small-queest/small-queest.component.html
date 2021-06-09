@@ -1,0 +1,29 @@
+<div class="panel-style small-board">
+  <div class="title">
+    {{ "NAV.COUPON" | translate }}
+    <p class="more clickable" routerLink="/{{ AppRoutes.OLD_QUEST_CENTER }}">
+      {{ "SMALLBOARD.MORE" | translate }}
+      <i></i>
+    </p>
+  </div>
+  <ul>
+    <p class="no-data" *ngIf="!questList; else gotdata">
+      {{ "NO_DATA" | translate }}
+    </p>
+    <ng-template #gotdata>
+      <li
+        *ngFor="let item of questList"
+        [style.background]="'url(' + item.image_url + ') center no-repeat'"
+        class="clickable"
+        routerLink="/{{ AppRoutes.OLD_QUEST_CENTER }}"
+      >
+        <img
+          [src]="item.image_url"
+          (error)="item.imgError = true"
+          style="display: none"
+        />
+        <p *ngIf="!item.image_url || item.imgError">{{ item.quest_name }}</p>
+      </li>
+    </ng-template>
+  </ul>
+</div>

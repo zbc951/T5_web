@@ -1,0 +1,43 @@
+<app-ad></app-ad>
+<div class="home">
+  <div class="center-wrap">
+    <div class="marquee-wrap">
+      <app-announcement></app-announcement>
+    </div>
+    <div class="list-wrap">
+      <ul class="type_list">
+        <li
+          *ngFor="let item of platforms"
+          class="clickable"
+          (click)="goGamepage(item)"
+        >
+          <img [src]="item.indexImgUrl" [alt]="item.name" />
+          <p>{{ item.name }}</p>
+        </li>
+
+        <!-- fish -->
+        <li
+          [class]="GameTypeKey.Fishing"
+          class="clickable"
+          routerLink="/{{ AppRoutes.FISH }}"
+        >
+          <img src="assets/img/types/fish.png" [alt]="GameTypeKey.Fishing" />
+          <p>{{ "GAMETYPE.FISH" | translate }}</p>
+        </li>
+
+        <!-- board -->
+        <!-- <li
+          [class]="GameTypeKey.Board"
+          class="clickable"
+          routerLink="/{{ AppRoutes.BOARD }}"
+        >
+          <img src="assets/img/types/board.png" [alt]="GameTypeKey.Board" />
+          <p>{{ "GAMETYPE.CASUAL" | translate }}</p>
+        </li> -->
+      </ul>
+    </div>
+    <!-- <div class="partnerImg">
+      <div></div>
+    </div> -->
+  </div>
+</div>

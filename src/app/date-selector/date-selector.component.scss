@@ -1,0 +1,17 @@
+.btn-group {
+  display: flex;
+
+  button {
+    font-size: 15px;
+    width: 72px;
+    height: 43px;
+    margin: 0 8px 0 0;
+  }
+
+  .active {
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background: #c29f64;
+  }
+}

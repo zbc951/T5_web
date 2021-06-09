@@ -1,0 +1,15 @@
+<p
+  class="app clickable g-20"
+  routerLink="/{{ AppRoutes.HELP }}"
+  [queryParams]="{ type: 'download', file: 'allbet' }"
+>
+  <span></span>
+  {{ "CUSTOMER_SERVICE.DOWNLOAD_1" | translate }}
+</p>
+<ul class="bar g-20">
+  <ng-template ngFor let-item [ngForOf]="communitys" let-i="index">
+    <li *ngIf="item.show" (click)="click(item.name)">
+      <img class="clickable" src="{{ item.icon }}" />
+    </li>
+  </ng-template>
+</ul>

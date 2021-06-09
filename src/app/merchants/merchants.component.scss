@@ -1,0 +1,372 @@
+.main {
+  display: flex;
+  justify-content: center;
+  @extend .center-wrap;
+  padding-top: 85px;
+  padding-bottom: 135px;
+
+  .bg {
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    background: url("~src/assets/img/merchants/join_bg.png") center center
+      fixed no-repeat;
+    background-size: cover;
+  }
+
+  .goldBorder {
+    border: solid #9ca4e5 1px;
+    border-radius: 5px;
+  }
+
+  .goldBorder2 {
+    @extend .g-7;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  h1,
+  h2 {
+    font-size: 83px;
+    color: #008599;
+    font-weight: 900;
+  }
+
+  .ml {
+    width: 550px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .link_div {
+      width: 440px;
+      text-align: center;
+
+      h2 {
+        font-size: 37px;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        li {
+          width: 134px;
+          height: 134px;
+          color: #008dff;
+
+          span {
+            display: block;
+            padding-top: 100px;
+          }
+
+          a {
+            color: #000;
+            display: block;
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            @extend .g-5;
+          }
+        }
+
+        li:nth-child(1) {
+          background: url("~src/assets/img/merchants/accurate.svg") no-repeat;
+          background-size: 61px 61px;
+          background-position: center 40%;
+        }
+
+        li:nth-child(2) {
+          background: url("~src/assets/img/merchants/quality.svg") no-repeat;
+          background-size: 40px 60px;
+          background-position: center 40%;
+        }
+
+        li:nth-child(3) {
+          background: url("~src/assets/img/merchants/commission.svg")
+            no-repeat;
+          background-size: 62px 60px;
+          background-position: center 40%;
+        }
+
+        li:nth-child(4) {
+          @extend .goldBorder;
+          position: relative;
+          margin-top: 36px;
+
+          div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            background: url("~src/assets/img/merchants/24hr.svg") no-repeat;
+            background-size: 50px 46px;
+            background-position: center 40%;
+          }
+        }
+
+        li:nth-child(5) {
+          @extend .goldBorder;
+          position: relative;
+          margin-top: 36px;
+
+          div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            background: url("~src/assets/img/merchants/line.svg") no-repeat;
+            background-size: 50px 50px;
+            background-position: center 40%;
+          }
+        }
+
+        li:nth-child(6) {
+          @extend .goldBorder;
+          position: relative;
+          margin-top: 36px;
+
+          div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 5px;
+            top: 0px;
+            background: url("~src/assets/img/merchants/wechat.svg") no-repeat;
+            background-size: 52px 45px;
+            background-position: center 40%;
+          }
+        }
+      }
+
+      .join {
+        display: block;
+        width: 300px;
+        height: 61px;
+        line-height: 61px;
+        color: #fff;
+        font-size: 18px;
+        // background-color: #db1515;
+        @extend .g-20;
+        border-radius: 5px;
+        margin: 50px auto;
+
+        &:active {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .mobileImg {
+      margin-top: 132px;
+    }
+
+    .money {
+      text-align: center;
+      margin-top: 134px;
+
+      p {
+        color: #333;
+        font-size: 24px;
+        line-height: 44px;
+      }
+
+      .m2 {
+        margin-top: 63px;
+        background-color: #fff;
+        padding: 25px 28px;
+        text-align: left;
+        border-radius: 5px;
+
+        p {
+          font-size: 22px;
+
+          &:first-child {
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .mr {
+    width: 770px;
+
+    .img01 {
+      width: 761px;
+      height: 573px;
+      margin-bottom: 198px;
+    }
+
+    .app {
+      text-align: center;
+
+      h1 {
+        margin-bottom: 43px;
+      }
+
+      .app_li {
+        margin-top: 62px;
+
+        ul {
+          display: flex;
+          justify-content: space-between;
+
+          li {
+            width: 166px;
+            height: 166px;
+            color: #008dff;
+            font-size: 20px;
+
+            span {
+              display: block;
+              padding-top: 130px;
+            }
+          }
+
+          li:nth-child(1) {
+            background: url("~src/assets/img/merchants/abundant.svg")
+              no-repeat;
+            background-size: 93px 92px;
+            background-position: center 40%;
+          }
+
+          li:nth-child(2) {
+            background: url("~src/assets/img/merchants/stable.svg") no-repeat;
+            background-size: 93px 78px;
+            background-position: center 40%;
+          }
+
+          li:nth-child(3) {
+            background: url("~src/assets/img/merchants/secret.svg") no-repeat;
+            background-size: 92px 92px;
+            background-position: center 40%;
+          }
+
+          li:nth-child(4) {
+            background: url("~src/assets/img/merchants/safety.svg") no-repeat;
+            background-size: 92px 92px;
+            background-position: center 40%;
+          }
+        }
+      }
+
+      .p2 {
+        font-size: 22px;
+        padding: 83px 36px;
+        text-align: left;
+        line-height: 39px;
+      }
+    }
+
+    .data {
+      margin-top: 191px;
+      float: right;
+
+      .dataUl {
+        height: 446px;
+        width: 740px;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+
+      .dataUl li {
+        height: 208px;
+        position: relative;
+        color: #fff;
+        font-size: 23px;
+
+        .data_ul {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          height: 141px;
+        }
+
+        .data_ul li {
+          &:nth-child(1),
+          &:nth-child(2) {
+            padding-top: 5px;
+            height: 47px;
+          }
+
+          &:nth-child(3),
+          &:nth-child(4) {
+            height: 94px;
+            font-size: 78px;
+            line-height: 78px;
+          }
+
+          &:nth-child(1),
+          &:nth-child(3) {
+            width: 40%;
+            padding-left: 31px;
+          }
+
+          &:nth-child(2),
+          &:nth-child(4) {
+            width: 60%;
+          }
+        }
+
+        &:nth-child(1) .goldBorder2 div {
+          @extend .g-8;
+        }
+
+        &:nth-child(2) .goldBorder2 div {
+          @extend .g-9;
+        }
+
+        &:nth-child(3) .goldBorder2 div {
+          @extend .g-10;
+        }
+
+        &:nth-child(4) .goldBorder2 div {
+          @extend .g-11;
+        }
+
+        .opacity {
+          opacity: 0.6;
+          background-color: #333;
+        }
+
+        .opacity_text,
+        .opacity {
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          bottom: 5.5px;
+          left: 5.5px;
+          width: 341px;
+          height: 56px;
+          line-height: 56px;
+          padding: 0px 20px;
+        }
+      }
+
+      .goldBorder2 {
+        width: 353px;
+        height: 208px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+
+        div {
+          width: 341px;
+          height: 197px;
+        }
+      }
+    }
+  }
+}

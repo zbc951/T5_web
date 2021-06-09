@@ -1,0 +1,31 @@
+<div class="main">
+  <p class="title">
+    <button routerLink="/{{ AppRoutes.LETTER }}">
+      <i></i>
+      {{ "LETTER.TITLE" | translate }}
+    </button>
+  </p>
+  <div class="msg_title">
+    <span>{{ data?.title }}</span>
+    <button class="del-btn" *ngIf="type == tabs.msg" (click)="removeMessage()">
+      {{ "LETTER.DEL" | translate }}
+    </button>
+    <ng-container>
+      <button
+        *ngIf="detail?.next"
+        class="prev"
+        (click)="changePage(pageBtns.next)"
+      ></button>
+      <button
+        *ngIf="detail?.prev"
+        class="next"
+        (click)="changePage(pageBtns.prev)"
+      ></button>
+    </ng-container>
+  </div>
+  <p class="date">{{ data?.createdAt }}</p>
+  <div class="hr"></div>
+  <div class="msg">
+    <pre>{{ data?.content }}</pre>
+  </div>
+</div>

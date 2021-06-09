@@ -1,0 +1,380 @@
+.bet-log {
+  width: 1142px;
+  padding: 15px 0 28px;
+  font-weight: bold;
+}
+
+.title {
+  padding: 0 0 0 23px;
+  margin: 0 0 28px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #272727;
+}
+
+.input-group,
+.time-group {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 25px;
+  margin: 0 0 17px;
+
+  p {
+    margin: 0 25px 0 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #000000;
+    font-size: 14px;
+  }
+
+  .time-rage {
+    color: #e11515;
+  }
+
+  select {
+    width: 287px;
+    height: 43px;
+    margin: 0 30px 0 0;
+    padding-left: 20px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #c29f64 50%),
+      linear-gradient(135deg, #c29f64 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    font-size: 15px;
+  }
+
+  .btn-group {
+    display: flex;
+
+    button {
+      width: 72px;
+      height: 43px;
+      margin: 0 8px 0 0;
+
+      &:last-child {
+        margin: 0 15px 0 0;
+      }
+    }
+
+    .isActive {
+      background: #e11515;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+  }
+}
+
+.time-group {
+  padding: 0 19px 0 25px;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  .search {
+    width: 152px;
+    height: 43px;
+  }
+}
+
+.calendar-wrap {
+  width: 287px;
+  height: 43px;
+  border-radius: 3px;
+  margin: 0 30px 0 0;
+
+  ejs-daterangepicker {
+    width: 100%;
+  }
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #f0f0f0;
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  width: 1103px;
+  height: 37px;
+  padding: 0 0 0 14px;
+  margin: 17px auto 22px;
+  background: #fcfaf8;
+  border: 1px solid #dcbf9e;
+  border-radius: 3px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #4d4d4d;
+
+  i {
+    width: 18px;
+    height: 18px;
+    margin: 0 11px 0 0;
+    background: url("~src/assets/img/marvel.svg") no-repeat center center;
+  }
+}
+
+.table-footer {
+  margin-top: 22px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.no-data {
+  height: 315px;
+  line-height: 315px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+table {
+  // outline: 1px solid pink;
+
+  width: 100%;
+  // border: 1px solid #cccccc;
+  border-radius: 5px;
+  border-collapse: separate;
+  margin-top: 15px;
+  overflow: hidden;
+
+  tr {
+    &:first-of-type {
+      border-radius: 5px 5px 0 0;
+    }
+
+    &:last-of-type {
+      td {
+        border-bottom: none;
+      }
+    }
+  }
+
+  th {
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+
+    border-bottom: 1px solid red;
+
+    // outline: 1px solid pink;
+
+  }
+
+  .tip {
+    width: 161px;
+  }
+
+  .resultAmount {
+    width: 231px;
+    padding-right: 72px;
+  }
+
+  .last-el {
+    padding-right: 72px;
+  }
+
+  td {
+    height: 40px;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: bold;
+    // border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #cccccc;
+
+    &:last-of-type {
+      border-right: none;
+    }
+
+  }
+
+  .resultAmount {
+    // color: #557bff;
+  }
+
+  th {
+    &.pf {
+      // width: 110px;
+      width: 250px;
+    }
+
+    &.betAmount,
+    &.validAmount {
+      // width: 220px;
+      width: 250px;
+    }
+
+    &.resultAmount {
+      // width: 174px;
+      // color: #fff;
+    }
+
+    &.expand {
+      width: 70px;
+    }
+  }
+
+  tr {
+    &:nth-last-of-type(2) {
+      td {
+        // border-bottom: 1px solid #fc7f46;
+      }
+    }
+
+    &:last-of-type {
+      td {
+        border-bottom: none;
+        border-right: none;
+      }
+    }
+  }
+
+  .detail-btn {
+    width: 20px;
+    height: 18px;
+    background: url("~src/assets/img/arrow_gray.svg") no-repeat center center;
+    position: relative;
+    top: 3px;
+    transform: rotate(270deg);
+
+    &.active {
+      transform: rotate(-270deg);
+    }
+  }
+}
+
+.table {
+  height: 40px;
+  align-items: center;
+  text-align: center;
+
+  li {
+    // width: 25%;
+    width: calc((100% - 70px) / 5);
+    height: 100%;
+
+    padding: 10px 0;
+
+    border-right: 1px solid #e6e6e6;
+
+    // outline: 1px solid pink;
+
+    &.pf {
+      // width: 110px;
+      width: 250px;
+    }
+
+    &.betAmount,
+    &.validAmount {
+      // width: 220px;
+      width: 250px;
+    }
+
+    &.tip {
+      width: 161px;
+    }
+
+    &.resultAmount {
+      // width: 322px;
+      width: 161px;
+      color: #557bff;
+    }
+
+    &.expand {
+      // width: 64px;
+      width: 70px;
+    }
+  }
+}
+
+.wrapper {
+  max-height: 435px;
+  overflow: scroll;
+  overflow-x: hidden;
+
+  .betAt {
+    // width: 94px;
+  }
+
+  .gameName {
+    // width: 188px;
+  }
+
+  .id {
+    // width: 141px;
+  }
+
+  .amount {
+    // width: 189px;
+  }
+
+  .validAmount {
+    // width: 189px;
+  }
+
+  .resultAmount {
+    // width: 95px;
+    color: #557bff;
+  }
+
+  table {
+    tr {
+      &:first-of-type {
+        background: none;
+      }
+    }
+  }
+}
+
+.btm-sum-up {
+  line-height: 50px;
+  background: #fff9f8;
+
+  td {
+    text-align: center;
+  }
+}
+
+.details {
+  padding: 16px 23px;
+  background: #f6f6f6;
+
+  table {
+    margin: 0;
+    background: #fff;
+
+    th {
+      &.resultAmount {
+        width: 114px;
+      }
+    }
+
+    tr {
+
+      &:nth-last-of-type(2),
+      &:last-of-type {
+        td {
+          // border-right: 1px solid #e6e6e6;
+          // border-bottom: 1px solid #cccccc;
+        }
+      }
+    }
+
+    td {
+      text-align: center;
+      line-height: 40px;
+    }
+  }
+
+  .more {
+    color: #557bff;
+    display: inline-block;
+    margin: 16px 0 0;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,78 @@
+<div class="review-wrap">
+  <div class="search-contain">
+    <!-- <form [formGroup]="form" (ngSubmit)="queryBonus()"> -->
+    <form [formGroup]="form" appThrottleBtn (action)="queryBonus()">
+      <div class="input-box form">
+        <div class="f-body">
+          <div class="f-row">
+            <div class="f-column">
+              {{ "REVIEW_RECORD.SEARCH.COL-ACCOUNT" | translate }}
+            </div>
+            <div class="f-input">
+              <select formControlName="platformId">
+                <option *ngFor="let item of gamePlatforms" [value]="item.id">
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="f-row">
+            <div class="f-column">
+              {{ "REVIEW_RECORD.SEARCH.COL-DATE" | translate }}
+            </div>
+            <div class="f-input">
+              <ejs-daterangepicker
+                [formControl]="daterangepicker"
+                [locale]="locale"
+              ></ejs-daterangepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-date-selector (timeEvt)="setTime($event)"></app-date-selector>
+      <div class="btn-box">
+        <button class="orange_btn">
+          {{ "REVIEW_RECORD.SEARCH.CONFIRM" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="table-header">{{ "REVIEW_RECORD.BONUS.TAB" | translate }}</div>
+  <div class="table-body">
+    <ul class="grid-table">
+      <li class="head-li">
+        <div class="head">
+          {{ "MEMBER_RECORD.COUNTDAY" | translate }}
+        </div>
+        <div class="head">
+          {{ "MEMBER_RECORD.PF" | translate }}
+        </div>
+        <div class="head">
+          {{ "MEMBER_RECORD.QUOTA" | translate }}
+        </div>
+      </li>
+      <li
+        class="li-row"
+        *ngFor="let item of data?.content | paginate: pageConfig"
+      >
+        <div>{{ item.date }}</div>
+        <div>{{ item.platformName }}</div>
+        <div>{{ item.bonus }}</div>
+      </li>
+    </ul>
+  </div>
+  <div class="table-footer">
+    <p class="no-data" *ngIf="pageConfig.totalItems === 0">
+      {{ "NO_DATA" | translate }}
+    </p>
+    <div *ngIf="pageConfig.totalItems > 0" class="pagination-bar">
+      <pagination-controls
+        autoHide="true"
+        (pageChange)="pageChanged($event)"
+        previousLabel="<"
+        nextLabel=">"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="slot-wrap">
+  <div class="center-wrap">
+    <div class="slot-header relative">
+      <div class="marquee-wrap">
+        <app-announcement></app-announcement>
+      </div>
+    </div>
+    <div class="slot-body panel-style">
+      <div class="filters flex">
+        <ul class="tags flex">
+          <li
+            [class.active]="gameTag == enumGameTags.all"
+            (click)="changeGameTag(enumGameTags.all)"
+          >
+            {{ "GameTag.ALL" | translate }}
+          </li>
+          <li
+            [class.active]="gameTag == enumGameTags.hot"
+            (click)="changeGameTag(enumGameTags.hot)"
+          >
+            {{ "GameTag.HOT" | translate }}
+          </li>
+          <li
+            *ngIf="isLogin"
+            [class.active]="gameTag == enumGameTags.fav"
+            (click)="changeGameTag(enumGameTags.fav)"
+          >
+            {{ "GameTag.FAV" | translate }}
+          </li>
+          <li
+            *ngFor="let item of tagsMap | keyvalue"
+            [class.active]="gameTag == item.key"
+            (click)="changeGameTag(item.key)"
+          >
+            {{ item.value }}
+          </li>
+        </ul>
+        <div class="search">
+          <i class="search-icon"></i>
+          <input
+            type="search"
+            #search
+            [formControl]="searchCtrl"
+            placeholder="{{ 'GameTag.search' | translate }} "
+          />
+        </div>
+      </div>
+      <div class="cnt">
+        <p class="no-data" *ngIf="showItems.length == 0">
+          {{ "NO_DATA" | translate }}
+        </p>
+        <ul class="platforms">
+          <li *ngFor="let platform of showItems">
+            <!-- [class.maintain]="platform.maintain" -->
+            <div class="p-head flex" [class.back]="displayInside">
+              <img [src]="platform.iconUrl" alt="{{ platform.key }}" />
+              <button
+                class="all-btn orange_btn"
+                (click)="moreGames(platform)"
+                *ngIf="!displayInside"
+              >
+                {{ "GameTag.ALL" | translate }} <i></i>
+              </button>
+              <button
+                class="orange_btn buttom-return"
+                (click)="back()"
+                *ngIf="displayInside"
+              >
+                <i></i>
+                {{ "PageBack" | translate }}
+              </button>
+            </div>
+
+            <ul class="game-list flex" [class.wrap]="displayInside">
+              <li
+                *ngFor="
+                  let game of !displayInside ?
+                  ( platform.games
+                    |FilterObjVal:'type':gameType
+                    |gametags: gameTag:favorites
+                    |searchGame: search.value
+                    |slice: 0:5 )
+                  :
+                  ( platform.games
+                    |FilterObjVal:'type':gameType
+                    |gametags: gameTag:favorites
+                    |searchGame: search.value
+                  )
+                "
+              >
+                <app-maintain-tip [item]="game"></app-maintain-tip>
+                <div
+                  (click)="clickGame(game, $event)"
+                  class="pic"
+                  [style.background-image]="'url(' + game.imageUrl + ')'"
+                ></div>
+                <div class="flex text">
+                  <p class="ellipsis">
+                    {{ game.name }}
+                  </p>
+                  <button
+                    class="favor-icon"
+                    (click)="favClick(game.id)"
+                    [class.active]="isFav(game.id)"
+                  >
+                    <i></i>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.list {
+  height: 307px;
+  font-weight: bold;
+  overflow: auto;
+
+  & > li {
+    // min-height: 84px;
+    height: 84px;
+    padding: 8px 18px 12px;
+    border-bottom: 1px solid #e6e6e6;
+
+    // outline: 1px solid pink;
+  }
+}
+
+.cnt {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #333333;
+
+  p:first-child {
+    font-size: 12px;
+    letter-spacing: 1px;
+    position: relative;
+    top: -3px;
+    color: #999999;
+  }
+
+  li {
+    flex: 1;
+    // outline: 1px solid pink;
+  }
+}
+
+.platform {
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin: 0 0 10px 0;
+
+  color: #996c23;
+}
+
+.no-data {
+  text-align: center;
+  line-height: 307px;
+}

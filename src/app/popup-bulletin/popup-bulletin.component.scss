@@ -1,0 +1,114 @@
+.popup-bulletin {
+  height: 100vh;
+  width: 100vw;
+  font-weight: bold;
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+
+  .bulletin_panel {
+    width: 840px;
+    min-height: 250px;
+    background: #ffffff;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 35px;
+
+    .header {
+      position: relative;
+      height: 50px;
+      line-height: 50px;
+      font-size: 21px;
+      letter-spacing: 2px;
+      color: #fff;
+      background: #e11515;
+      text-align: center;
+
+      i {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        background: url("~src/assets/img/close_w.svg") no-repeat center center;
+      }
+    }
+
+    .nav {
+      // outline: 1px solid pink;
+      margin: 30px 15px 8px;
+      border-bottom: 1px solid #e6e6e6;
+
+      li {
+        position: relative;
+        height: 28px;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        padding: 0 39px;
+        text-align: center;
+        color: #4d4d4d;
+        @extend .clickable;
+
+        &.active {
+          border-bottom: 3px solid #996c33;
+        }
+
+        &::after {
+          content: "";
+          width: 2px;
+          height: 15px;
+          position: absolute;
+          top: 3px;
+          right: 0;
+          background: #ececec;
+        }
+      }
+    }
+
+    .cnt {
+      // max-height: 280px;
+      color: #4d4d4d;
+      overflow-y: auto;
+
+      li {
+        height: 45px;
+        margin: 0 15px;
+        padding: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e6e6e6;
+
+        & > .flex {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .date {
+          font-size: 16px;
+          color: #808080;
+
+          span {
+            margin-left: 10px;
+          }
+        }
+
+        .txt {
+          font-size: 16px;
+          max-width: 670px;
+          text-align: left;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

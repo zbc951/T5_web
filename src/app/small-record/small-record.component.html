@@ -1,0 +1,41 @@
+<div class="panel-style small-board">
+  <div class="title">
+    {{ text.title }}
+    <p class="more" (click)="more()">
+      {{ "SMALLBOARD.MORE" | translate }}
+      <i></i>
+    </p>
+  </div>
+  <ul>
+    <p class="no-data" *ngIf="!record || record.length == 0; else gotdata">
+      {{ "NO_DATA" | translate }}
+    </p>
+    <ng-template #gotdata>
+      <li *ngFor="let item of record">
+        <div>
+          {{ text.listTitle }}
+          <p>${{ Number(item.amount) | floatDisplay }}</p>
+        </div>
+        <p
+          class="type"
+          *ngIf="type === urlType.deposit && item.type === walletType.deposit"
+        >
+          {{ "DEPOSIT.TOP.BANK" | translate }}
+        </p>
+        <p
+          class="type"
+          *ngIf="
+            type === urlType.deposit && item.type === walletType.thirdDeposit
+          "
+        >
+          {{ "DEPOSIT.TOP.third" | translate }}
+        </p>
+        <div *ngIf="type === 'transfer'">
+          {{ item.wallet }}
+          <i [class.transfer-wallet]="item.type == 'transfer-wallet'"></i>
+          {{ item.platform }}
+        </div>
+      </li>
+    </ng-template>
+  </ul>
+</div>

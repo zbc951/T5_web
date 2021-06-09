@@ -1,0 +1,119 @@
+.common-alert {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  &[hidden] {
+    display: none !important;
+    outline: 1px solid pink;
+  }
+
+  .panel {
+    width: 480px;
+    font-weight: bold;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &.policy {
+      width: 840px;
+
+      .cnt {
+        padding: 28px 47px;
+
+        & > div {
+          height: 400px;
+          overflow: scroll;
+          overflow-x: hidden;
+          text-align: left;
+        }
+
+        // outline: 1px solid pink;
+      }
+
+      .btm {
+        padding: 18px 0;
+      }
+    }
+  }
+
+  .header {
+    height: 50px;
+    line-height: 50px;
+    font-size: 21px;
+    letter-spacing: 2px;
+    color: #fff;
+    @extend .g-21;
+  }
+
+  .cnt {
+    color: #4d4d4d;
+    font-size: 16px;
+    // line-height: 31px;
+
+    min-height: auto;
+    padding: 24px 42px;
+    white-space: pre-wrap;
+    letter-spacing: 1px;
+    color: #333;
+  }
+
+  .act-cnt {
+    input {
+      width: 80%;
+      height: 32px;
+      padding: 0 10px;
+      margin: 10px 0 0 0;
+    }
+  }
+
+  .quest-detail-cnt {
+    img {
+      width: 100%;
+    }
+  }
+
+  .btm {
+    // height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 0 0 43px 0;
+    padding: 20px 0;
+
+    &.with-cancel {
+      justify-content: space-around;
+      justify-content: space-evenly;
+
+      button {
+        width: 45%;
+      }
+    }
+  }
+
+  button {
+    width: 322px;
+    height: 42px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    border: 1px solid #cca172;
+    border-radius: 3px;
+
+    @extend .g-2;
+
+    &.cancel {
+      // @extend .g-5;
+      // color: #b3b3b3;
+      border: 1px solid currentColor;
+    }
+  }
+}

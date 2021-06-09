@@ -1,0 +1,29 @@
+<div class="panel-style small-board">
+  <div class="title">
+    {{ "MEMBER_NAV.BET_LOG" | translate }}
+    <p class="more clickable" routerLink="/{{ AppRoutes.BET_LOG }}">
+      {{ "SMALLBOARD.MORE" | translate }}
+      <i></i>
+    </p>
+  </div>
+  <ul class="list">
+    <p class="no-data" *ngIf="betLoglist.length === 0; else gotdata">
+      {{ "NO_DATA" | translate }}
+    </p>
+    <ng-template #gotdata>
+      <li *ngFor="let item of betLoglist">
+        <p class="platform">{{ item.platformName }}</p>
+        <ul class="cnt flex">
+          <li>
+            <p>{{ "SMALL_BET_LOG.BET" | translate }}</p>
+            <p>$ {{ item.betAmount | floatDisplay }}</p>
+          </li>
+          <li>
+            <p>{{ "SMALL_BET_LOG.RESULT" | translate }}</p>
+            <p>$ {{ Number(item.resultAmount) | floatDisplay }}</p>
+          </li>
+        </ul>
+      </li>
+    </ng-template>
+  </ul>
+</div>

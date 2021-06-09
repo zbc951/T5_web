@@ -1,0 +1,63 @@
+.bar,
+.app {
+  position: fixed;
+  top: 185px;
+  z-index: 50;
+  border-radius: 35px;
+  // box-shadow: -1px 1px 7px 1px rgba(0, 81, 138, 0.5);
+}
+
+.bar {
+  right: 10px;
+  top: 175px;
+  padding: 15px 0;
+  // box-shadow: -1px 1px 7px 1px rgba(0, 81, 138, 0.5);
+  background: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background-color: #ccae70;
+    border-radius: 30px;
+    border: solid 1px #fff;
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.4);
+    margin-bottom: 5px;
+    cursor: pointer;
+
+    &:hover,&:active,&.active {
+      filter: brightness(1.2);
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.app {
+  left: 10px;
+  width: 50px;
+  height: 185px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 23px 10px;
+  color: #996c33;
+  writing-mode: vertical-lr;
+  letter-spacing: 3px;
+  background: rgba(255, 255, 255, 0.9);
+  border: solid 2px #b8934b;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.4);
+
+  span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url("~src/assets/img/new/download.png") no-repeat;
+    background-size: 100%;
+    margin-bottom: 7px;
+  }
+}

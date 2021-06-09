@@ -1,0 +1,162 @@
+<div class="panel panel-style">
+  <div class="basic">
+    <h1>{{ "MEMBER_INFO.basic" | translate }}</h1>
+    <ul class="table flex">
+      <li>
+        <form [formGroup]="infoForm" (ngSubmit)="updateInfo()">
+          <ul>
+            <li>
+              <label for="name"
+                ><em></em>{{ "MEMBER_INFO.NAME" | translate }}</label
+              >
+              <input id="name" formControlName="name" />
+              <p class="tips">{{ "MEMBER_INFO.name_tips" | translate }}</p>
+              <p class="err" *ngIf="invalidErrors.name">
+                {{ invalidErrors.name }}
+              </p>
+            </li>
+            <li>
+              <label for="birth">
+                <em></em>{{ "MEMBER_INFO.BIRTH" | translate }}
+              </label>
+              <ejs-datepicker
+                id="ejDatePicker"
+                name="ejDatePicker"
+                #ejDatePicker
+                formControlName="birth"
+                [locale]="locale"
+                [readonly]="info?.birth"
+                [max]="maxDate"
+              ></ejs-datepicker>
+              <p class="err" *ngIf="invalidErrors.birth">
+                {{ invalidErrors.birth }}
+              </p>
+            </li>
+            <li class="relative">
+              <label>{{ "MEMBER_INFO.PHONE" | translate }}</label>
+              <input readonly [value]="info?.phone" />
+              <button
+                class="modify-phone"
+                type="button"
+                (click)="isChangePHone = !isChangePHone"
+                *ngIf="!isChangePHone"
+              >
+                {{ "MEMBER_INFO.modify" | translate }}
+              </button>
+            </li>
+            <li>
+              <label for="email"
+                ><em></em>{{ "MEMBER_INFO.email" | translate }}</label
+              >
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                [readonly]="info?.email"
+              />
+              <p class="err" *ngIf="invalidErrors.email">
+                {{ invalidErrors.email }}
+              </p>
+            </li>
+            <li>
+              <label for="address">{{
+                "MEMBER_INFO.address" | translate
+              }}</label>
+              <input id="address" formControlName="address" />
+              <p class="err" *ngIf="invalidErrors.address">
+                {{ invalidErrors.address }}
+              </p>
+            </li>
+            <li>
+              <label for="line"><em></em>LINE</label>
+              <input id="line" formControlName="line" [readonly]="info?.line" />
+              <p class="tips">
+                {{ "MEMBER_INFO.ONE_APP_REQUIRED_1" | translate }}
+              </p>
+              <p class="err" *ngIf="invalidErrors.line">
+                {{ invalidErrors.line }}
+              </p>
+            </li>
+            <li>
+              <label for="wechat"
+                ><em></em>{{ "MEMBER_INFO.wechat" | translate }}</label
+              >
+              <input
+                id="wechat"
+                formControlName="wechat"
+                [readonly]="info?.wechat"
+              />
+              <p class="tips">
+                {{ "MEMBER_INFO.ONE_APP_REQUIRED_1" | translate }}
+              </p>
+              <p class="err" *ngIf="invalidErrors.wechat">
+                {{ invalidErrors.wechat }}
+              </p>
+            </li>
+            <li>
+              <button *ngIf="!isSaved">
+                {{
+                  this.info?.isReview
+                    ? ("MEMBER_WITHDRAW.APPLYING" | translate)
+                    : ("MEMBER_INFO.SAVE" | translate)
+                }}
+              </button>
+              <p class="basic_q" [class.isSaved]="isSaved">
+                {{ "MEMBER_INFO.basic_q1" | translate
+                }}<span>{{ "MEMBER_INFO.basic_q2" | translate }}</span>
+              </p>
+            </li>
+          </ul>
+        </form>
+      </li>
+      <li>
+        <ul class="fixed-data">
+          <li>
+            <label for="">{{ "MEMBER_INFO.ACCOUNT" | translate }}</label>
+            <p>{{ infoForm.get("account").value }}</p>
+          </li>
+          <li *ngIf="isMemberModeOn">
+            <label for="">{{ "MEMBER_INFO.invite" | translate }}</label>
+            <p>{{ infoForm.get("invitation_code").value }}</p>
+            <button
+              [cdkCopyToClipboard]="infoForm.get('invitation_code').value"
+            >
+              {{ "MEMBER_INFO.copy" | translate }}
+            </button>
+          </li>
+          <li *ngIf="isMemberModeOn">
+            <label for="">{{ "MEMBER_INFO.inviteUrl" | translate }}</label>
+            <input [value]="inviteUrl" />
+            <button [cdkCopyToClipboard]="inviteUrl">
+              {{ "MEMBER_INFO.copy" | translate }}
+            </button>
+          </li>
+          <li class="qrcode-data" *ngIf="isMemberModeOn">
+            <label>{{ "MEMBER_INFO.inviteUrl" | translate }}QRCODE</label>
+            <qr-code [value]="inviteUrl" size="100"></qr-code>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="safe">
+    <h1>{{ "MEMBER_INFO.CHANGE_PWD" | translate }}</h1>
+    <ul>
+      <li>
+        <label>{{ "MEMBER_INFO.password" | translate }}</label>
+        <input readonly type="password" value="*****" />
+        <button (click)="isSetPwd = !isSetPwd">
+          {{ "MEMBER_INFO.modify" | translate }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+<app-user-info-set-pwd
+  (closeEvt)="isSetPwd = false"
+  *ngIf="isSetPwd"
+></app-user-info-set-pwd>
+<app-user-info-set-phone
+  *ngIf="isChangePHone"
+  (closeEvt)="isChangePHone = false"
+></app-user-info-set-phone>

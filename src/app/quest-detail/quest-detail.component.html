@@ -1,0 +1,27 @@
+<div class="detail-title">
+  <p>{{ questData.name }}</p>
+  <button class="gray_btn" (click)="goBack()">
+    <i></i>{{ "QUEST_CENTER.BTN-GOBACK" | translate }}
+  </button>
+</div>
+<div class="detail-cover">
+  <img [src]="questData.image" />
+</div>
+
+<div class="detail-info">
+  <p>{{ "QUEST_CENTER.INFOMATION" | translate }}</p>
+  <div [innerHTML]="questData.information | safeHtml"></div>
+</div>
+<div class="detail-footer">
+  <button
+    *ngIf="questData.canBuy"
+    class="btn-buy orange_btn"
+    [disabled]="questData.canBuy !== 'yes'"
+    (click)="buy()"
+  >
+    <ng-container *ngIf="questData.type == Activity_type.fixed">
+      ${{ questData.price }}</ng-container
+    >
+    {{ "QUEST_CENTER.BTN-BUY" | translate }}
+  </button>
+</div>

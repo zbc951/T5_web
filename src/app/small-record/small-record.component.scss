@@ -1,0 +1,58 @@
+ul {
+  height: 321px;
+  padding: 15px 14px 42px;
+  overflow: hidden;
+}
+
+li {
+  height: 53px;
+  border-bottom: 1px solid #e6e6e6;
+  margin: 0 0 13px;
+
+  .type {
+    font-size: 16px;
+    color: #000000;
+  }
+
+  div {
+    &:nth-child(1) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 5px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #999999;
+
+      p {
+        letter-spacing: 1px;
+        color: #000000;
+      }
+    }
+
+    &:nth-child(2) {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #000000;
+
+      i {
+        width: 15px;
+        height: 13px;
+        margin: 0 10px;
+        background: url("~src/assets/img/transfer_arrow.svg") no-repeat
+          center center;
+
+        &.transfer-wallet {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+.no-data {
+  text-align: center;
+  line-height: 307px;
+}

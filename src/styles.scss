@@ -1,0 +1,931 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$tb-pc-primary: mat-palette($mat-indigo);
+$tb-pc-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$tb-pc-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$tb-pc-theme: mat-light-theme(
+  (
+    color: (
+      primary: $tb-pc-primary,
+      accent: $tb-pc-accent,
+      warn: $tb-pc-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($tb-pc-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import "scss/reset";
+@import "scss/layout";
+@import "scss/md.scss";
+@import "scss/bootstrap_carousel";
+
+@import "scss/com_gradient";
+
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-lists/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-calendars/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-angular-calendars/styles/material.css";
+
+ejs-daterangepicker,
+ejs-datepicker {
+  display: inline-block;
+  width: 257px;
+  height: 41px;
+  line-height: 41px;
+  vertical-align: middle;
+  padding: 0 10px;
+  border: 1px solid #e6e6e6;
+  // outline: 1px dotted red;
+  overflow: hidden;
+
+  input {
+    height: 41px !important;
+    font-size: 14px !important;
+    color: #000 !important;
+    // padding-left: 10px !important;
+  }
+
+  .e-input-group.e-control-wrapper {
+    position: relative;
+    top: -4px;
+  }
+
+  .e-input {
+    padding-left: 10px !important;
+  }
+}
+
+.main-wrap {
+  min-width: 1450px;
+  min-height: 768px;
+  // outline: 1px solid pink;
+}
+
+.center-wrap {
+  // outline: 1px solid pink;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.panel-style {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.small-board {
+  width: 245px;
+  font-weight: bold;
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 43px;
+    padding: 0 20px 0;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #4d4d4d;
+  }
+
+  .more {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #333333;
+    cursor: pointer;
+
+    i {
+      width: 9px;
+      height: 16px;
+      margin: 0 0 0 7px;
+      background: url("~src/assets/img/arrow_b.svg") no-repeat center center;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.orange_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to top, #fae0af 0%, #d7b676 50%, #f8fbc0);
+
+  &:hover,&:active,&.active {
+    background: linear-gradient(to top, #f1d7b7 0%, #cca172 50%, #f1c999 100%);
+  }
+
+  border: 1px solid #cca172;
+  border-radius: 3px;
+  color: #fff;
+
+  &:disabled.review {
+    color: #e11515;
+    background: #fff9f9 !important;
+    border: 1px solid currentColor !important;
+  }
+}
+
+.gray_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#ffffff 40%, #f4f4f4 100%);
+
+  &:active {
+    background: linear-gradient(to top, #ffffff 40%, #f4f4f4 100%);
+  }
+
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+}
+
+button:disabled {
+  background: #ccc !important;
+  border: none !important;
+  cursor: not-allowed;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select {
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+}
+
+form {
+  .tips,
+  .err {
+    padding: 0 0 0 107px;
+    line-height: 1.8;
+    text-align: left;
+  }
+
+  .tips {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .err {
+    font-size: 12px;
+    color: #e11515;
+  }
+}
+
+.no-data {
+  letter-spacing: 1px;
+  color: #999;
+}
+
+.right-side {
+  margin: 0 0 0 14px;
+}
+
+// form
+.form {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    align-self: flex-start;
+  }
+
+  .f-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .f-row {
+    width: 100%;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+
+  .f-column {
+    width: 98px;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 1px;
+    color: #000000;
+    font-weight: bold;
+    margin-right: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+
+    & * {
+      align-self: center;
+    }
+
+    & .require::before {
+      content: "※";
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 1px;
+      color: #e11515;
+      padding-right: 5px;
+    }
+  }
+
+  .f-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .f-input {
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+
+    input,
+    select {
+      width: 258px;
+      height: 42px;
+      border: 1px solid #e6e6e6;
+      padding-left: 16px;
+    }
+
+    & > small {
+      font-size: 12px;
+      line-height: 27px;
+      letter-spacing: 1px;
+      color: #999999;
+      position: absolute;
+      bottom: -25px;
+      float: right;
+    }
+  }
+}
+
+form {
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #c29f64 50%),
+      linear-gradient(135deg, #c29f64 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+  }
+}
+
+// table
+ul.grid-table {
+  margin: 10px 0 0 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    border-bottom: 1px solid #e6e6e6;
+
+    &.head-li {
+      border-bottom: 2px solid #c29f64;
+
+      .head {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    &.li-row {
+      height: auto;
+      min-height: 50px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+
+      div {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    div {
+      width: 120px;
+      height: auto;
+      min-height: 17px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #000000;
+      font-weight: bold;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      &:not(:last-child) {
+        border-right: 1px solid #e6e6e6;
+      }
+    }
+  }
+}
+
+// pagination
+.pagination-bar {
+  .ngx-pagination {
+    .pagination-previous.disabled::before,
+    .pagination-next.disabled::after,
+    .pagination-previous *::before,
+    .pagination-next *::after {
+      content: "" !important;
+    }
+
+    .current {
+      background: #008599 !important;
+    }
+
+    .pagination-previous a,
+    .pagination-next a {
+      color: #008599 !important;
+    }
+
+    li {
+      max-height: 33px;
+      border-radius: 5px;
+      margin-right: 6px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:not(.current):not(:first-child):not(:last-child) {
+        border: 1px solid #f3f3f3;
+      }
+
+      & a {
+        height: 100%;
+        font-weight: bold !important;
+      }
+    }
+  }
+}
+
+.tabs {
+  padding: 0 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+
+  li {
+    min-width: 105px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 8px;
+    background: #999;
+    border-radius: 5px 5px 0 0;
+    margin: 0 7px 0 0;
+
+    @extend .clickable;
+
+    &.active {
+      // background: #ce1515;
+      @extend .g-22;
+    }
+  }
+}
+
+@keyframes spiner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+app-home {
+  @import "app/home/home.component.scss";
+}
+
+app-help {
+  @import "../src/app/help/help.component.scss";
+}
+
+.maintain-blur {
+  filter: blur(2px);
+  position: relative;
+  z-index: -1;
+}
+
+app-maintain-tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 98%;
+  height: 100%;
+
+  pointer-events: none;
+
+  .maintain {
+    pointer-events: initial;
+    cursor: not-allowed;
+    position: absolute;
+    width: 98%;
+    height: 100%;
+    line-height: 1.7;
+    padding: 20px 0;
+    text-align: center;
+    letter-spacing: 2px;
+    background: rgb(0 0 0 / 62%);
+    text-shadow: 1px 2px 4px #d08016;
+    border-radius: 5px;
+
+    .status,
+    pre {
+      color: #fff !important;
+    }
+
+    .status {
+      margin: 0 0 10px 0;
+    }
+
+    pre {
+      font-size: 14px;
+    }
+  }
+}
+
+app-header {
+  @import "../src/app/header/header.component.scss";
+
+  app-header-quick-transfer {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 10;
+  }
+}
+
+app-announcement {
+  // outline: 1px solid pink;
+
+  width: 100%;
+
+  @import "../src/app/announcement/announcement.component.scss";
+}
+
+app-footer {
+  @import "../src/app/footer/footer.component.scss";
+}
+
+app-ad {
+  @import "../src/app/ad/ad.component.scss";
+}
+
+app-nav-bar {
+  @import "../src/app/nav-bar/nav-bar.component.scss";
+}
+
+app-game {
+  @import "../src/app/game/game.component.scss";
+}
+
+app-game-list {
+  font-weight: bold;
+  @import "../src/app/game-list/game-list.component.scss";
+}
+app-common-alert {
+  z-index: 9999;
+  @import "app/common-alert/common-alert.component.scss";
+}
+
+app-popup-bulletin {
+  @import "app/popup-bulletin/popup-bulletin.component.scss";
+}
+
+app-member {
+  display: block;
+  padding: 16px 0 39px;
+  // padding: 22px 0 42px;
+  background: #f4f4f4;
+  @import "app/member/member.component.scss";
+}
+
+app-popup-register {
+  @import "app/popup-register/popup-register.component.scss";
+}
+
+app-merchants {
+  @import "app/merchants/merchants.component.scss";
+}
+
+app-community-bar {
+  @import "app/community-bar/community-bar.component.scss";
+}
+
+app-user-info {
+  display: flex;
+  // width: 880px;
+  min-height: 856px;
+  font-weight: bold;
+
+  .confirm-style {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+    .c-panel {
+      width: 480px;
+      font-weight: bold;
+      text-align: center;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .header {
+      position: relative;
+      height: 50px;
+      line-height: 50px;
+      font-size: 18px;
+      letter-spacing: 2px;
+      color: #fff;
+      // background: #e11515;
+      @extend .g-21;
+
+      .close-btn {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        width: 20px;
+        height: 20px;
+        background: url("~src/assets/img/close_w.svg") no-repeat center center;
+      }
+    }
+
+    .cnt {
+      color: #4d4d4d;
+      font-size: 14px;
+      min-height: auto;
+      padding: 24px 80px;
+      white-space: pre-wrap;
+      letter-spacing: 1px;
+      color: #333;
+
+      // outline: 1px solid pink;
+    }
+
+    form {
+      // outline: 1px solid pink;
+      li:not(:last-child) {
+        margin: 0 0 30px 0;
+      }
+
+      input {
+        width: 100%;
+        height: 42px;
+        line-height: 42px;
+        padding: 0 10px;
+        border: 1px solid #e6e6e6;
+      }
+
+      .err {
+        padding: 0;
+      }
+    }
+
+    .input-wrap {
+      position: relative;
+
+      button {
+        height: 29px;
+        line-height: 29px;
+        position: absolute;
+        right: 5px;
+        top: calc(50% - 15px);
+        padding: 0 10px;
+        color: #cfa678;
+        border: 1px solid currentColor;
+        border-radius: 3px;
+        background: none;
+      }
+    }
+
+    .btn {
+      // height: 42px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 43px 0;
+
+      button {
+        width: 322px;
+        height: 42px;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: #fff;
+        border: 1px solid #cca172;
+        border-radius: 3px;
+
+        @extend .g-2;
+      }
+    }
+  }
+
+  app-small-bet-record {
+    margin: 0 0 15px 0;
+  }
+
+  @import "app/user-info/user-info.component.scss";
+}
+
+app-user-info-set-phone {
+  @import "app/user-info-set-phone/user-info-set-phone.component.scss";
+}
+
+app-user-info-data {
+  @import "app/user-info-data/user-info-data.component.scss";
+
+  app-user-info-set-pwd {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+app-user-info-platform {
+  @import "app/user-info-platform/user-info-platform.component.scss";
+}
+
+app-small-bet-record {
+  display: block;
+  @import "app/small-bet-record/small-bet-record.component.scss";
+}
+
+app-slot-center {
+  @import "../src/app/slot-center/slot-center.component.scss";
+}
+
+app-transfer {
+  @import "app/transfer/transfer.component.scss";
+}
+
+app-popup-transfer {
+  @import "app/popup-transfer/popup-transfer.component.scss";
+}
+
+app-small-record {
+  @import "app/small-record/small-record.component.scss";
+}
+
+app-deposit {
+  @import "app/deposit/deposit.component.scss";
+}
+
+app-vip {
+  @import "app/vip/vip.component.scss";
+}
+
+app-bank-card {
+  @import "app/bank-card/bank-card.component.scss";
+}
+
+app-bank-card-record {
+  @import "app/bank-card-record/bank-card-record.component.scss";
+}
+
+app-withdraw {
+  @import "app/withdraw/withdraw.component.scss";
+}
+
+app-coupon-wallet {
+  @import "app/coupon-wallet/coupon-wallet.component.scss";
+}
+
+app-platform-wallet {
+  @import "app/platform-wallet/platform-wallet.component.scss";
+}
+
+app-letter {
+  font-weight: bold;
+  @import "app/letter/letter.component.scss";
+}
+
+app-my-wallet {
+  @import "app/my-wallet/my-wallet.component.scss";
+}
+
+app-experience-bar {
+  @import "app/experience-bar/experience-bar.component.scss";
+}
+
+app-search-panel {
+  @import "app/search-panel/search-panel.component.scss";
+}
+
+app-review-main {
+  @import "app/review-main/review-main.component.scss";
+}
+
+app-review {
+  @import "app/review/review.component.scss";
+}
+
+app-review-bonus {
+  @import "app/review-bonus/review-bonus.component.scss";
+}
+
+// app-review-wallet {
+//   @import "app/review-wallet/review-wallet.component.scss";
+// }
+
+app-review-transfer {
+  @import "app/review-transfer/review-transfer.component.scss";
+}
+
+app-header-quick-transfer {
+  @import "app/header-quick-transfer/header-quick-transfer.component.scss";
+}
+
+app-letter-detail {
+  font-weight: bold;
+  @import "app/letter-detail/letter-detail.component.scss";
+}
+
+app-bet-log {
+  @import "app/bet-log/bet-log.component.scss";
+}
+
+app-date-selector {
+  @import "app/date-selector/date-selector.component.scss";
+}
+
+app-quest-center {
+  display: block;
+  background: #f4f4f4;
+  @import "app/quest-center/quest-center.component.scss";
+}
+
+app-quest-detail {
+  @import "app/quest-detail/quest-detail.component.scss";
+}
+
+app-popup-vip-point {
+  @import "app/popup-vip-point/popup-vip-point.component.scss";
+}
+
+app-popup-forget-password {
+  @import "app/popup-forget-password/popup-forget-password.component.scss";
+}
+
+app-old-quest-center {
+  display: block;
+  width: 1140px;
+  font-weight: bold;
+  @import "app/old-quest-center/old-quest-center.component.scss";
+}
+
+app-combine-quest-apply {
+  display: block;
+  padding: 18px 22px;
+  background: #fff;
+  @import "app/combine-quest-apply/combine-quest-apply.component.scss";
+}
+
+app-quest-record {
+  @import "app/quest-record/quest-record.component.scss";
+}
+
+app-amount-record {
+  @import "app/amount-record/amount-record.component.scss";
+}
+
+app-drawback,
+app-withdraw-bet-record {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.policy-block {
+  h2 {
+    margin: 0 0 10px 0;
+  }
+}
+
+app-loading {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  .panel {
+    width: 400px;
+    height: 256px;
+    font-weight: bold;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .header {
+    height: 50px;
+    line-height: 50px;
+    font-size: 21px;
+    letter-spacing: 2px;
+    color: #fff;
+    // background: #e11515;
+    @extend .g-21;
+  }
+
+  .cnt {
+    height: 206px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 44px;
+    text-align: center;
+    color: #4d4d4d;
+    // outline: 1px solid pink;
+  }
+
+  i {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: url("~src/assets/img/loading_b.svg");
+    animation: spiner 1.2s linear infinite;
+    margin: 0 0 30px 0;
+  }
+
+  // @keyframes spiner {
+  //   0% {
+  //     transform: rotate(0deg);
+  //   }
+  //   100% {
+  //     transform: rotate(360deg);
+  //   }
+  // }
+}
+
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';

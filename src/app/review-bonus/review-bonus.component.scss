@@ -1,0 +1,39 @@
+.search-contain {
+  app-date-selector {
+    align-self: flex-end;
+  }
+}
+
+.table-body {
+  .grid-table li {
+    & div:nth-child(1) {
+      width: 33.3%;
+    }
+
+    & div:nth-child(2) {
+      width: 33.3%;
+    }
+
+    & div:nth-child(3) {
+      width: 33.3%;
+    }
+
+    // & div:nth-child(4) {
+    //   width: 220px;
+    // }
+
+    // & div:nth-child(5) {
+    //   width: 180px;
+    // }
+
+    // & div:nth-child(6) {
+    //   width: 140px;
+    // }
+  }
+}
+.no-data {
+  width: 100%;
+  height: 132px;
+  line-height: 132px;
+  text-align: center;
+}

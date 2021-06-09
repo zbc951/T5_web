@@ -1,0 +1,219 @@
+<style>
+  .vam {
+    vertical-align: middle;
+  }
+</style>
+<div style="display: flex">
+  <div class="bc-wrap">
+    <div class="bc-collection panel-style">
+      <div class="collection-header">
+        <span>{{ "BIND_BANK_CARD.TITLE" | translate }}</span>
+      </div>
+      <div class="collection-body">
+        <div class="card-header">
+          <span>{{ "BIND_BANK_CARD.REGISTERED.TITLE" | translate }}</span>
+          <span
+            >{{ "BIND_BANK_CARD.REGISTERED.NUMBER" | translate }}
+            {{ banks.length }}
+            <span
+              >/
+              {{
+                banksLimit > 0
+                  ? banksLimit
+                  : ("MEMBER_QUEST.NO_LIMIT" | translate)
+              }}</span
+            ></span
+          >
+        </div>
+        <div
+          class="card-contain flex"
+          #list
+          (wheel)="onWheel($event)"
+          (mousedown)="mousedown($event)"
+          (mousemove)="mousemove($event)"
+          (mouseup)="mouseup()"
+        >
+          <div class="slider flex">
+            <div class="card card-empty" *ngIf="banks.length === 0">
+              <div class="card-icon"></div>
+              <div class="card-text">
+                {{ "BIND_BANK_CARD.ADD.NOTICE" | translate }}
+              </div>
+            </div>
+            <div class="card card-registered" *ngFor="let card of banks">
+              <div class="bank-name">{{ card.bankName }}</div>
+              <div class="branch-name">{{ card.branchName }}</div>
+              <div class="bank-account flex">
+                <span>{{ card.account }}</span>
+              </div>
+              <p class="review" *ngIf="card.status">
+                {{ "MEMBER_BANK.STATUS_REVIEW" | translate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bc-info">
+      <!--tabs -->
+      <!-- <div class="info-header flex">
+              <ul>
+                  <li class="btn" [class.active]="isAddPage" (click)="switchPage(1)">
+                      <span>{{ "BIND_BANK_CARD.NAV.ADD" | translate }}</span>
+                  </li>
+                  <li class="btn" [class.active]="!isAddPage" (click)="switchPage(2)">
+                      <span>{{ "BIND_BANK_CARD.NAV.RECORD" | translate }}</span>
+                  </li>
+              </ul>
+          </div> -->
+      <div class="info-body panel-style">
+        <div class="add-card" *ngIf="tab == tabs.bank">
+          <div class="add-card-title">
+            {{ "BIND_BANK_CARD.ADD.TITLE" | translate }}
+          </div>
+          <div class="add-card-form">
+            <!-- <form class="form" [formGroup]="addBankForm" (ngSubmit)="addBank(addBankForm)"> -->
+            <form class="form" [formGroup]="addBankForm">
+              <div class="f-body">
+                <div class="f-row">
+                  <div class="f-column">
+                    <span class="require">{{
+                      "BIND_BANK_CARD.ADD.FORM.BANK_NAME" | translate
+                    }}</span>
+                  </div>
+                  <div class="f-input">
+                    <input
+                      type="text"
+                      required
+                      [formControl]="optionCtrl"
+                      [matAutocomplete]="auto"
+                    />
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option
+                        *ngFor="let option of bankOptions"
+                        (onSelectionChange)="getCode(option)"
+                        [value]="option.code + ' ' + option.name"
+                      >
+                        <span class="vam">{{ option.code }}</span>
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                    <p class="err" *ngIf="bankVlidErrors.bankName">
+                      <!-- {{ "REQUIRED" | translate }} -->
+                      {{ bankVlidErrors.bankName }}
+                    </p>
+                    <small
+                      >{{
+                        "BIND_BANK_CARD.ADD.FORM.BANK_NAME_notice" | translate
+                      }}; {{ "MEMBER_BANK.no_fpCode" | translate }}</small
+                    >
+                  </div>
+                </div>
+                <div class="f-row">
+                  <div class="f-column">
+                    <span class="require">{{
+                      "BIND_BANK_CARD.ADD.FORM.BRANCH_NAME" | translate
+                    }}</span>
+                  </div>
+                  <div class="f-input">
+                    <input type="text" required formControlName="branchName" />
+                    <p class="err" *ngIf="bankVlidErrors.branchName">
+                      <!-- {{ "REQUIRED" | translate }} -->
+                      {{ bankVlidErrors.branchName }}
+                    </p>
+                  </div>
+                </div>
+                <div class="f-row">
+                  <div class="f-column">
+                    <span class="require">{{
+                      "BIND_BANK_CARD.ADD.FORM.USER_NAME" | translate
+                    }}</span>
+                  </div>
+                  <div class="f-input">
+                    <!-- <span>我是名稱</span> -->
+                    <input
+                      type="text"
+                      formControlName="name"
+                      readonly
+                      style="border: none"
+                    />
+                  </div>
+                </div>
+                <div class="f-row">
+                  <div class="f-column">
+                    <span class="require">{{
+                      "BIND_BANK_CARD.ADD.FORM.BANK_ACCOUNT" | translate
+                    }}</span>
+                  </div>
+                  <div class="f-input">
+                    <input
+                      type="text"
+                      value=""
+                      required
+                      formControlName="account"
+                    />
+                    <small>{{
+                      "BIND_BANK_CARD.ADD.FORM.NOTICE" | translate
+                    }}</small>
+                    <p class="err" *ngIf="bankVlidErrors.account">
+                      {{ bankVlidErrors.account }}
+                    </p>
+                  </div>
+                </div>
+                <div class="f-row">
+                  <div class="f-column">
+                    <span class="require">{{
+                      "BIND_BANK_CARD.ADD.FORM.BANK_ACCOUNT_CHECK" | translate
+                    }}</span>
+                  </div>
+                  <div class="f-input">
+                    <input
+                      type="text"
+                      value=""
+                      required
+                      formControlName="confirmAccount"
+                    />
+                    <small>{{
+                      "BIND_BANK_CARD.ADD.FORM.NOTICE" | translate
+                    }}</small>
+                    <p class="err" *ngIf="bankVlidErrors.confirmAccount">
+                      <!-- {{ "REQUIRED" | translate }} -->
+                      {{ bankVlidErrors.confirmAccount }}
+                    </p>
+                  </div>
+                </div>
+                <div class="f-row">
+                  <div class="f-column"></div>
+                  <div class="f-input">
+                    <button
+                      appThrottleBtn
+                      (action)="addBank(addBankForm)"
+                      class="orange_btn btn-commit"
+                      [disabled]="
+                        lastReview ||
+                        !user.name ||
+                        (banks.length == banksLimit && banksLimit > 0) ||
+                        locked
+                      "
+                    >
+                      {{ "COMMON.CONFIRM" | translate }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="f-footer"></div>
+            </form>
+          </div>
+        </div>
+        <!-- reivew -->
+        <!-- <div class="bc-record panel-style" *ngIf="!isAddPage">
+                  <app-bank-card-record></app-bank-card-record>
+              </div> -->
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-small-bet-record class="bet-record"></app-small-bet-record>
+    <app-small-queest></app-small-queest>
+  </div>
+</div>

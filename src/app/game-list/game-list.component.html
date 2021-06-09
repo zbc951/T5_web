@@ -1,0 +1,75 @@
+<div class="panel-style">
+  <!-- {{ pkey }} -->
+  <div class="p-head" *ngIf="pkey">
+    <img src="assets/img/partner/{{ pkey }}.png" alt="{{ pkey }}" />
+  </div>
+  <div class="filters flex">
+    <ul class="tags flex">
+      <li
+        [class.active]="gameTag == enumGameTags.all"
+        (click)="changeGameTag(enumGameTags.all)"
+      >
+        {{ "GameTag.ALL" | translate }}
+      </li>
+      <li
+        [class.active]="gameTag == enumGameTags.hot"
+        (click)="changeGameTag(enumGameTags.hot)"
+      >
+        {{ "GameTag.HOT" | translate }}
+      </li>
+      <li
+        *ngIf="isLogin"
+        [class.active]="gameTag == enumGameTags.fav"
+        (click)="changeGameTag(enumGameTags.fav)"
+      >
+        {{ "GameTag.FAV" | translate }}
+      </li>
+      <li
+        *ngFor="let item of tagsMap | keyvalue"
+        [class.active]="gameTag == item.key"
+        (click)="changeGameTag(item.key)"
+      >
+        {{ item.value }}
+      </li>
+    </ul>
+    <div class="search">
+      <i class="search-icon"></i>
+      <input
+        type="search"
+        #search
+        placeholder="{{ 'GameTag.search' | translate }} "
+      />
+    </div>
+  </div>
+  <div class="cnt">
+    <ul class="game-list flex wrap">
+      <li
+        *ngFor="
+          let game of showItems
+            | gametags: gameTag:favorites
+            | searchGame: search.value
+        "
+      >
+        <app-maintain-tip [item]="game"></app-maintain-tip>
+        <div
+          (click)="clickGame(game, $event)"
+          class="pic"
+          [style.background-image]="'url(' + game.imageUrl + ')'"
+          [class.maintain-blur]="game.maintain"
+        ></div>
+        <div class="flex text">
+          <p class="ellipsis">
+            {{ game?.key }} - {{ game.name }}
+          </p>
+          <button
+            class="favor-icon"
+            (click)="favClick(game.id)"
+            [class.active]="isFav(game.id)"
+          >
+            <i></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

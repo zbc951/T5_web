@@ -1,0 +1,135 @@
+<div
+  class="coupon-wallet"
+  [ngClass]="{ 'coupon-no-open': couponWallet && couponWallet.length < 6 }"
+>
+  <p class="coupon-title" *ngIf="type !== 'mine'">
+    {{ "TRANSFER.CENTER-WALLET-LIST.TITLE" | translate }}
+  </p>
+  <p class="coupon-title" *ngIf="type === 'mine'">
+    {{ "MY-WALLET.COUPON-TITLE" | translate }}
+  </p>
+
+  <ul
+    [ngClass]="{
+      'trans-wallet-no-open': !couponWalletOpen && type === 'transfer',
+      'mine-wallet-no-open': !couponWalletOpen && type === 'mine'
+    }"
+  >
+    <li class="head-li">
+      <div class="head">
+        {{ "TRANSFER.CENTER-WALLET-LIST.DEADLINE" | translate }}
+      </div>
+      <div class="head">
+        {{ "TRANSFER.CENTER-WALLET-LIST.NAME" | translate }}
+      </div>
+      <div class="head">
+        {{ "TRANSFER.CENTER-WALLET-LIST.BALANCE" | translate }}
+      </div>
+      <div class="head">
+        {{ "TRANSFER.CENTER-WALLET-LIST.SCHEDULE" | translate }}
+      </div>
+      <div class="head">
+        {{ "TRANSFER.CENTER-WALLET-LIST.OPTION" | translate }}
+      </div>
+    </li>
+    <p class="no-data" *ngIf="couponWallet.length === 0; else gotdata">
+      {{ "NO_DATA" | translate }}
+    </p>
+    <ng-template #gotdata>
+      <li *ngFor="let item of couponWallet">
+        <div>
+          {{ item.endAt ? item.endAt : ("MEMBER_QUEST.NO_LIMIT" | translate) }}
+        </div>
+        <div title="#{{ item.id }}">{{ item.name }}#{{ item.id }}</div>
+        <div>{{ item.currentPoints }}</div>
+        <div>
+          <p class="finish" *ngIf="item.currentWater >= item.waterLimit">
+            {{ "TRANSFER.CENTER-WALLET-LIST.FINISH" | translate }}
+          </p>
+          <div class="schedule" *ngIf="!(item.currentWater >= item.waterLimit)">
+            <div class="num">
+              <p>{{ item.currentWater }}</p>
+              <p>{{ item.waterLimit }}</p>
+            </div>
+            <app-experience-bar
+              [goal]="item.waterLimit"
+              [cur]="item.currentWater"
+              [width]="250"
+              [height]="5"
+            >
+            </app-experience-bar>
+            <p class="notice">
+              {{ "TRANSFER.CENTER-WALLET-LIST.NOTICE" | translate }}
+            </p>
+          </div>
+        </div>
+        <div>
+          <button class="record" (click)="checkoutLog(item.id)">
+            {{ "TRANSFER.CENTER-WALLET-LIST.RECORD" | translate }}
+          </button>
+          <ng-container
+            *ngIf="
+              (item.currentPoints == 0 ||
+                (item.currentPoints <= item.limitGiveUp &&
+                  !(
+                    item.currentWater >= item.waterLimit && item.waterLimit != 0
+                  ) &&
+                  item.limitGiveUp != 0)) &&
+                item.status == 'enabled' &&
+                item.isReceive == 0;
+              else transin
+            "
+          >
+            <button class="trans-in" appThrottleBtn (action)="giveup(item)">
+              {{ "TRANSFER.CENTER-WALLET-LIST.GIVE-UP" | translate }}
+            </button>
+          </ng-container>
+          <ng-template #transin>
+            <button
+              class="trans-in"
+              [disabled]="
+                !(item.currentWater >= item.waterLimit) ||
+                item.isReceive !== 0 ||
+                item.currentPoints == 0 ||
+                item.status == 'cancel' ||
+                item.isOverdue
+              "
+              appThrottleBtn
+              (action)="transIn(item)"
+            >
+              <!-- 這邊判斷 status 給 history 用 -->
+              {{
+                item.status == "cancel"
+                  ? ("TRANSFER.CENTER-WALLET-LIST.CANCEL" | translate)
+                  : item.status == "giveUp" &&
+                    !(
+                      item.currentWater >= item.waterLimit &&
+                      item.waterLimit != 0
+                    )
+                  ? ("TRANSFER.CENTER-WALLET-LIST.GIVE-UP" | translate)
+                  : ("TRANSFER.CENTER-WALLET-LIST.BACK-CENTER" | translate)
+              }}
+            </button>
+          </ng-template>
+        </div>
+      </li>
+    </ng-template>
+  </ul>
+  <div
+    class="open"
+    *ngIf="
+      (couponWallet && couponWallet.length > 5 && type === 'transfer') ||
+      (couponWallet && couponWallet.length > 6 && type === 'mine')
+    "
+  >
+    <button (click)="walletOpen()">
+      {{ "TRANSFER.OPEN" | translate }}
+      <i [ngClass]="{ 'no-open': couponWalletOpen }"></i>
+    </button>
+  </div>
+</div>
+<app-activity-log
+  *ngIf="isActivityLogShow"
+  [logId]="activityLogId"
+  (closeEvt)="closePopup($event)"
+></app-activity-log>

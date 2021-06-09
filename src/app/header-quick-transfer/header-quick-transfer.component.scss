@@ -1,0 +1,84 @@
+.transfer_option {
+  // width: 370px;
+  width: 290px;
+  font-size: 14px;
+  font-weight: bold;
+
+  color: #fff;
+  background: #666;
+  border: 1px solid #4c4c4c;
+  // border-radius: 3px;
+}
+
+li {
+  height: 47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding: 0 10px;
+  padding: 11px 16px;
+  border-bottom: 1px solid #737373;
+
+  & > div {
+    // width: 210px;
+    width: 100%;
+    max-width: 240px;
+    justify-content: space-between;
+  }
+
+  p {
+    width: 50%;
+    line-height: 1;
+
+    &.money {
+      text-align: end;
+
+      position: relative;
+
+      i {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url("~src/assets/img/loading_g.svg");
+        position: absolute;
+        top: calc(50% - 10px);
+        // left: calc(50% - 10px);
+        right: 0;
+        animation: spiner 1.2s linear infinite;
+      }
+
+      span {
+        visibility: hidden;
+      }
+
+      &.got {
+        i {
+          visibility: hidden;
+        }
+        span {
+          visibility: visible;
+        }
+      }
+
+      // @keyframes spiner {
+      //   0% {
+      //     transform: rotate(0deg);
+      //   }
+      //   100% {
+      //     transform: rotate(360deg);
+      //   }
+      // }
+    }
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+button {
+  font-size: 12px;
+  padding: 5px 10px;
+  line-height: 1;
+  border-radius: 3px;
+}

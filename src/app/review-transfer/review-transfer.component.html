@@ -1,0 +1,174 @@
+<div class="review-wrap">
+  <app-search-panel
+    [tab]="searchType.TRANSFER"
+    [options]="typeOptions"
+    (queryEvt)="searchReview($event)"
+    (changeEvt)="optionChange()"
+  ></app-search-panel>
+
+  <!-- <div class="table-header">{{ "REVIEW_RECORD.TRANSFER.TAB" | translate }}</div> -->
+
+  <div class="table-body" *ngIf="listData.length != 0" [ngSwitch]="queryType">
+    <!-- group-deposit -->
+    <table *ngSwitchCase="logtypGroups['group-deposit']">
+      <thead>
+        <tr>
+          <th>{{ "MEMBER_RECORD.TIME" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.TID" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.TYPE" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.MONEY" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.STATUS" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.REASON" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listData | paginate: pageConfig">
+          <td>{{ item.created_at }}</td>
+          <td>{{ item.tid }}</td>
+          <td>{{ RECORD_REVIEW_OPTIONS[item.type] }}</td>
+          <td>{{ item.money | floatDisplay }}</td>
+          <td>{{ REVIEW_STATUS[item.status] }}</td>
+          <td>{{ item.reason || "-" }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- group-withdraw -->
+    <table *ngSwitchCase="logtypGroups['group-withdraw']">
+      <thead>
+        <tr>
+          <th>{{ "MEMBER_RECORD.TIME" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.TID" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.WITHDRAW.ACCOUNT" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.MONEY" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.STATUS" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.REASON" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listData | paginate: pageConfig">
+          <td>{{ item.created_at }}</td>
+          <td>{{ item.tid }}</td>
+          <td>{{ item.bank }}</td>
+          <td>{{ item.money | floatDisplay }}</td>
+          <td>{{ REVIEW_STATUS[item.status] }}</td>
+          <td>{{ item.reason || "-" }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- group-transfer -->
+    <table *ngSwitchCase="logtypGroups['group-transfer']">
+      <thead>
+        <tr>
+          <th>{{ "MEMBER_RECORD.TIME" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.TYPE" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.TRANSFER.TABLE.CONTENT" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.MONEY" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listData | paginate: pageConfig">
+          <td>{{ item.created_at }}</td>
+          <td>{{ REVIEW_TRANSFER_TYPE[item.type] }}</td>
+          <td [ngSwitch]="item.type">
+            <ng-container *ngSwitchCase="withdrawType.transferGame">
+              {{ "PFTRANSITION.CENTER" | translate }}->{{ item.platform_name }}
+            </ng-container>
+            <ng-container *ngSwitchCase="withdrawType.transferWallet">
+              {{ item.platform_name }}->{{ "PFTRANSITION.CENTER" | translate }}
+            </ng-container>
+            <ng-container *ngSwitchCase="withdrawType.mounted">
+              {{
+                item.platform_name
+                  ? item.platform_name
+                  : ("PFTRANSITION.CENTER" | translate)
+              }}->{{ item.product_name }}
+            </ng-container>
+            <ng-container *ngSwitchCase="withdrawType.unmounted">
+              {{ item.product_name }}->{{
+                item.platform_name
+                  ? item.platform_name
+                  : ("PFTRANSITION.CENTER" | translate)
+              }}
+            </ng-container>
+          </td>
+          <td>{{ item.money | floatDisplay }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- group-water -->
+    <table *ngSwitchCase="logtypGroups['group-water']">
+      <thead>
+        <tr>
+          <th>{{ "MEMBER_RECORD.TIME" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.TYPE" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.BONUS.ITEM" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.MONEY" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.REASON" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listData | paginate: pageConfig">
+          <td>{{ item.created_at }}</td>
+          <td>bonus</td>
+          <td>{{ REVIEW_WATER_TYPE[item.type] }}</td>
+          <td>{{ item.money | floatDisplay }}</td>
+          <td>{{ item.remark || "-" }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- group-activity-wallet -->
+    <table *ngSwitchCase="logtypGroups['group-activity-wallet']">
+      <thead>
+        <tr>
+          <th>{{ "MEMBER_RECORD.TIME" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.WALLET.ACTIVITY" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.WALLET.CHANGE" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.STATUS" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.REASON" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listData | paginate: pageConfig">
+          <td>{{ item.createdAt }}</td>
+          <td>{{ item.productName }}</td>
+          <td>{{ item.money | floatDisplay }}</td>
+          <td>{{ REVIEW_ACTIVITY_TYPE[item.type] }}</td>
+          <td>{{ item.remark || "-" }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- group-others -->
+    <table *ngSwitchCase="logtypGroups['group-others']">
+      <thead>
+        <tr>
+          <th>{{ "MEMBER_RECORD.TIME" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.TYPE" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.MONEY" | translate }}</th>
+          <th>{{ "REVIEW_RECORD.DEPOSIT.TABLE.REASON" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listData | paginate: pageConfig">
+          <td>{{ item.createdAt }}</td>
+          <td>{{ RECORD_REVIEW_OPTIONS[item.type] }}</td>
+          <td>{{ item.money | floatDisplay }}</td>
+          <td>{{ item.remark || "-" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-footer">
+    <p class="no-data" *ngIf="listData.length === 0">
+      {{ "NO_DATA" | translate }}
+    </p>
+    <div *ngIf="pageConfig.totalItems > 0" class="pagination-bar">
+      <pagination-controls
+        autoHide="true"
+        (pageChange)="pageChanged($event)"
+        previousLabel="<"
+        nextLabel=">"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

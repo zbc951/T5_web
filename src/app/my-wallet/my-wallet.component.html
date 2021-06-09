@@ -1,0 +1,132 @@
+<div class="my-wallet">
+  <div class="my-wallet-center">
+    <div class="top panel-style">
+      <div class="my-title">
+        {{ "MY-WALLET.TITLE" | translate }}
+      </div>
+      <hr />
+      <div class="content">
+        <div class="total">
+          <!-- <ng-container *ngIf="isActivityWallet; else elsebox">
+            <div class="total-title">
+              {{ "MY-WALLET.TOTAL.TITLE" | translate }}
+              <div class="icon">
+                <div class="dialog">
+                  <p>
+                    {{ "MY-WALLET.TOTAL.CENTER" | translate }} +
+                    {{ "MY-WALLET.TOTAL.COUPON" | translate }}+
+                    {{ "MY-WALLET.PLATFORM-PAGE-TITLE" | translate }}
+                    <i class="arrow"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="total-amount">${{ total | floatDisplay }}</div>
+            <div class="wallet">
+              <div class="center">
+                <div class="center-tiitle">
+                  {{ "MY-WALLET.TOTAL.CENTER" | translate }}
+                  <button
+                    class="orange_btn"
+                    appThrottleBtn
+                    (action)="unmountActivityWallet()"
+                    [disabled]="platformWallet.length == 0"
+                  >
+                    {{ "TRANSFER.RECEIVE" | translate }}
+                  </button>
+                </div>
+                <div class="amount">${{ user.money | floatDisplay }}</div>
+              </div>
+              <div class="coupon">
+                <div class="coupon-title">
+                  {{ "MY-WALLET.TOTAL.COUPON" | translate }}
+                </div>
+                <div class="amount">${{ walletSumup | floatDisplay }}</div>
+              </div>
+            </div>
+          </ng-container> -->
+          <!-- <ng-template #elsebox> -->
+            <div class="center-title">
+              {{ "MY-WALLET.TOTAL.CENTER" | translate }}
+              <button
+                class="orange_btn"
+                appThrottleBtn
+                (action)="clickBackAll()"
+                [disabled]="allPlatforms.length == 0"
+              >
+                {{ "TRANSFER.RECEIVE" | translate }}
+              </button>
+            </div>
+            <div class="amount">${{ total | floatDisplay }}</div>
+          <!-- </ng-template> -->
+        </div>
+        <div class="able">
+          <div class="able-title">
+            {{ "MY-WALLET.ABLE.TITLE" | translate }}
+            <div class="icon">
+              <div class="dialog">
+                <p>
+                  {{ "MY-WALLET.TOTAL.CENTER" | translate }} -
+                  {{ "MY-WALLET.ABLE.LOCK" | translate }}
+                  <i class="arrow"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="able-amount">${{ ableMoney | floatDisplay }}</div>
+
+          <div class="lock">
+            <p>
+              {{ "MY-WALLET.ABLE.LOCK" | translate }}
+            </p>
+            <span> ${{ user.wallet?.locked_amount | floatDisplay }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom panel-style">
+      <ul class="tabs flex">
+        <!-- <ng-container *ngIf="isActivityWallet">
+          <li
+            (click)="walletTypeChange(walletType.COUPON)"
+            [ngClass]="{ active: currType === walletType.COUPON }"
+          >
+            {{ "MY-WALLET.COUPON-PAGE-TITLE" | translate }}
+          </li>
+          <li
+            (click)="walletTypeChange(walletType.COUPON_HISTORY)"
+            [ngClass]="{ active: currType === walletType.COUPON_HISTORY }"
+          >
+            {{ "MY-WALLET.COUPON-HISTORY-TITLE" | translate }}
+          </li>
+        </ng-container> -->
+        <li
+          (click)="walletTypeChange(walletType.PLATFORM)"
+          [ngClass]="{ active: currType === walletType.PLATFORM }"
+        >
+          {{ "MY-WALLET.PLATFORM-PAGE-TITLE" | translate }}
+        </li>
+      </ul>
+      <app-coupon-wallet
+        [type]="type"
+        [tab]="currType"
+        *ngIf="currType === walletType.COUPON"
+      ></app-coupon-wallet>
+      <app-coupon-wallet
+        [type]="type"
+        [tab]="currType"
+        *ngIf="currType === walletType.COUPON_HISTORY"
+      ></app-coupon-wallet>
+      <app-platform-wallet
+        [type]="type"
+        *ngIf="currType === walletType.PLATFORM"
+      ></app-platform-wallet>
+    </div>
+  </div>
+  <div>
+    <app-small-bet-record class="bet-record"></app-small-bet-record>
+    <app-small-queest></app-small-queest>
+  </div>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>

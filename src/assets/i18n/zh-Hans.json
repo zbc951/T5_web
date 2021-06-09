@@ -1,0 +1,1239 @@
+{
+  "TIPS": "提示",
+  "loginFirst": "請先登入",
+  "PleaseInput": "請輸入",
+  "REQUIRED": "必填",
+  "AGAIN": "再次",
+  "and": "和",
+  "PLEASE-CHOSE": "請選擇",
+  "TEACH": "教學",
+  "COUPON": "優惠",
+  "WALLET": "錢包",
+  "SERVICE": "客服",
+  "LOGIN": {
+    "TITLE": "登入",
+    "FORGET_PWD": "忘記密碼",
+    "ID": "帳號",
+    "PWD": "密碼",
+    "LOGIN": "立即登入",
+    "REGISTER": "進行註冊",
+    "NotYETMember": "還沒有帳號嗎",
+    "online": "在線玩家",
+    "popup-title": "會員登入",
+    "forget": "忘記<span>密碼</span>?",
+    "not-yet": "還不是會員?",
+    "register": "註冊新會員",
+    "err": {
+      "account": "輸入會員正確帳號",
+      "pwd": "輸入密碼錯誤"
+    }
+  },
+  "USE_TERMS": "使用條款",
+  "PRIVACY_POLICY": "隱私政策",
+  "REGISTER": {
+    "TITLE": "註冊",
+    "POPUP-TITLE": "會員註冊",
+    "ID": "註冊帳號",
+    "PWD": "輸入密碼",
+    "CONFIRM": "密碼確認",
+    "CODE": "邀請碼",
+    "CODE_HOLDER": "輸入註冊邀請碼",
+    "AGREE": "我同意 GD",
+    "WAIT": "需等待審核通過，請連繫在線客服",
+    "INVALID": {
+      "CHECK_POLICY": "請重新同意相關規範以及服務條款",
+      "CONFIRM_PWD": "請再次確認密碼",
+      "PHONE_NUM_LIMIT": "電話號碼必須為10個數字",
+      "ACCOUNT": "格式是無效的",
+      "PASSWORD": "格式是無效的",
+      "LENGTH": "長度需介於 6-30",
+      "name": "不可有數字"
+    },
+    "INFLY": "立即註冊",
+    "PHONE": "手機",
+    "PHONE_CONFIRM": "手機驗證碼",
+    "ACCOUNT": "請輸入帳號",
+    "ISCHECK1": "已閱讀並同意",
+    "ISCHECK2": "相關條款與隱私政策",
+    "ISCONFIRM": "已驗證",
+    "SUCCESS": "註冊成功",
+    "SUCCESS-DISCRIPTION": "恭喜，您已成功加入會員!",
+    "GODEPOSIT": "前往存款",
+    "INTO": "進入逛逛",
+    "JUMP": "秒後自動跳回首頁",
+    "send": "送出",
+    "ERR": {
+      "ACCOUNT": "6-12位數字與英文字符",
+      "CONFIRM": "您兩次輸入的密碼需一致",
+      "PHONE-ERR": "手機號碼錯誤",
+      "PHONE-CONFIRM-ERR": "手機驗證碼錯誤",
+      "INVATION": "如無推薦的代理可不填寫"
+    },
+    "tips": {
+      "ACCOUNT": "帳號須包含一個英文字母(大小寫皆可);最少六個字元",
+      "PASSWORD": "數字英文,及限定的特殊符號(@._$#%^&*+-)可使用"
+    }
+  },
+  "FORGET_PWD": {
+    "HOLDER": "請輸入您的手機號碼",
+    "RESET": "重置密碼",
+    "PS": "我們將發送新的密碼到您的手機，請查收簡訊",
+    "PHONE": "手機號碼",
+    "CODE": "驗證碼",
+    "NEW_PWD": "新密碼",
+    "CONFIRM_PWD": "密碼確認",
+    "RECOMMIT": "重傳"
+  },
+  "announcement": {
+    "newest": "最新資訊"
+  },
+  "HEADER_NAV": {
+    "sport": "體育賽事",
+    "live": "真人娛樂",
+    "slot": "老虎機",
+    "lottery": "彩票",
+    "fishing": "捕魚機",
+    "board": "棋牌遊戲"
+  },
+  "GAMETYPE": {
+    "SPORT": "體育賽事",
+    "LIVE": "真人娛樂",
+    "SLOT": "老虎機",
+    "LOTTO": "彩票",
+    "FISH": "捕魚機",
+    "CASUAL": "棋牌遊戲",
+    "DISCRIPTION": {
+      "SPORT": "每月支援全球超過30000 場運動類型投註賽事，提供多元投註方式包含足球丶棒球丶籃球及橄欖球等世界主要體育競賽，由專業的資訊管理團隊提供最準確即時的賽事結果與24小時線上投註服務，更備有亞洲盤丶歐洲盤丶香港盤丶印尼盤及馬來盤等賠率盤口供玩家選擇。",
+      "LIVE": "AU8真人娛樂爲亞洲最具潛力的真人視訊品牌，提供百家樂、極速百家樂、多彩百家樂 、龍虎、骰寶、輪盤、牛牛、炸金花等多樣真人視訊遊戲，爲玩家提供穩定而流暢的遊 戲服務。",
+      "LOTTO": "彩票遊戲供給你最多人遊玩的彩票商品，如：六合彩、大樂透、539、時時彩、快樂8…等，網羅兩岸三地的熱門彩票遊戲，所有彩票遊戲公正公開，皆參照各地官方開獎結果爲依據，連線同步即時開彩。",
+      "FISH": "《捕魚遊戲機》是大型平板類遊戲機，可供多人同時遊戲，由金聖元動漫科技開發研製，遊戲通過出現滿屏幕的魚羣，玩家操控自己的砲臺擊落魚羣而獲得獎勵。",
+      "BORAD": "棋牌遊戲，是棋盤遊戲和紙牌遊戲統稱。棋牌類從明清開始一度興盛。史都華·庫林是著名的傳統棋牌研究者。現代棋牌遊戲以休閒爲主，在華語區影響較深的主要有撲克、鬥地主、麻將、中國象棋、中國跳棋、軍棋、黑白棋、五子棋等。這類遊戲特別影響手機遊戲開發，非動作性的遊戲爲主流。",
+      "SLOT": "許多人聽到的吃角子老虎、老虎機、水果機、拉霸機等名詞，其實都是在說同一個遊戲項目。為了統一說詞，下文開始將統稱為「老虎機」。老虎機的玩法非常簡單，玩家只要投入金額，並啟動把手或按鈕，轉軸即開始快速轉動。"
+    }
+  },
+  "GameTag": {
+    "ALL": "全部",
+    "HOT": "熱門遊戲",
+    "FAV": "我的最愛",
+    "search": "搜尋遊戲名稱"
+  },
+  "PageBack": "返回",
+  "NAV": {
+    "ANNOUNCE": "最新公告",
+    "COUPON": "優惠中心",
+    "ABOUT": "關於我們",
+    "VIP": "VIP會員",
+    "HELP": "幫助中心",
+    "NEWBIE": "新手幫助",
+    "QNA": "常見問題",
+    "JOIN": "加入我們",
+    "download": "APP下載",
+    "BANK": {
+      "TITLE": "存提",
+      "DEPOSIT": "存款專區",
+      "WITHDRAW": "提款專區"
+    },
+    "TRANSFER": "轉點",
+    "HOME": "主頁",
+    "RECORD": {
+      "TITLE": "紀錄",
+      "TRANSACTION": "交易紀錄",
+      "BET": "投註紀錄",
+      "BONUS": "優惠紀錄"
+    },
+    "CUSTOMER_SERVICE": "聯絡客服",
+    "LOGOUT": "登出"
+  },
+  "CUSTOMER": {
+    "TITLE": "在線客服",
+    "HEADLINE": "Hi, 尊敬的用戶 歡迎來到客服中心",
+    "INFO": "我們最親切且專業的客服人員，將全天 24 小時為您提供諮詢及幫助。",
+    "ONLINE": {
+      "TITLE": "點擊在線客服",
+      "ENTITLE": "Human Customer Suport",
+      "PROMPT": "7*24小時專線服務 貼心至上"
+    },
+    "LINE_TITLE": "點擊加入官方LINE帳號",
+    "ZALO_TITLE": "Zalo客服",
+    "WECHAT_TITLE": "WECHAT客服"
+  },
+  "RULE": {
+    "TITLE": "使用條款",
+    "agree": "同 意"
+  },
+  "MAINTAIN": {
+    "ONLINE": "線上客服",
+    "APP": "手機下載",
+    "ing": "維護中",
+    "routine": "每周{{day}} {{time}}\n維修 {{min}} 分鐘",
+    "week": {
+      "sunday": "日",
+      "monday": "一",
+      "tuesday": "二",
+      "wednesday": "三",
+      "thursday": "四",
+      "friday": "五",
+      "saturday": "六"
+    }
+  },
+  "INDEX": {
+    "CLICK_ENTER": "點擊進入",
+    "PLAY_NOW": "立即遊玩"
+  },
+  "BULLETIN": {
+    "HOT": "熱門",
+    "NORMAL": "一般",
+    "DEPOSIT": "存款",
+    "newest": "最新",
+    "anounce": "公告"
+  },
+  "MISSION": {
+    "ALL": "所有任務",
+    "NEW": "新手任務",
+    "DAILY": "每日任務",
+    "SECTION": "期間任務",
+    "BIRTH": "生日任務",
+    "INTRO": "介紹任務",
+    "DETAIL": "瞭解詳情",
+    "APPLY": "申請活動優惠"
+  },
+  "MEMBER_QUEST": {
+    "APPLY_TAB": "優惠申請",
+    "RECORD_TAB": "優惠申請紀錄",
+    "APPLIED_TAB": "已申請提領",
+    "LOCKED": "未解鎖",
+    "UNLOCKED": "已解鎖",
+    "NAME": "活動名稱",
+    "PERIOD": "活動時間",
+    "period": "活動週期",
+    "PERCENT": "贈送比例",
+    "PERCENT_BEFORE": "贈送儲值比例",
+    "PERCENT_AFTER": "贈送流水量比例",
+    "REWARD": "贈送點數",
+    "REWARD_MAX": "最大贈送點數",
+    "report_total": "會員總計",
+    "allowedReward": "當下可領贈點",
+    "AMOUNT": "流水",
+    "BETAMOUNT": "流水量",
+    "bet_amount": "應達到流水量",
+    "NOW_BETAMOUNT": "現在流水量",
+    "AMOUNT_MIN": "最小流水量",
+    "PERCENTAGE": "百分比",
+    "extra1": "首儲金額",
+    "extra9": "儲值金額",
+    "extra9_s": "儲值",
+    "extra10": "最小儲值金額",
+    "review_deposit": "已儲金額",
+    "NO_LIMIT": "不限制",
+    "APPLY": "申請提領",
+    "DETAIL": "查看活動",
+    "detailTitle": "任務詳情",
+    "day-tips": "<em>{{value}}</em> 任務將結束",
+    "applied_msg": "已送出申請",
+    "NOTICE": {
+      "TITLE": "註意事項",
+      "P1": "爲了防止洗錢作法,任務開始後將鎖上提領功能,需達成流水才能開放提領。",
+      "P2": "若發現有套利客戶,對賭或不誠實獲取盈利之行爲,將取消其優惠資格。"
+    },
+    "STATUS": "狀態",
+    "START_DATE": "開始日期",
+    "IN_60_DAYS": "只能查詢60天內的資料",
+    "QUERY": "查詢",
+    "REASON": "理由",
+    "LIMIT": "贈點紀錄",
+    "SUMMATION": "累積",
+    "STAGETABLE": {
+      "REACH": "流水達到",
+      "REACH_BEFORE": "儲值達到",
+      "stage_REACH_before": "儲值達到",
+      "MAX": "最大贈點",
+      "GAIN": "獲得贈點",
+      "CANGAIN": "可獲得",
+      "CHEERUP": "加油!!還差 <span class=\"val\">{{value}}</span> 就可獲得更大獎勵"
+    },
+    "Priority": "優惠順序安排",
+    "order": "順序",
+    "class": "類別",
+    "deactive-cnt": "資料尚未儲存\n您確定要離開此頁面嗎?",
+    "stay": "停留在此頁",
+    "leave": "離開此頁",
+    "save": "確認儲存",
+    "orderup": "順序往前",
+    "orderdown": "順序往後",
+    "birth_before": "會員生日當天 當天才可領此活動贈點",
+    "birth_after": "會員生日當天 有玩遊戲才開始計算流水",
+    "conditions": "條件",
+    "check": "查看",
+    "limited_event": "限時活動",
+    "buy_at": "購買日期",
+    "buy_price": "購買金額"
+  },
+  "quest_conditions": {
+    "birthday": "會員生日",
+    "reward_max": "最大贈點",
+    "bet_amount_min": "最少投註金額",
+    "bet_amount": "投註流水量",
+    "valid_amount": "有效流水量",
+    "win_amount": "中獎流水量",
+    "amount_scale": "流水倍數",
+    "club_level": "會員俱樂部等級",
+    "specific_member": "指定會員",
+    "first-time-deposit": "首儲",
+    "multiple-deposit": "累積型儲值",
+    "regular-deposit": "必需儲值金額",
+    "profit-report-total": "獲利金額",
+    "loss-report-total": "負利金額",
+    "single-day-first-time-deposit": "每日首儲",
+    "days-after-registered": "會員須註冊的天數"
+  },
+  "quest_period": {
+    "daily": "每日",
+    "week": "每週",
+    "month": "每月",
+    "quarterly": "每季",
+    "half_year": "每半年",
+    "year": "每年",
+    "period": "期間"
+  },
+  "quest_method": {
+    "before": "前派",
+    "after": "後派",
+    "fixed": "固定型",
+    "percent": "百分比型",
+    "stages": "階段型"
+  },
+  "LETTER": {
+    "TITLE": "站內信",
+    "ALL": "全部信件",
+    "UNREAD": "未讀信件",
+    "READ": "已讀信件",
+    "REFRESH": "重新整理",
+    "DEL": "刪除",
+    "AGENT": "管理人員",
+    "MEM": "會員",
+    "SYSTEM": "系統信件",
+    "edit": "編輯",
+    "readall": "全部已讀",
+    "delall": "全部刪除",
+    "msg": "通知",
+    "announcement": "公告",
+    "system": "系統消息",
+    "member": "個人消息",
+    "read": "已讀",
+    "all": "全部",
+    "ok": "完成"
+  },
+  "MEMBER_NAV": {
+    "TITLE": "會員中心",
+    "DEPOSTI": "存款專區",
+    "WITHDRAW": "提款專區",
+    "INFO": "個人資料",
+    "BANK": "綁定銀行卡",
+    "MULTIMONEY": "中心錢包",
+    "TRANSFER_LOG": "交易紀錄",
+    "APPLY_STATUS": "存提狀態",
+    "VIP": "VIP會員",
+    "COUPON": "優惠",
+    "ACTIVITY_WALLET": "活動錢包",
+    "MY_WALLET": "我的錢包",
+    "BET_LOG": "投注紀錄",
+    "deposit_teach": "存款教學",
+    "withdraw_teach": "提款教學",
+    "wallet_teach": "錢包教學"
+  },
+  "MEMBER_INFO": {
+    "ACCOUNT": "会员账号",
+    "NAME": "真實姓名",
+    "NAME1": "姓名",
+    "name_tips": "姓名需與銀行卡持卡人姓名一致，否則無法提款!",
+    "name_tips2": "請輸入真實姓名需持卡人姓名一致",
+    "invite": "邀請碼",
+    "inviteUrl": "推廣網址",
+    "BIRTH": "生日",
+    "BIRTH_pla": "請填選生日",
+    "email": "Email",
+    "email_pla": "請填選Email",
+    "address": "地址",
+    "address_pla": "請填選地址",
+    "PHONE": "聯絡電話",
+    "old_phone": "原有號碼",
+    "CODE": "驗證碼",
+    "SAVE": "保存資料",
+    "SAVE_PS_TITLE": "備註",
+    "SAVE_PS": "請確實填寫姓名、聯絡電話，寫入後則無法修改， 有任何問題請聯繫客服",
+    "SEND_CODE": "取得驗證碼",
+    "PHONE_PS": "檢查手機號碼無誤後，即可按傳送",
+    "ONE_APP_REQUIRED": "QQ 與 WeChat 擇一填寫即可",
+    "ONE_APP_REQUIRED_1": "line 與 WeChat 擇一填寫即可",
+    "ONE_REQUIRED": "擇一填寫",
+    "CHANGE_PWD": "修改密碼",
+    "OLD_PWD": "舊登入密碼",
+    "NEW_PWD": "新登入密碼",
+    "CONFIRM_PWD": "確認新密碼",
+    "CONFIRM": "確認",
+    "CANCEL": "取消修改",
+    "CONFIRM_PWD_FAIL": "兩次密碼不相同",
+    "PWD_CHANGED": "密碼已變更，請重新登入",
+    "no": "號",
+    "updated": "資料已修改",
+    "unchanged": "未修改任何資料",
+    "platform": "平臺帳號密碼",
+    "code": "代碼",
+    "pname": "平臺名稱",
+    "uid": "玩家id",
+    "pwd": "密碼",
+    "password": "帳戶密碼",
+    "status": "狀態",
+    "llt": "最後登入",
+    "notActive": "未開通",
+    "notActive2": "未認證",
+    "copy": "點擊即複製",
+    "copy_btn": "複製",
+    "forth": "四代組織",
+    "order": "順序",
+    "account": "帳號",
+    "security": {
+      "low": "低",
+      "middle_low": "中低",
+      "middle": "中",
+      "high": "高",
+      "title": "帳戶安全等级",
+      "ps": "為了確保您的帳戶安全，請填寫相關安全信息，以備不時之需",
+      "base": "填寫基本資料",
+      "phone": "綁定手機號碼",
+      "bank": "添加銀行卡",
+      "email": "填寫電子郵件"
+    },
+    "basic": "基本資料",
+    "basic2": "基本資料填寫",
+    "modify": "修改",
+    "basic_q1": "基本資料有誤?  請",
+    "basic_q2": "聯繫客服",
+    "wechat": "WeChat",
+    "line": "Line",
+    "adult": "未滿 18 歲, 禁止註冊",
+    "new-phone": "请输入新手机号码",
+    "set-phone-tips": "送出验证码后，请立即连系在线客服",
+    "code-sended": "已发送验证码"
+  },
+  "MEMBER_INFO_PLATFORM": {
+    "status": {
+      "0": "未啟用",
+      "1": "啟用",
+      "-1": "未設定"
+    }
+  },
+  "MEMBER_DEPOSIT": {
+    "method": "選擇支付方式",
+    "SERIAL": "銀行卡轉帳",
+    "TUTOR": "教學",
+    "BANK_NAME": "收款銀行名稱",
+    "BANK_ACCOUNT": "銀行帳號",
+    "NAME": "收款人姓名",
+    "MONEY": "實際存款金額",
+    "FIVE_CODE": "存款帳號末5碼",
+    "TIME": "匯款時間",
+    "INFLY": "立即存款",
+    "MONEY_PS1": "單筆存款金額需介於",
+    "MONEY_PS2": "存款上限須視您銀行卡之限額而定。",
+    "NOTICE_1": "請務必使用您所”綁定的銀行卡”進行匯款。",
+    "NOTICE_2": "收款銀行帳號於每次成功存款後隨機選取，匯款時請務必確認收款銀行資訊與上方相同。",
+    "NOTICE_3": "若需查詢或取消存款預約單，請前往「會員中心/存提狀態查詢」。",
+    "ONLINE": "在線支付",
+    "METHOD": "支付方式",
+    "AMOUNT": "存款金額(元)",
+    "AMOUNT_HOLDER": "請輸入充值金額",
+    "onlinePs": "單筆存款金額200元-20000元,存款上限須視您銀行卡之限額而定。",
+    "online_n1": "存款會在十分鐘內辦理，如有任何疑問，請隨時諮詢24/7在線客服。",
+    "online_n2": "訂單金額與網銀轉帳金額不符時，以實際到帳金額爲準，且實際轉帳金額必須符合充值申請時的金額要求。",
+    "online_n3": "爲了您的資金安全以及加速審核入款,充值金額須包含上述。",
+    "methods": {
+      "SERIAL": "銀行卡轉賬",
+      "agent": "代客儲值",
+      "unionpay": "雲閃付",
+      "wechat": "微信",
+      "qq": "qq",
+      "bank": "銀行支付",
+      "alipay": "支付寶",
+      "webgatepay": "網關卡",
+      "webbank": "網銀",
+      "online": "網銀支付",
+      "quck": "銀聯快捷"
+    },
+    "go_chk_msg": "系統將於5分鐘內為您處理完畢，並發送個人訊息告知您，謝謝!!"
+  },
+  "MEMBER_WITHDRAW": {
+    "dear": "親愛的用戶您好<br />請綁定一張銀行卡才可進行提款申請",
+    "go": "前往綁定銀行卡",
+    "holder": "請先綁定銀行卡",
+    "TITLE": "申請資料",
+    "BALANCE": "主帳戶餘額",
+    "LOCKED_AMOUNT": "鎖定金額",
+    "NOT_ENOUGH": "餘額不足",
+    "BANK_NAME": "銀行名稱",
+    "BANK_BRANCH": "分行名稱",
+    "ACCOUNT": "銀行帳號",
+    "MONEY": "提款金額",
+    "MONEY-notice": "請輸入提款金額",
+    "min": "提款金額最低爲 {{ value }} 元",
+    "MONEY_PS1": "單筆提款金額需介於",
+    "PWD": "登入密碼",
+    "PWD-notice": "請輸入登入密碼",
+    "NOTICE_1": "每次提款最少點數爲 {{ value }} 點以上,請務必確認填寫之帳號,若提供帳號錯誤,怒本公司無法負責。",
+    "NOTICE_2": "每日提款次數上限爲 {{ value }} 次(00:00重置)。",
+    "NOTICE_3": "須達到與近期存款金額\"相同的\"有效投註量才可以提出申請.如未達到有效投註量則無法工作申請。",
+    "NOTICE_4": "如利用本平臺進行任何洗錢詐騙行爲,本公司將保留權力中止會員服務及凍結其帳戶。",
+    "send": "送出申請",
+    "APPLYING": "已送出審核，請稍候",
+    "NO_BANK": "無可使用的銀行,請前往繫結銀行卡",
+    "apply": "提款申請",
+    "record": "流水紀錄",
+    "record_th": {
+      "no": "編號",
+      "status": "狀態",
+      "val": "金額",
+      "limit": "流水限制",
+      "shift": "流水變化",
+      "unlock": "是否解鎖",
+      "date": "上鎖日期",
+      "op": "操作人",
+      "drawback": "查看回補",
+      "drawback_s": "回補",
+      "bethistory": "查看注單",
+      "bethistory_s": "注單",
+      "ps": "備註"
+    },
+    "record_type": {
+      "member_deposit": "會員存款",
+      "deduction_bet_amount": "回扣流水",
+      "compensatory": "補點",
+      "take_back_agent": "回扣點數-代理",
+      "edit-add": "增加額度",
+      "edit-sub": "減少額度",
+      "give": "派點",
+      "give-error": "錯誤補點",
+      "take-back": "派點-收回",
+      "take-back-error": "錯誤收回",
+      "add-reward": "增加優惠活動贈點",
+      "sub-reward": "減少優惠活動贈點",
+      "reward": "活動贈點",
+      "manual-edit-add": "人工增加額度",
+      "manual-edit-sub": "人工減少額度",
+      "agent-edit-deposit": "代客儲值",
+      "sub-agent-edit-deposit": "代客儲值回收",
+      "third-party-deposit": "第三方代儲值",
+      "sub-third-party-deposit": "第三方儲值回收",
+      "member-third-party-deposit": "第三方儲值",
+      "quest": "後派活動贈點",
+      "report_approval_water": "派發會員退水",
+      "report_approval_bonus": "派發會員紅利"
+    },
+    "drawback_title": "回補明細",
+    "record_title": "注單明細",
+    "record_sum": "回補流水總額",
+    "makeUpBetAmount": "回補流水總額",
+    "LIMIT_CHARGE": "{{limit}}次提款免手續費(每次${{fee}})",
+    "FEE": "本次提領，需收手續費 ${{fee}}",
+    "withdraw_limit": "已達每日提款上限",
+    "NO_LIMIT": "不限制"
+  },
+  "MEMBER_BANK": {
+    "BINDED": "已綁定銀行卡",
+    "BRANCH_CODE": "支行代碼",
+    "NAME": "開戶姓名",
+    "OPTIONS": "操作",
+    "OPTIONS_ACTIVATE": "啓用",
+    "STATUS_ING": "使用中",
+    "STATUS_NOT_ACTIVE": "未啓用",
+    "STATUS_REVIEW": "審核中",
+    "ADD_TITLE": "添加銀行卡",
+    "BANK": "開戶銀行",
+    "TIPS": "請仔細確認，否則無法到帳!",
+    "BRANCH_NAME": "支行名稱",
+    "BANK_CARD": "銀行卡號",
+    "CONFIRM": "確認卡號",
+    "TIPS_TO_INFO": "請至個人資料頁面綁定資料",
+    "NOTICE_TITLE": "註意事項",
+    "NOTICE_1": "戶內轉帳不收取任何手續費。",
+    "NOTICE_2": "如果有任何疑問請諮詢24小時在線客服。",
+    "notSame": "與賬戶號碼不一致",
+    "applied": "已送出審核，請稍候",
+    "submitted": "已送出審核",
+    "success": "新增成功",
+    "limit": "限定卡數",
+    "gotlimit": "卡片數量已達上限，有問題請聯絡客服",
+    "no_bank": "該銀行不存在",
+    "no_fpCode": "請點選選單填入銀行名稱資料,以確保資料正確"
+  },
+  "MEMBER_TRANSFER": {
+    "REST": "錢包餘額",
+    "GAME_NAME": "遊戲名稱",
+    "IN": "轉入",
+    "OUT": "轉出",
+    "PLATFORM": "遊戲平臺",
+    "MONEY": "轉帳金額（元）",
+    "CONFIRM": "確認",
+    "MAX": "最大金額",
+    "NOTICE_TITLE": "轉帳說明",
+    "NOTICE_1": "戶內轉帳不收取任何手續費。",
+    "NOTICE_2": "如果有任何疑問請諮詢24小時在線客服。",
+    "ALL_IN": "一鍵轉入"
+  },
+  "MEMBER_RECORD": {
+    "DW": "存提款紀錄",
+    "BET": "投註紀錄",
+    "BONUS": "紅利紀錄",
+    "TYPE": "交易類型",
+    "SELECT": "選擇日期",
+    "QUERY": "查詢紀錄",
+    "DATE": "日期",
+    "CHANGE": "異動金額",
+    "beforeBonus": "紅利異動前數值",
+    "changeBonus": "紅利異動值",
+    "afterBonus": "紅利異動後數值",
+    "beforeMoney": "金額異動前數值",
+    "changeMoney": "金額異動值",
+    "afterMoney": "金額異動後數值",
+    "remark": "備註",
+    "PLATFORM": "選擇平臺",
+    "betAmount": "下註金額",
+    "validAmount": "有效下註",
+    "result": "結果",
+    "tip": "小費",
+    "TIME": "時間",
+    "GAME_NAME": "遊戲名稱",
+    "NO": "注單號",
+    "COUNTDAY": "計算日",
+    "PF": "平臺",
+    "QUOTA": "紅利額度",
+    "AccountDate": "入帳日",
+    "SUM": "總計"
+  },
+  "MEMBER_REVIEW": {
+    "DEPOSIT": "存款狀態",
+    "WITHDRAW": "提款狀態",
+    "BANK": "銀行卡狀態",
+    "DATE": "提交日期",
+    "ACCOUNT": "戶名",
+    "MONEY": "金額",
+    "serialNum": "流水號",
+    "TRANSACTION_STATUS": "出款狀態",
+    "review_third_party_deposit": "第三方存款",
+    "review_member_deposit_bank": "銀行卡轉帳",
+    "review_withdraw_none": "未設定",
+    "review_withdraw_third": "第三方支付"
+  },
+  "RECORD_REVIEW_OPTIONS": {
+    "group-deposit": "存款",
+    "group-withdraw": "提款",
+    "group-transfer": "轉帳/活動錢包",
+    "group-water": "反水/紅利",
+    "group-water-off": "反水",
+    "group-activity-wallet": "活動錢包購買紀錄",
+    "group-others": "其它",
+    "commission": "傭金",
+    "reward": "紅利兌換",
+    "edit-bonus": "紅利修改",
+    "deposit-bank": "銀行卡轉帳",
+    "deposit-fee": "存款手續費",
+    "deposit-third": "線上支付",
+    "third-party-deposit": "線上支付",
+    "third-party-deposit-rollback": "線上支付收回",
+    "withdraw": "提款",
+    "withdraw-reject": "退款",
+    "withdraw-disapproved": "提款審核不通過",
+    "get-from-agent": "代理派點",
+    "be-taken-back-agent": "代理收回",
+    "get-from-error": "錯誤補點",
+    "be-taken-back-error": "錯誤點數回收",
+    "edit-money": "金額修改",
+    "transfer-game": "轉至遊戲",
+    "transfer-wallet": "轉回錢包",
+    "transaction-cancel": "取消出款",
+    "coupon": "優惠兌換",
+    "bet": "下註",
+    "prize": "派彩",
+    "rollbank": "回滾",
+    "diviend": "分紅",
+    "settle": "開獎",
+    "edit-reward": "優惠贈點",
+    "agent-edit-deposit": "代客儲值",
+    "agent-edit-deposit-rollback": "代客儲值收回",
+    "manual-edit": "人工修改額度",
+    "manual-edit-add": "人工增加額度",
+    "manual-edit-sub": "人工減少額度",
+    "activity-wallet-buy": "購買活動錢包",
+    "activity-wallet-disapprove": "購買活動錢包不通過",
+    "activity-wallet-cancel": "取消購買活動錢包"
+  },
+  "REVIEW_DEPOST_TYPE": {
+    "deposit-bank": "銀行卡轉帳",
+    "deposit-third": "第三方存款",
+    "agent-edit-deposit": "代客儲值",
+    "agent-edit-deposit-rollback": "代客儲值收回",
+    "deposit-fee": "存款手續費",
+    "type-Online": "在線支付",
+    "type-Remark": "附言存款",
+    "type-QQ": "QQ",
+    "type-Wechat": "微信",
+    "type-Alipay": "支付寶",
+    "type-Unionpay": "銀聯",
+    "type-JD": "京東",
+    "type-AlipayBank": "支付寶轉帳(remark傳入實名)",
+    "type-AlipayBank2": "支付寶轉帳(remark傳入支付寶帳號)",
+    "type-GooglePay": "GooglePay",
+    "type-WebATM": "網路銀行",
+    "type-ATM": "ATM",
+    "type-CVS": "超商代碼",
+    "type-Virtual": "虛擬帳號"
+  },
+  "PERIOD_OPTIONS": {
+    "YESTERDAY": "昨天",
+    "TODAY": "今天",
+    "WEEK": "一週內",
+    "2WEEK": "兩週內"
+  },
+  "REVIEW_STATUS": {
+    "REVIEW": "審核中",
+    "APPROVED": "審核通過",
+    "DISAPPROVED": "審核不通過",
+    "TRANSACTION": "出款中",
+    "ALL": "全部",
+    "PENDING": "等待中",
+    "CANCEL": "取消",
+    "review": "審核中",
+    "approved": "審核通過",
+    "disapproved": "審核不通過",
+    "transaction": "出款中",
+    "all": "全部",
+    "pending": "等待中",
+    "cancel": "取消",
+    "transaction-none": "未處理",
+    "transaction-pending": "處理中",
+    "transaction-completed": "成功出款",
+    "transaction-error": "出款失敗",
+    "transaction-transaction-cancel": "取消出款"
+  },
+  "TRANSACTION_STATUS": {
+    "none": "未處理",
+    "pending": "處理中",
+    "completed": "成功出款",
+    "error": "出款失敗",
+    "transaction-cancel": "取消出款"
+  },
+  "REVIEW_TRANSFER_TYPE": {
+    "transfer-game": "一般錢包-轉入",
+    "transfer-wallet": "一般錢包-轉出",
+    "mounted": "活動錢包-轉入",
+    "unmounted": "活動錢包-轉出"
+  },
+  "REVIEW_WATER_TYPE": {
+    "water": "返水",
+    "tundo-water": "取消返水"
+  },
+  "REVIEW_ACTIVITY_TYPE": {
+    "activity-wallet-buy": "成功",
+    "activity-wallet-disapprove": "失敗",
+    "activity-wallet-cancel": "已取消"
+  },
+  "NO_DATA": "目前無資料",
+  "CUSTOMER_SERVICE": {
+    "PROBLEM": "常見問題",
+    "SUPPORT": "技術支援",
+    "REMOTE": "遠端協助",
+    "CONTACT": "聯絡我們",
+    "DOWNLOAD": "APP下載",
+    "DOWNLOAD_1": "手機下載"
+  },
+  "VIP": {
+    "title": "會員中心",
+    "zone": "會員專區",
+    "mine": "我的VIP等級",
+    "update": "每日16:00更新",
+    "deposit": "累計存款",
+    "serial": "流水要求",
+    "privilege": "我享有的特權",
+    "dayTimes": "日提款次數",
+    "daylimit": "每日提款額度",
+    "Upgrade": "升級禮金",
+    "BirthGift": "生日禮金",
+    "monthlyGift": "每月免費紅包",
+    "JackpotGifts": "彩金好禮",
+    "waterRatio": "返水比例",
+    "waterTime": "每日返水將在15:00-15:30發放",
+    "offer": "晉級優惠",
+    "offerDes": "優惠說明",
+    "bigGift": "豪禮贈送",
+    "none": "無",
+    "sport": "體育返水",
+    "real": "真人返水",
+    "slot": "老虎機返水",
+    "lotto": "彩票返水",
+    "chk_vip_detail": "查看VIP詳情",
+    "chk_vip_detail2": "VIP詳情",
+    "current_lv": "當前等級",
+    "current_amount": "當前存款",
+    "deposit1": "存款",
+    "need_deposit_about": "還需存款約",
+    "amount": "層級流水量",
+    "need_amount_about": "還需流水約",
+    "next": "距離下一等級",
+    "enjoy": "尊享",
+    "more": "更多 VIP 詳情",
+    "current_point": "當前積分",
+    "vip": "VIP特權",
+    "scale-notice": "1投注 = {{scale}}積分",
+    "stay-three": "保級流水三個月",
+    "enjoy-content": {
+      "hight-deposit": "每日最高存款金額",
+      "hight-withdraw": "每日最高提款金額",
+      "fee": "提款手續費",
+      "free-fee": "免費提款次數上限",
+      "limit-deposit": "每日存款次數上限",
+      "limit-withdraw": "每日提款次數上限",
+      "limit-deposit-upper": "每日最高存款額度",
+      "limit-deposit-lower": "美日最低存款額度",
+      "month": "每月紅包"
+    },
+    "fee": {
+      "day": "每日",
+      "week": "每周",
+      "month": "每月",
+      "free": "免費提款次數"
+    },
+    "DETAIL": {
+      "LEVEL": {
+        "0": "普通",
+        "1": "尊龍",
+        "2": "白銀",
+        "3": "黃金",
+        "4": "鉑金",
+        "5": "紅寶石",
+        "6": "鑽石",
+        "7": "皇冠",
+        "title": "等級"
+      },
+      "TITLE": "VIP 詳情",
+      "NONE": "無"
+    },
+    "upgradeByDeposit": "會員總存金額",
+    "upgradeByWithdraw": "總提金額",
+    "upgradeByTotalBetAmount": "總投注量",
+    "done": "已完成"
+  },
+  "NEWBIE": {
+    "OPEN": {
+      "TITLE": "開戶"
+    },
+    "DEPOSIT": {
+      "TITLE": "存款"
+    },
+    "WITHDRAW": {
+      "TITLE": "提款"
+    },
+    "TRANSFER": {
+      "TITLE": "轉帳"
+    },
+    "PREFERENTIAL": {
+      "TITLE": "優惠規則"
+    }
+  },
+  "COMMON": {
+    "TITLE": "常見問題",
+    "REMOTE": {
+      "TITLE": "遠端協助"
+    },
+    "CONFIRM": "確認"
+  },
+  "ABOUT": {
+    "TITLE": "關於我們",
+    "TERMS": {
+      "TITLE": "服務條款"
+    },
+    "PRIVACY": {
+      "TITLE": "隱私政策"
+    },
+    "DUTY": {
+      "TITLE": "責任博彩"
+    },
+    "SECURE": {
+      "TITLE": "安全性"
+    },
+    "responsibility": {
+      "TITLE": "免責聲明"
+    },
+    "license": {
+      "TITLE": "證照展示"
+    },
+    "depositWithdraw": {
+      "TITLE": "存取款幫助"
+    },
+    "rule": {
+      "TITLE": "相關規則"
+    }
+  },
+  "PFTRANSITION": {
+    "FAST": "快速轉帳",
+    "CENTER": "中心錢包",
+    "MONEY": "轉帳金額",
+    "CONFIRM": "確認轉帳",
+    "ENTER": "直接進入遊戲",
+    "GOINFLY": "此遊戲不須轉帳可直接進入遊戲",
+    "LOCKED": "您的帳號鎖定中，請聯繫在線客服",
+    "ERR_GETMONEY": "遊戲平臺錯誤，請聯繫客服",
+    "ERR_TRANSFER": "轉帳失敗，請聯繫客服",
+    "TRASFER_OK_ENTER": "轉帳成功，請點擊「確認」進入遊戲"
+  },
+  "PAGEINFO": "共 {{totalItems}} 筆 ， {{itemsPerPage}}筆 / 頁",
+  "HOME": "首頁",
+  "FOOTER": {
+    "OWN": "版權所有",
+    "INTRO": "致力於成爲世界頂級的在線娛樂公司。因此，在處理任何事情的時候，都會優先考慮客戶的利益。客戶的最大滿意就是我們的成功。\n提供全天候24小時的在線客服，提供專業化和人性化相結合的最佳服務。",
+    "cooperation": "代理合作共創未來",
+    "serve": "24小時線上客服服務"
+  },
+  "JOIN_DAYS": "加入第 {{days}} 天",
+  "TRANSFERPOPUP": {
+    "COUPON": "活動錢包",
+    "CURRENT": "當前錢包",
+    "CENTER": "中心錢包",
+    "COUPON-NAME": "活動名稱",
+    "SELECT-WALLET": "轉入錢包",
+    "TRANSFER-AMOUNT": "轉帳金額",
+    "CONFIRM": "確認",
+    "GOGAME": "進入遊戲",
+    "mounted": "掛載中",
+    "all": "全部",
+    "ing": "转点中"
+  },
+  "TRANSFER": {
+    "TITLE": "轉帳",
+    "from": "從",
+    "to": "到",
+    "AUTO": "自動轉帳",
+    "CENTER-WALLET": "中心錢包",
+    "COUPON-WALLET": "活動錢包",
+    "PLATFORM-WALLET": "平台錢包帳戶",
+    "RECEIVE": "一键回收",
+    "TRANSIN": "一键轉入",
+    "OPEN": "展開",
+    "placeholder": "請輸入存款金額",
+    "CENTER-WALLET-LIST": {
+      "TITLE": "活動錢包帳戶",
+      "DEADLINE": "期限",
+      "NAME": "活動名稱",
+      "BALANCE": "餘額",
+      "SCHEDULE": "積分進度",
+      "OPTION": "操作",
+      "RECORD": "查看紀錄",
+      "BACK-CENTER": "轉入中心錢包",
+      "FINISH": "恭喜你已達成目標囉!",
+      "NOTICE": "積分尚未達標，請繼續努力，繼續加油!",
+      "CANCEL": "已取消",
+      "GIVE-UP": "放棄"
+    },
+    "MANUAL": {
+      "TITLE": "戶內轉帳",
+      "NOTICE": "轉入/轉出您所屬的金額",
+      "PLATFORM": "遊戲平臺",
+      "WALLET": "錢包",
+      "MSG0": "原 {{unmount.platformName}}:{{unmount.amount}} 移轉回 {{unmount.walletName}},\n{{mount.walletName}}:{{mount.amount}} 已移轉至平台{{mount.platformName}}",
+      "MSG1": "{{mount.walletName}}:{{mount.amount}} 已移轉至平台{{mount.platformName}}"
+    }
+  },
+  "SMALLBOARD": {
+    "TITLE": {
+      "TRANSFER": "轉帳紀錄",
+      "DEPOSIT": "存款紀錄",
+      "WITHDRAW": "提款紀錄"
+    },
+    "TRANSFER": "轉帳",
+    "DEPOSIT": "存款",
+    "WITHDRAW": "提款",
+    "MORE": "更多"
+  },
+  "DEPOSIT": {
+    "7-11": "7-11超商",
+    "family": "全家超商",
+    "hilife": "萊爾富超商",
+    "ok": "OK超商",
+    "TOP": {
+      "TITLE": "存款專區",
+      "BANK": "銀行卡轉帳",
+      "MARKET": "超商儲值",
+      "NETATM": "網路ATM",
+      "TEACH": "存款教學",
+      "third": "第三方儲值"
+    },
+    "BOTTOM": {
+      "SUBMIT": "立即存款",
+      "AMOUNT": "存款金額",
+      "BANK": "選擇銀行",
+      "SELECT-CHANNEL": "選擇通道",
+      "bank-notice": "僅接受綁定銀行轉入之款項",
+      "TAIL": "尾號",
+      "NOTICE-BANK": "建議您存入帶尾數的金額(例101,503)，以便存款後能更快匹配到帳",
+      "MARKET": "提交申請",
+      "NOTICE-MARKET": "單筆存款金額1000~2000",
+      "popup": "<h2>快速存款申請成功</h2>系統將於５分鐘內自動審核請您耐心等候，謝謝",
+      "BANK-TRANS": {
+        "TITLE": "已存款到下列帳號",
+        "TITLE2": "請存款到下列帳號",
+        "BANK": "銀行",
+        "ACCOUNT": "帳號",
+        "AMOUNT": "金額",
+        "COPY": "點擊即複製",
+        "COPY2": "複製",
+        "SUBMIT": "我已匯款",
+        "NOTICE": "(轉帳金額務必與訂單金額一致唷!!)",
+        "DISCRIPTION": {
+          "1": "1.存款帳戶需為本人的銀行帳戶，如為非本人的帳戶存款無法成功存款。",
+          "2": "2.存款金額需與申請提交金額相同，如不相同會以實際入帳金額為主。",
+          "3": "3.完成轉帳手續後再填寫上方欄位資料送出申請。",
+          "4": "4.為了加快上分速度，請至交易紀錄上傳交易成功的明細。",
+          "TITLE": "重要提醒"
+        }
+      },
+      "ATM-TRANS": {
+        "NOTICE": "【請勿重複儲值】每筆訂單編號只能儲值一次。再次存款請重新填寫金額並送出申請。",
+        "SUBMIT": "確認送出",
+        "DISCRIPTION": {
+          "1": "1.若使用ATM櫃員機，可選擇【轉帳轉出】(每日上限3萬元)或【繳費】(無上限3萬元限制)之功能按鈕。",
+          "2": "2.適用繳費功能之銀行ATM櫃員機:玉山銀行、臺灣銀行、中國信託、土地銀行、富邦銀行、第一銀行、華南銀行、台新銀行、彰化銀行。",
+          "3": "3.為了加快上分速度，請至交易紀錄上傳交易成功的明細。",
+          "TITLE": "重要提醒"
+        }
+      },
+      "MARKET-TRANS": {
+        "DISCRIPTION": {
+          "1": "1.系統將發配一組專屬交易單號，請至您選擇的超商門市進行繳費。",
+          "2": "2.繳費完成後請妥善保管交易收據，以便查證。",
+          "3": "3.為了加快上分速度，請至交易紀錄上傳交易成功的明細。"
+        }
+      }
+    }
+  },
+  "BIND_BANK_CARD": {
+    "TITLE": "綁定銀行卡",
+    "NAV": {
+      "ADD": "添加銀行卡",
+      "RECORD": "銀行卡狀態"
+    },
+    "REGISTERED": {
+      "TITLE": "卡片管理",
+      "NUMBER": "卡片數量"
+    },
+    "ADD": {
+      "NOTICE": "請先綁定一張銀行卡，用於收款",
+      "TITLE": "添加銀行卡",
+      "FORM": {
+        "BANK_NAME": "銀行名稱",
+        "BANK_NAME_notice": "輸入一個相關字，產生銀行選單",
+        "BRANCH_NAME": "分行名稱",
+        "USER_NAME": "開戶姓名",
+        "BANK_ACCOUNT": "銀行帳號",
+        "BANK_ACCOUNT_CHECK": "確認帳號",
+        "NOTICE": "請認真校對銀行帳號，帳號錯誤資金將無法到賬!"
+      }
+    },
+    "LIST": {
+      "TITLE": "銀行卡狀態",
+      "COL": {
+        "CREATED_AT": "提交日期",
+        "BANK_ACCOUNT": "銀行卡號",
+        "STATUS": "狀態",
+        "REASON": "理由"
+      }
+    }
+  },
+  "WITHDRAW": {
+    "TITLE": "提款專區",
+    "AMOUNT": {
+      "CENTER": "中心錢包",
+      "UNLOCK": "可提資金",
+      "RESTRICT": "提款限制"
+    },
+    "WALLET-DETAIL": "錢包明細",
+    "WALLET-DETAIL2": "查看錢包明細",
+    "PLATFORM_WALLET": "平台錢包",
+    "OPEN": "展開",
+    "APPLY": "提款申請",
+    "TIMES": {
+      "TITLE": "取款次數",
+      "NOTICE": "(今日可用次數)"
+    },
+    "MONEY-TOTAL": {
+      "TITLE": "取款額度",
+      "NOTICE": "(今日可用額度)"
+    },
+    "MONEY-SINGLE": {
+      "TITLE": "單筆額度",
+      "NOTICE": "(單筆最高取款額度)"
+    },
+    "NOTICE": "為了方便您快速取款，請先將所有館錢包回收至中心錢包",
+    "NOTICE2": "今天可用提款次數 : {{num}} 次 ; 今天可用提款額度 : {{amount}}元 ; 單筆提款金額需介於 : {{min}}~{{height}}元",
+    "DISCRIPTION": {
+      "1": "1.會員依照VIP等級可享有不同的免費提款次數，如超過次數需負擔1%手續費(請參照VIP詳情)。",
+      "2": "2.會員須達到每筆存款金額的100%有效投注量才可提出申請。",
+      "3": "3.如欲取消提款申請，請至會員中心>交易紀錄>取消申請操作。",
+      "PS": "PS.如利用本平台進行任何洗錢詐騙行為，本公司將保留權利終止會員服務及凍結其帳戶。"
+    }
+  },
+  "MY-WALLET": {
+    "PLATFORM-PAGE-TITLE": "平台帳戶",
+    "COUPON-PAGE-TITLE": "活動錢包",
+    "COUPON-HISTORY-TITLE": "歷史錢包",
+    "PLATFORM-TITLE": "平台帳戶明細",
+    "COUPON-TITLE": "活動錢包明細",
+    "TITLE": "我的錢包",
+    "TOTAL": {
+      "TITLE": "總資金",
+      "CENTER": "中心錢包",
+      "COUPON": "活動錢包"
+    },
+    "ABLE": {
+      "TITLE": "可提資金",
+      "RESTRICT": "提款限額",
+      "LOCK": "提款限制"
+    },
+    "deposit": "存款",
+    "tranfer": "轉帳",
+    "withdraw": "提款",
+    "update": "上次更新時間"
+  },
+  "REVIEW_RECORD": {
+    "TITLE": "交易紀錄",
+    "reson": "原因",
+    "apply_amount": "申請金額",
+    "DEPOSIT": {
+      "TAB": "審核紀錄",
+      "TABLE": {
+        "DATE": "時間",
+        "TID": "交易編碼",
+        "TYPE": "類型",
+        "MONEY": "金額",
+        "STATUS": "狀態",
+        "REASON": "備註"
+      }
+    },
+    "WITHDRAW": {
+      "AMOUNT": "出款",
+      "fee": "手續費",
+      "ACCOUNT": "提款帳戶"
+    },
+    "BONUS": {
+      "TAB": "紅利紀錄",
+      "ITEM": "項目"
+    },
+    "WALLET": {
+      "TAB": "活動錢包紀錄",
+      "AMOUNT": "交易金額",
+      "ENABLED": "正常",
+      "ACTIVITY": "活動名稱",
+      "CHANGE": "異動點數"
+    },
+    "TRANSFER": {
+      "TAB": "點數紀錄",
+      "TABLE": {
+        "DATE": "交易日期",
+        "TYPE": "交易類別",
+        "CONTENT": "交易內容",
+        "BANK-ACCOUNT": "匯款帳號"
+      }
+    },
+    "SEARCH": {
+      "COL-TYPE": "類型",
+      "COL-DATE": "日期",
+      "COL-ACCOUNT": "帳戶",
+      "TODAY": "今天",
+      "YESTERDAY": "昨天",
+      "WEEK": "本週",
+      "MONTH": "本月",
+      "CONFIRM": "查詢"
+    }
+  },
+  "SMALL_BET_LOG": {
+    "BET": "投注",
+    "RESULT": "輸贏"
+  },
+  "BET_LOG": {
+    "TITLE": "投注紀錄",
+    "ACCOUNT": "帳戶",
+    "PLATFORM": "平台",
+    "ALL_ACCOUNT": "全帳戶",
+    "ALL_PLATFORM": "全平台",
+    "DATE": "日期",
+    "TOTAL": "共計{{num}}筆投注",
+    "TOTAL2": "筆數:{{num}};投注:{{bet}};輸贏:{{win}}",
+    "QUERY": "查詢",
+    "BUTTON": {
+      "YESTERDAY": "昨天",
+      "TODAY": "今天",
+      "WEEK": "本週",
+      "TWO-WEEK": "兩周內",
+      "MONTH": "本月"
+    },
+    "LIST": {
+      "NUM": "序號",
+      "TIME": "投注時間",
+      "CODE": "注單號",
+      "PLARFORM": "平台名稱",
+      "NAME": "遊戲名稱",
+      "AMOUNT": "投注金額",
+      "RESULT": "淨輸贏",
+      "RESULT2": "輸贏",
+      "VALID_BET": "有效投注",
+      "VALID_BET2": "有效投注金額",
+      "SCALE": "倍數"
+    }
+  },
+  "SERVER_ERROR": "系統錯誤",
+  "QUEST_CENTER": {
+    "PAGE-TITLE": "優惠",
+    "NAV-ALL": "全部活動",
+    "BTN-CHECK": "查看",
+    "BTN-BUY": "購買",
+    "BTN-GOBACK": "返回列表",
+    "DATETIME": "活動時間",
+    "CONDITION": "活動條件",
+    "INFOMATION": "參加辦法",
+    "buy_success": "購買成功",
+    "buy_exceedNum": "超過可購買數量",
+    "buy_moneyNotEnough": "餘額不足",
+    "buy_noProd": "沒有這個產品",
+    "price_input": "請輸入您想購買的價格",
+    "percentMaxPoints": "最大贈送點數",
+    "percentPoints": "贈送點數比例",
+    "percentWater": "流水倍數",
+    "review": "已送出審核，請稍後"
+  },
+  "header": {
+    "transfer": "轉帳",
+    "letter": "站內信",
+    "my-wallet": "我的錢包",
+    "bet-log": "投注紀錄",
+    "withdrawal": "提款專區",
+    "review-main": "交易紀錄",
+    "bank-card": "綁定銀行卡",
+    "join-us": "加入我們",
+    "deposit": "存款專區",
+    "member-center": "會員中心",
+    "quest": "優惠",
+    "quest-center": "優惠",
+    "user-info": "個人資料",
+    "user-info-platform": "個人資料",
+    "vip-detail": "各層級詳情",
+    "vip": "VIP會員",
+    "help": "幫助中心",
+    "help-about": "關於我們",
+    "help-problem": "常見問題",
+    "download-app": "APP下載",
+    "old-quest-center": "優惠申請"
+  },
+  "MAINTAINING": "系統維護中",
+  "APP": {
+    "allbet": "欧博真人娱乐",
+    "sa": "沙龙真人娱乐",
+    "wm": "WM真人娱乐"
+  }
+}

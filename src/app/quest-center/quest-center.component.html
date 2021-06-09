@@ -1,0 +1,127 @@
+<div class="page-header">
+  <p>
+    {{
+      url == AppRoutes.Activity_Wallet
+        ? ("MEMBER_NAV.ACTIVITY_WALLET" | translate)
+        : ("QUEST_CENTER.PAGE-TITLE" | translate)
+    }}
+  </p>
+</div>
+<div class="page-body center-wrap">
+  <div class="page-side panel-style" *ngIf="url != AppRoutes.Activity_Wallet">
+    <ul class="nav">
+      <li
+        class="all btn"
+        [class.active]="selected === tabs.ALL"
+        (click)="selectType(tabs.ALL)"
+      >
+        <i></i>
+        <span>{{ "QUEST_CENTER.NAV-ALL" | translate }}</span>
+      </li>
+
+      <li
+        *ngFor="let item of questTypes"
+        class="all btn"
+        (click)="selectType(item.id)"
+        [class.active]="selected === item.id"
+      >
+        <i></i>
+        <span>{{ item.name }}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="quest-list" *ngIf="questData === null">
+    <div
+      class="quest-contain panel-style"
+      *ngFor="let item of listData | paginate: pageConfig"
+    >
+      <div class="quest-img-container">
+        <div
+          class="quest-cover"
+          [style.backgroundImage]="'url(' + item.image + ')'"
+        ></div>
+      </div>
+      <ul>
+        <li class="quest-type" *ngIf="item.startAt && item.endAt">
+          <span>{{ "MEMBER_QUEST.limited_event" | translate }}</span>
+        </li>
+        <li class="quest-date" *ngIf="item.startAt || item.endAt">
+          {{ item.startAt | date: "yyyy-MM-dd" }}~{{
+            item.endAt | date: "yyyy-MM-dd"
+          }}
+        </li>
+        <li class="quest-title ellipsis">{{ item.name }}</li>
+        <li class="quest-content" *ngIf="url == AppRoutes.Activity_Wallet">
+          <ul
+            class="fixed-type"
+            *ngIf="item.type == Activity_type.fixed; else percent"
+          >
+            <li>{{ "MEMBER_QUEST.REWARD" | translate }} {{ item.points }}</li>
+            <li>
+              {{ "MEMBER_WITHDRAW.record_th.limit" | translate }}
+              {{ item.waterLimit }}
+            </li>
+          </ul>
+          <ng-template #percent>
+            <ul class="percent-type">
+              <li>
+                {{ "QUEST_CENTER.percentMaxPoints" | translate }}
+                {{ item.percentMaxPoints | floatDisplay }}
+              </li>
+              <li>
+                {{ "QUEST_CENTER.percentPoints" | translate }}
+                {{ item.percentPoints | floatDisplay }}%
+              </li>
+              <li>
+                {{ "QUEST_CENTER.percentWater" | translate }}
+                {{ item.percentWater | floatDisplay }}
+              </li>
+            </ul>
+          </ng-template>
+        </li>
+        <li class="quest-btn" [class.pleft]="url !== AppRoutes.Activity_Wallet">
+          <button
+            class="btn-check"
+            (click)="getDetail(item)"
+            [disabled]="item.informationDisplay == 0"
+          >
+            {{ "QUEST_CENTER.BTN-CHECK" | translate }}
+          </button>
+          <!-- (click)="buy(item)" -->
+          <button
+            *ngIf="url == AppRoutes.Activity_Wallet"
+            class="btn-buy orange_btn"
+            [disabled]="item.canBuy !== 'yes'"
+            appThrottleBtn
+            (action)="buy(item)"
+          >
+            <ng-container *ngIf="item.type == Activity_type.fixed">
+              ${{ item.price }}</ng-container
+            >
+
+            {{ "QUEST_CENTER.BTN-BUY" | translate }}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="quest-detail panel-style" *ngIf="questData !== null">
+    <app-quest-detail
+      [questData]="questData"
+      [thisType]="selected"
+      (lastType)="selectType($event)"
+      (buyEvt)="buy($event)"
+    ></app-quest-detail>
+  </div>
+  <div class="page-footer center-wrap" *ngIf="questData == null">
+    <div class="pagination-bar">
+      <pagination-controls
+        autoHide="true"
+        (pageChange)="pageChanged($event)"
+        previousLabel="<"
+        nextLabel=">"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

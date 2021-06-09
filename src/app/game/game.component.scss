@@ -1,0 +1,136 @@
+.game {
+  // padding: 0 0 66px;
+  // background: #f2f2f2;
+}
+
+.game_section {
+  // outline: 1px solid pink;
+  // height: 756px;
+
+  background: url("~src/assets/img/home_bg.jpg") center center;
+  background-size: cover;
+}
+
+.game_content {
+  // outline: 1px solid pink;
+
+  display: flex;
+  justify-content: space-between;
+  width: 1400px;
+  height: 100%;
+  padding: 70px 0;
+  margin: 0 auto;
+
+  .photo {
+    // outline: 1px solid pink;
+  }
+
+  .text_content {
+    // outline: 1px solid pink;
+    width: 630px;
+    padding: 148px 0 0;
+
+    font-weight: bold;
+
+    .title {
+      // width: 670px;
+      display: flex;
+      align-items: flex-end;
+      line-height: 1;
+      background: linear-gradient(to bottom, #e0cb89, #a66e33);
+      -webkit-background-clip: text;
+      // font-weight: bold;
+    }
+
+    .title_big {
+      letter-spacing: 6px;
+      font-size: 62px;
+      color: transparent;
+    }
+
+    .title_small {
+      letter-spacing: 0;
+      font-size: 42px;
+      padding-bottom: 5px;
+      margin: 0 0 0 16px;
+      color: transparent;
+    }
+
+    .discription {
+      line-height: 24px;
+      font-size: 14px;
+      letter-spacing: 1px;
+
+      margin: 40px 0;
+
+      color: #666;
+    }
+
+    .btn_group {
+      // outline: 1px solid pink;
+      // width: 660px;
+      position: relative;
+      // margin: 0 24px 0 0;
+    }
+
+    .list-wrap {
+      // outline: 1px solid pink;
+
+      .list {
+        // outline: 1px solid pink;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -12px 0 0;
+      }
+
+      .item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        margin: 10px 12px;
+
+        @extend .clickable;
+
+        &:hover {
+          .img {
+            background-position: 0 100%;
+          }
+        }
+
+        .img {
+          width: 189px;
+          height: 185px;
+          background-repeat: no-repeat;
+        }
+
+        p {
+          text-align: center;
+          font-size: 14px;
+          letter-spacing: 1px;
+          color: #4d4d4d;
+        }
+      }
+    }
+  }
+}
+
+.marquee-wrap {
+  // outline: 1px solid pink;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+
+  &.static {
+    position: static;
+    margin: 32px 0;
+  }
+
+  .announcement_page {
+    width: 1400px;
+    margin: 0 auto;
+    border-radius: 45px;
+    box-shadow: 0 0 13px 3px #dee1f5;
+  }
+}

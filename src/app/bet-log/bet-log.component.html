@@ -1,0 +1,169 @@
+<div class="bet-log panel-style">
+  <!-- <form [formGroup]="form" (ngSubmit)="queryBet()"> -->
+  <form [formGroup]="form" appThrottleBtn (action)="queryBet()">
+    <div class="title">
+      <!-- 其實是錢包 活動錢包那些 -->
+      {{ "BET_LOG.TITLE" | translate }}
+    </div>
+    <div class="input-group">
+      <p>
+        {{ "BET_LOG.ACCOUNT" | translate }}
+      </p>
+      <select
+        name=""
+        id=""
+        (change)="walletChange($event.target.value)"
+        formControlName="logId"
+      >
+        <option value="all">{{ "BET_LOG.ALL_ACCOUNT" | translate }}</option>
+        <ng-container *ngIf="isActivityWallet">
+          <option [value]="item.id" *ngFor="let item of walletOptions">
+            {{ item.name }}
+          </option>
+        </ng-container>
+      </select>
+      <p>
+        {{ "BET_LOG.PLATFORM" | translate }}
+      </p>
+      <select formControlName="platformId">
+        <option value="all">{{ "BET_LOG.ALL_PLATFORM" | translate }}</option>
+        <option *ngFor="let item of gamePlatforms" [value]="item.id">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="time-group">
+      <div style="display: flex; align-items: center">
+        <p>
+          {{ "BET_LOG.DATE" | translate }}
+        </p>
+
+        <div class="calendar-wrap">
+          <ejs-daterangepicker
+            [formControl]="daterangepicker"
+            [locale]="locale"
+          ></ejs-daterangepicker>
+        </div>
+
+        <app-date-selector (timeEvt)="setTime($event)"></app-date-selector>
+        <p class="time-rage">{{ "MEMBER_QUEST.IN_60_DAYS" | translate }}</p>
+      </div>
+      <button class="search orange_btn">
+        {{ "BET_LOG.QUERY" | translate }}
+      </button>
+    </div>
+  </form>
+  <hr />
+  <div class="notice" *ngIf="data?.total">
+    <i></i>
+    {{ "BET_LOG.TOTAL" | translate: { num: data.total } }}
+  </div>
+
+  <p class="no-data" *ngIf="pageConfig.totalItems === 0">
+    {{ "NO_DATA" | translate }}
+  </p>
+  <table *ngIf="pageConfig.totalItems !== 0">
+    <thead>
+      <tr>
+        <th class="pf">{{ "MEMBER_TRANSFER.PLATFORM" | translate }}</th>
+        <!-- <th class="betAt">{{ "MEMBER_RECORD.DATE" | translate }}</th> -->
+        <th class="betAmount">{{ "MEMBER_RECORD.betAmount" | translate }}</th>
+        <th class="validAmount">
+          {{ "MEMBER_RECORD.validAmount" | translate }}
+        </th>
+        <th class="tip">{{ "MEMBER_RECORD.tip" | translate }}</th>
+        <th class="resultAmount">{{ "MEMBER_RECORD.result" | translate }}</th>
+        <th class="expand"></th>
+      </tr>
+    </thead>
+    <tr
+      *ngFor="
+        let item of betRecord
+          | paginate
+            : {
+                itemsPerPage: pageConfig.itemsPerPage,
+                currentPage: pageConfig.currentPage,
+                totalItems: pageConfig.totalItems
+              };
+        let i = index
+      "
+    >
+      <td colspan="5">
+        <ul class="flex table">
+          <li class="pf">{{ item.platformName }}</li>
+          <!-- <li class="betAt">{{ item.betAt }}</li> -->
+          <li class="betAmount">{{ item.betAmount }}</li>
+          <li class="validAmount">{{ item.validAmount }}</li>
+          <li class="tip">{{ item.tip }}</li>
+          <li class="resultAmount">{{ item.resultAmount }}</li>
+          <li class="expand" (click)="getBetDetail(i, item)">
+            <button
+              class="detail-btn"
+              [class.active]="i == betDetailId"
+            ></button>
+          </li>
+        </ul>
+        <div class="details" *ngIf="i == betDetailId">
+          <table>
+            <tr>
+              <th>{{ "MEMBER_RECORD.TIME" | translate }}</th>
+              <th>{{ "MEMBER_RECORD.GAME_NAME" | translate }}</th>
+              <th>{{ "MEMBER_RECORD.NO" | translate }}</th>
+              <th>{{ "MEMBER_RECORD.betAmount" | translate }}</th>
+              <th>{{ "MEMBER_RECORD.validAmount" | translate }}</th>
+              <th class="tip">{{ "MEMBER_RECORD.tip" | translate }}</th>
+              <th class="resultAmount">
+                {{ "MEMBER_RECORD.result" | translate }}
+              </th>
+            </tr>
+            <tr *ngFor="let item of betDetails">
+              <td class="betAt">{{ item.betAt }}</td>
+              <td class="gameName">{{ item.gameName }}</td>
+              <td class="id">{{ item.id }}</td>
+              <td class="amount">{{ item.amount }}</td>
+              <td class="validAmount">{{ item.validAmount }}</td>
+              <td class="tip">{{ item.tip }}</td>
+              <td class="resultAmount">{{ item.resultAmount }}</td>
+            </tr>
+          </table>
+
+          <!-- <div class="wrapper">
+            <table>
+              <tr *ngFor="let item of betDetails">
+                <td class="betAt">{{ item.betAt  }}</td>
+                <td class="gameName">{{ item.gameName }}</td>
+                <td class="id">{{ item.id }}</td>
+                <td class="amount">{{ item.amount }}</td>
+                <td class="validAmount">{{ item.validAmount }}</td>
+                <td class="resultAmount">{{ item.resultAmount }}</td>
+              </tr>
+            </table>
+          </div> -->
+          <p class="more" *ngIf="isMoreHidden" (click)="moreBetLog()">
+            {{ "SMALLBOARD.MORE" | translate }}
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr class="btm-sum-up">
+      <!-- <td class="pf"></td> -->
+      <td>{{ "MEMBER_RECORD.SUM" | translate }}</td>
+      <td>{{ betSumTotal?.betAmount }}</td>
+      <td>{{ betSumTotal?.validAmount }}</td>
+      <td>{{ betSumTotal?.sumTip }}</td>
+      <td class="last-el">{{ betSumTotal?.resultAmount }}</td>
+    </tr>
+  </table>
+  <div class="table-footer">
+    <div *ngIf="pageConfig.totalItems > 0" class="pagination-bar">
+      <pagination-controls
+        autoHide="true"
+        (pageChange)="pageChanged($event)"
+        previousLabel="<"
+        nextLabel=">"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

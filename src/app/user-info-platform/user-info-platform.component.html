@@ -1,0 +1,40 @@
+<div class="panel panel-style">
+  <h1>{{ "MEMBER_INFO.platform" | translate }}</h1>
+  <p class="no-data" *ngIf="!pdata; else gotdata">
+    {{ "NO_DATA" | translate }}
+  </p>
+  <ng-template #gotdata>
+    <table>
+      <thead>
+        <tr>
+          <th class="code">{{ "MEMBER_INFO.code" | translate }}</th>
+          <th class="pname">{{ "MEMBER_INFO.pname" | translate }}</th>
+          <th class="uid">{{ "MEMBER_INFO.uid" | translate }}</th>
+          <th class="pwd">{{ "MEMBER_INFO.pwd" | translate }}</th>
+          <th class="status">{{ "MEMBER_INFO.status" | translate }}</th>
+          <th class="llt">{{ "MEMBER_INFO.llt" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of pdata">
+          <td>{{ item.key }}</td>
+          <td>{{ item.name }}</td>
+          <td class="uid" [class.not-active]="!item.uid_active">
+            {{ item.uid }}
+          </td>
+          <td [class.not-active]="!item.pwd_active">{{ item.pwd }}</td>
+          <td
+            class="status"
+            [ngClass]="{
+              notset: item.status_type == status_type.notset,
+              freeze: item.status_type == status_type.notActive
+            }"
+          >
+            {{ "MEMBER_INFO_PLATFORM.status." + item.status | translate }}
+          </td>
+          <td class="lls">{{ item.lls }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>

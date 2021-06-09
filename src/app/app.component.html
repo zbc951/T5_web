@@ -1,0 +1,8 @@
+<div class="main-wrap">
+  <app-header></app-header>
+  <app-common-alert></app-common-alert>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
+  <app-community-bar></app-community-bar>
+  <app-footer></app-footer>
+</div>
+<router-outlet name="popup"></router-outlet>

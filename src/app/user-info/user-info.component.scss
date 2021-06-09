@@ -1,0 +1,105 @@
+.main-side {
+  width: 880px;
+}
+
+.top {
+  // height: 163px;
+  background: #fff;
+  margin: 0 0 20px 0;
+  h1 {
+    line-height: 50px;
+    padding: 0 20px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #272727;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .cnt {
+    padding: 15px 22px 18px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #000000;
+
+    p {
+      line-height: 1.5;
+    }
+
+    em {
+      margin-left: 5px;
+      &.high {
+        color: #5aa960;
+      }
+
+      &.middle {
+        color: #ff8d68;
+      }
+
+      &.low {
+        color: #ff0000;
+      }
+    }
+  }
+
+  .ps {
+    color: #999;
+  }
+
+  .security-lv {
+    margin: 14px 0 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #000000;
+
+    i {
+      display: inline-block;
+      width: 31px;
+      height: 31px;
+      margin: 0 10px 0 0;
+      vertical-align: middle;
+      border-radius: 50%;
+      background: #ccc;
+    }
+
+    li {
+      margin: 0 27px 0 0;
+
+      i {
+        background-color: #ccc;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 65%;
+      }
+
+      &.base {
+        i {
+          background-image: url("~src/assets/img/userinfo/data.svg");
+        }
+      }
+
+      &.phone {
+        i {
+          background-image: url("~src/assets/img/userinfo/phone.svg");
+        }
+      }
+
+      &.bank {
+        i {
+          background-image: url("~src/assets/img/userinfo/bankcard.svg");
+        }
+      }
+
+      &.email {
+        i {
+          background-image: url("~src/assets/img/userinfo/mail_w.svg");
+        }
+      }
+
+      &.active {
+        i {
+          // @extend .g-6;
+          background-color: #05b900;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,166 @@
+.popup-transfer {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  font-weight: bold;
+  overflow: scroll;
+
+  .dialog {
+    position: relative;
+    // display: flex;
+    // flex-direction: column;
+    // width: 434px;
+    padding: 54px 0 20px;
+    margin: auto;
+    border-radius: 10px;
+    background: #fff;
+    font-weight: bold;
+    height: fit-content;
+
+    .cancel {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 25px;
+      height: 25px;
+      background: url("~src/assets/img/close_gy.svg") no-repeat center
+        center;
+    }
+
+    .title {
+      padding: 0 0 0 45px;
+      font-size: 29px;
+
+      & + p {
+        padding: 0 0 0 45px;
+        font-size: 20px;
+        color: #999;
+      }
+    }
+  }
+
+  form {
+    padding: 0 40px 20px;
+    margin: 20px 0 0;
+    border-bottom: 1px solid #ccc;
+
+    .form_item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // height: 63px;
+
+      // outline: 1px solid pink;
+    }
+
+    .center-money {
+      margin: 0 0 10px;
+    }
+
+    .platformAmount {
+      margin: 10px 0 0;
+    }
+
+    .amount {
+      margin: 20px 0 0;
+    }
+
+    input {
+      width: 267px;
+      height: 42px;
+      padding: 0 17px 0 19px;
+      margin: 0 0 0 20px;
+
+      &:read-only {
+        background: #e6e6e6;
+      }
+    }
+
+    .button_group {
+      width: 267px;
+      flex-wrap: wrap;
+      padding: 10px 0 0 0;
+
+      button {
+        flex-shrink: 0;
+        width: 85px;
+        height: 32px;
+        margin: 0 5px 5px 0;
+        border: 1px solid #e8e8e8;
+        border-radius: 3px;
+        color: #a8a8a8;
+
+        &:nth-child(3n) {
+          margin: 0 0 5px 0;
+        }
+      }
+    }
+
+    .with-button_group {
+      justify-content: flex-end;
+    }
+
+    .transferConfirm {
+      justify-content: flex-end;
+      align-items: flex-end;
+      margin: 10px 0 0;
+    }
+
+    .confirm_btn {
+      width: 267px;
+      height: 42px;
+    }
+
+    .err {
+      font-size: 14px;
+      margin: 10px 0 0 0;
+    }
+
+    &.actwallet {
+      .form_item {
+        height: 63px;
+      }
+    }
+
+    .wallet_select {
+      width: 257px;
+      height: 42px;
+      margin: -10px 0 0 30px;
+      padding: 0 17px 0 19px;
+    }
+  }
+
+  .goGame {
+    width: 352px;
+    height: 42px;
+    margin: 20px auto 0;
+  }
+}
+
+.arrow {
+  display: block;
+  width: 24px;
+  height: 27px;
+  transform: rotate(90deg);
+  background: url("~src/assets/img/transfer_arrow.svg") no-repeat center
+    center;
+}
+
+.with-arrow {
+  padding: 0 0 0 calc(100% - 267px);
+  justify-content: center !important;
+}
+
+.locked {
+  font-size: 14px;
+  margin: 10px 0 0 0;
+  color: #f15a24;
+  text-align: center;
+}

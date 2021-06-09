@@ -1,0 +1,15 @@
+<div class="panel-style">
+  <h1>{{ "MEMBER_QUEST.APPLY_TAB" | translate }}</h1>
+</div>
+<div class="main">
+  <ul class="tabs flex">
+    <li *ngFor="let item of tabList" [class.active]="tab == item.tab" (click)="selectType(item.tab)">
+      {{ item.info | translate }}
+    </li>
+  </ul>
+  <div [ngSwitch]="tab" class="panel-style">
+    <app-combine-quest-apply [tab]="tab" *ngSwitchCase="tabs.apply"></app-combine-quest-apply>
+    <app-quest-record *ngSwitchCase="tabs.recored"> </app-quest-record>
+    <app-combine-quest-apply [tab]="tab" *ngSwitchCase="tabs.applied"></app-combine-quest-apply>
+  </div>
+</div>

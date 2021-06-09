@@ -1,0 +1,59 @@
+<div class="main-side">
+  <div class="top panel-style">
+    <h1>{{ "MEMBER_NAV.INFO" | translate }}</h1>
+    <div class="cnt">
+      <p>
+        {{ "MEMBER_INFO.security.title" | translate }}:
+        <em
+          [ngClass]="{
+            low: lv == 0,
+            middle: lv == 1 || lv == 2,
+            high: lv == 3
+          }"
+          >{{ lvTxt }}</em
+        >
+      </p>
+      <p class="ps">{{ "MEMBER_INFO.security.ps" | translate }}</p>
+      <ul class="security-lv flex">
+        <li class="base" [class.active]="isBaseFilled">
+          <i></i>{{ "MEMBER_INFO.security.base" | translate }}
+        </li>
+        <li class="phone active">
+          <i></i>{{ "MEMBER_INFO.security.phone" | translate }}
+        </li>
+        <li class="bank" [class.active]="isHavingBankcards">
+          <i></i>{{ "MEMBER_INFO.security.bank" | translate }}
+        </li>
+        <li class="email" [class.active]="isHavingEmail">
+          <i></i>{{ "MEMBER_INFO.security.email" | translate }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main">
+    <ul class="tabs flex">
+      <li [class.active]="tab == tabs.INFO" (click)="selectType(tabs.INFO)">
+        {{ "MEMBER_INFO.basic" | translate }}
+      </li>
+      <li
+        [class.active]="tab == tabs.platform"
+        (click)="selectType(tabs.platform)"
+      >
+        {{ "MEMBER_INFO.platform" | translate }}
+      </li>
+    </ul>
+    <div [ngSwitch]="tab">
+      <app-user-info-data
+        *ngSwitchCase="tabs.INFO"
+        (updateEvt)="update()"
+      ></app-user-info-data>
+      <app-user-info-platform
+        *ngSwitchCase="tabs.platform"
+      ></app-user-info-platform>
+    </div>
+  </div>
+</div>
+<aside class="right-side">
+  <app-small-bet-record></app-small-bet-record>
+  <app-small-queest></app-small-queest>
+</aside>

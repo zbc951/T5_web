@@ -1,0 +1,24 @@
+<!-- <div class="ad">
+  <ul #ad>
+    <li
+      *ngFor="let item of carousels"
+      (click)="clickCarousel(item)"
+      [style.background]="'url(' + item.imageUrl + ')'"
+    ></li>
+  </ul>
+  <div *ngIf="needPagin" class="previous clickable" (click)="prev()">
+    <img src="assets/img/arrow_w.svg" alt="" class="arrow" />
+  </div>
+  <div *ngIf="needPagin" class="next clickable" (click)="next()">
+    <img src="assets/img/arrow_w.svg" alt="" class="arrow" />
+  </div>
+  <div class="glow" [class.active]="isGlow"></div>
+</div> -->
+<ngb-carousel *ngIf="carousels">
+  <ng-template ngbSlide *ngFor="let item of carousels">
+    <div class="wrapper" (click)="clickCarousel(item)">
+      <div class="c-container" [style.backgroundImage]="'url(' + item.imageUrl + ')'">
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
